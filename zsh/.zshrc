@@ -4,17 +4,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/jamesmulholland/.oh-my-zsh"
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
-
-# Set list of themes to load
-# Setting this variable when ZSH_THEME=random
-# cause zsh load theme from this variable instead of
-# looking in ~/.oh-my-zsh/themes/
-# An empty array have no effect
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+# ZSH_THEME="lamda-pure"
+# agnoster is another good one
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -22,15 +13,6 @@ ZSH_THEME="agnoster"
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
@@ -96,16 +78,22 @@ export NVM_DIR="$HOME/.nvm"
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 # 
-alias lls="lsof -i :3000"
-alias cle="clear"
+alias lo3="lsof -i :3000"
+alias lo8="lsof -i :3000"
+alias lof="lsof -i :"
 alias clr="clear"
 alias ofor="foreman start -f Procfile.development"
 alias cor="cd ~/proj/Orulo"
 alias cpr="cd ~/proj/"
 alias v="vim"
 alias zrc="vim ~/.zshrc"
-alias check="git checkout"
-alias g="git"
+alias gche="git checkout"
+alias gpul="git pull"
+alias gpus="git push"
+alias gadd="git add ."
+alias gcom="git commit -m "
+alias gsta="git status"
+alias glog="git log"
 
 # add Z
 . /usr/local/Cellar/z/1.9/etc/profile.d/z.sh
@@ -115,3 +103,10 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+  # Set Spaceship ZSH as a prompt
+  autoload -U promptinit; promptinit
+  prompt spaceship
+  
+  # spaceship options
+  SPACESHIP_CHAR_SYMBOL="λ "

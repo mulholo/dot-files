@@ -53,3 +53,5 @@ email = james@jmulholland.com
   selected = normal
   separator = red bold
 linenumber = normal
+[core]
+	excludesfiles = /Users/jamesmulholland/.gitignore

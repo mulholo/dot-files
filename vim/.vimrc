@@ -15,6 +15,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'airblade/vim-gitgutter'
 Plug 'mattn/emmet-vim'
+Plug 'flowtype/vim-flow'
 call plug#end()
 
 " Open NERDTree automatically upon opening a repo.
@@ -46,6 +47,7 @@ nnoremap gp :silent %!prettier --stdin --trailing-comma all --single-quote<CR>
 imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
 " FZF
+let $FZF_DEFAULT_COMMAND='fd --type f'
 
 " Snippets
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -76,6 +78,8 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 
+" Automatic line formatting for Markdown
+au BufRead,BufNewFile *.md setlocal wrap linebreak nolist
 
 " =================================================================================================
 " MAPPINGS 
@@ -86,6 +90,7 @@ nnoremap <leader>f :FZF<CR>
 nnoremap <leader>e :NERDTreeToggle<CR>
 nnoremap <leader>v :vsplit<CR>
 nnoremap <leader>h :split<CR>
+nnoremap <leader>t <c-w><c-w>
 
 " move lines up and down
 nnoremap = ddp
