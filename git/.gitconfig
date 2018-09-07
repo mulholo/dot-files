@@ -55,3 +55,7 @@ email = james@jmulholland.com
 linenumber = normal
 [core]
 	excludesfiles = /Users/jamesmulholland/.gitignore
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff

@@ -128,7 +128,8 @@ module.exports = {
   // format: [@org/]project[#version]
   plugins: [
     'hypercwd',
-    'hyper-aurora',
+    // 'hyper-aurora', - another theme
+    'nova-hyperterm',
     'hyper-tabs-enhanced',
   ],
 

@@ -109,4 +109,4 @@ export PATH="$PATH:$HOME/.rvm/bin"
   prompt spaceship
   
   # spaceship options
-  SPACESHIP_CHAR_SYMBOL="λ "
+  SPACESHIP_CHAR_SYMBOL="🚀 "
