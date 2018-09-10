@@ -32,8 +32,9 @@ let NERDTreeDirArrows = 1
 " ALE
 let g:ale_fix_on_save = 1
 let g:ale_linters = {
-\ 'javascript': ['eslint'],
+\ 'javascript': ['eslint', 'flow'],
 \ 'html': ['htmlhint'],
+\ 'css': ['stylelint'],
 \}
 let g:ale_fixers = {
 \ 'javascript': ['eslint'],
@@ -42,6 +43,14 @@ let g:ale_fixers = {
 let g:ale_javascript_prettier_options = '--print-width 100 --single-quote --trailing-comma all'
 " run prettier manually with gp, not just on save
 nnoremap gp :silent %!prettier --stdin --trailing-comma all --single-quote<CR>
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '❔'
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
+let g:ale_statusline_format = ['X %d', '? %d', '']
+let g:ale_echo_msg_format = '%linter% says: %s'
+" Set pink highlight color
+highlight ALEError ctermbg=176
 
 " Emmet - use tab as expand key
 imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
