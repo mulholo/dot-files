@@ -6,6 +6,7 @@ export ZSH="/Users/jamesmulholland/.oh-my-zsh"
 
 # ZSH_THEME="lamda-pure"
 # agnoster is another good one
+export TERM="xterm-256color"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
