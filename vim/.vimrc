@@ -3,25 +3,50 @@
 " =================================================================================================
 
 call plug#begin('~/.vim/plugged')
+" Sensible defaults
 Plug 'tpope/vim-sensible'
+
+" Better file navigation
 Plug 'scrooloose/nerdtree'
+
+" Git status in NERDTree
 Plug 'Xuyuanp/nerdtree-git-plugin'
+
+" Git symbols in your gutter
 Plug 'airblade/vim-gitgutter'
+
+" Syntax correction
 Plug 'w0rp/ale'
+
+" Bracket matching
+Plug 'Raimondi/delimitMate'
+
+" Vertical bars for spaces
+Plug 'Yggdroot/indentLine'
+
+" Colours show up in terminal as actual colours
+Plug 'gko/vim-coloresque'
+
+" Better flow integration
 Plug 'flowtype/vim-flow'
+
+" Theme
 Plug 'mhartington/oceanic-next'
+
+" Syntax
 Plug 'othree/yajs.vim'
 Plug 'sheerun/vim-polyglot'
-" Plug 'othree/yajs.vim'
-Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'trevordmiller/nova-vim'
-call plug#end()
 
-" Open NERDTree automatically upon opening a repo.
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+" Airline bar
+Plug 'vim-airline/vim-airline'
+
+" Fuzzy search
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+" File Icons MUST GO LAST
+Plug 'ryanoasis/vim-devicons'
+
+call plug#end()
 
 " Close NERDTree when a file is opened
 let NERDTreeQuitOnOpen = 1
@@ -61,26 +86,32 @@ let $FZF_DEFAULT_COMMAND='fd --type f'
 " javascript syntax
 let g:javascript_plugin_flow = 1
 
+" IndentLine
+let g:indentLine_char='│'
+
+" Icons in airline
+let g:airline_powerline_fonts = 1
+let g:webdevicons_enable_airline_tabline = 1
+
 " =================================================================================================
 " BASE
 " =================================================================================================
-
-" syntax on
-syntax enable                   " Switch syntax highlighting on
 
 if (has("termguicolors"))
   set termguicolors
 endif
 
-colorscheme nova                " OceanicNext
-let g:airline_theme='nova'
-set antialias                   " smooth fonts
+syntax enable
+let g:oceanic_next_terminal_bold = 1
+let g:oceanic_next_terminal_italic = 1
+colorscheme OceanicNext
+let g:airline_theme='oceanicnext'
 set cursorcolumn                " show which column the cursor is in
 set backspace=indent,eol,start  " Make backspace behave sanely
-set relativenumber              " Set relative line number
+set number relativenumber       " Set relative line number and current line number
 set confirm                     " Ask what to do about unsaved/read-only files
 filetype plugin indent on       " Enable file type detection and language-dependent indenting.
-set synmaxcol=200 " Performance
+set synmaxcol=250 " Performance
 
 " Italic comments
 let &t_ZH="\e[3m"
@@ -115,10 +146,6 @@ nnoremap <leader>e :NERDTreeToggle<CR>
 nnoremap <leader>v :vsplit<CR>
 nnoremap <leader>h :split<CR>
 nnoremap <leader>t <c-w><c-w>
-
-" You never use ; so why not map it to :?
-" Super-quick command access!
-nnoremap ; :
 
 " Make file directory mapping easier
 inoremap <c-f> <c-x><c-f>
