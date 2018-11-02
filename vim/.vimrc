@@ -36,6 +36,8 @@ Plug 'mhartington/oceanic-next'
 " Syntax
 Plug 'othree/yajs.vim'
 Plug 'sheerun/vim-polyglot'
+" Styled Components
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 " Airline bar
 Plug 'vim-airline/vim-airline'
@@ -43,7 +45,7 @@ Plug 'vim-airline/vim-airline'
 " Fuzzy search
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
-" File Icons MUST GO LAST
+" File Icons (MUST GO LAST)
 Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
@@ -66,9 +68,6 @@ let g:ale_fixers = {
 \ 'javascript': ['eslint'],
 \}
 
-let g:ale_javascript_prettier_options = '--print-width 100 --single-quote --trailing-comma all'
-" run prettier manually with gp, not just on save
-nnoremap gp :silent %!prettier --stdin --trailing-comma all --single-quote<CR>
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '❔'
 highlight clear ALEErrorSign
