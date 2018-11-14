@@ -72,6 +72,7 @@ alias gadd="git add ."
 alias gcom="git commit -m "
 alias gsta="git status"
 alias glog="git log"
+alias glogg="git log --oneline --graph --decorate --all"
 
 # add Z
 . /usr/local/Cellar/z/1.9/etc/profile.d/z.sh

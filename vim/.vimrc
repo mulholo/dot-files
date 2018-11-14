@@ -123,8 +123,10 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 
-" Automatic line formatting for Markdown
+" Automatic line formatting for markdown
 au BufRead,BufNewFile *.md setlocal wrap linebreak nolist
+" Prevent annoying character hides in markdown
+au BufRead,BufNewFile *.md let g:indentLine_setConceal = 0
 
 " Open to last position when reopening a file
 if has("autocmd")
@@ -141,7 +143,7 @@ set clipboard=unnamed
 
 let mapleader=" "
 nnoremap <leader>f :FZF<CR>
-nnoremap <leader>e :NERDTreeToggle<CR>
+nnoremap <leader>d :NERDTreeFind<CR>
 nnoremap <leader>v :vsplit<CR>
 nnoremap <leader>h :split<CR>
 nnoremap <leader>t <c-w><c-w>
