@@ -44,6 +44,7 @@ Plug 'vim-airline/vim-airline'
 
 " Fuzzy search
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " File Icons (MUST GO LAST)
 Plug 'ryanoasis/vim-devicons'
