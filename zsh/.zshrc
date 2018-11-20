@@ -55,6 +55,14 @@ fi
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
+# kill specified port
+function kill-port() {
+  kill -kill "$(lsof -t -i :$1)"
+}
+function free-port() {
+  kill "$(lsof -t -i :$1)"
+}
+
 # Aliases
 alias lo3="lsof -i :3000"
 alias lo8="lsof -i :3000"
