@@ -39,6 +39,14 @@ Plug 'sheerun/vim-polyglot'
 " Styled Components
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
+" Completion
+Plug 'Valloric/YouCompleteMe'
+
+" Snippets
+Plug 'epilande/vim-es2015-snippets'
+Plug 'epilande/vim-react-snippets'
+Plug 'SirVer/ultisnips'
+
 " Airline bar
 Plug 'vim-airline/vim-airline'
 
@@ -86,6 +94,25 @@ let $FZF_DEFAULT_COMMAND='fd --type f'
 " javascript syntax
 let g:javascript_plugin_flow = 1
 
+" disable type warnings in flow
+" "level": "error", "warning" could disable all
+let g:ycm_filter_diagnostics = {
+  \ "javascript": {
+  \      "regex": [ "ts file" ],
+  \    }
+  \ }
+
+" Avoid conflicting maps with YouCompleteMe
+let g:UltiSnipsExpandTrigger = "<C-l>"
+let g:UltiSnipsListSnippets = "<C-s>"
+let g:UltiSnipsJumpForwardTrigger = "<C-f>"
+let g:UltiSnipsJumpBackwardTrigger = "<C-d>"
+
+" octave syntax
+augroup filetypedetect 
+au! BufRead,BufNewFile *.m,*.oct set filetype=octave 
+augroup END 
+
 " IndentLine
 let g:indentLine_char='│'
 
@@ -98,7 +125,7 @@ let g:webdevicons_enable_airline_tabline = 1
 " =================================================================================================
 
 if (has("termguicolors"))
-  set termguicolors
+set termguicolors
 endif
 
 syntax enable
@@ -131,8 +158,8 @@ au BufRead,BufNewFile *.md let g:indentLine_setConceal = 0
 
 " Open to last position when reopening a file
 if has("autocmd")
-  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal! g'\"" | endif
+au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+  \| exe "normal! g'\"" | endif
 endif
 
 " Use system clipboard
