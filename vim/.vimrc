@@ -102,6 +102,10 @@ let g:ycm_filter_diagnostics = {
   \    }
   \ }
 
+" Jump to middle on <CR> and space bracket expansion
+let g:delimitMate_expand_cr = 1
+let g:delimitMate_expand_space = 1
+
 " Avoid conflicting maps with YouCompleteMe
 let g:UltiSnipsExpandTrigger = "<C-l>"
 let g:UltiSnipsListSnippets = "<C-s>"
