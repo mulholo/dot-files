@@ -65,20 +65,21 @@ function free-port() {
 
 # Aliases
 alias lo3="lsof -i :3000"
-alias lo8="lsof -i :3000"
-alias lof="lsof -i :"
+alias lf="lsof -i :"
 alias clr="clear"
-alias ofor="foreman start -f Procfile.development"
+alias fs="foreman start -f Procfile.development"
 alias cor="cd ~/proj/Orulo"
 alias cpr="cd ~/proj/"
 alias v="nvim"
-alias zrc="vim ~/.zshrc"
+alias nd="nnn ~/Dropbox"
+# git
 alias gche="git checkout"
 alias gpul="git pull"
 alias gpus="git push"
 alias gadd="git add ."
 alias gcom="git commit -m "
 alias gsta="git status"
+alias gbra="git branch"
 alias glog="git log"
 alias glogg="git log --oneline --graph --decorate --all"
 
