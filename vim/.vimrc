@@ -21,11 +21,11 @@ Plug 'w0rp/ale'
 " Bracket matching
 Plug 'Raimondi/delimitMate'
 
+" Tag matching
+Plug 'Valloric/MatchTagAlways'
+
 " Vertical bars for spaces
 Plug 'Yggdroot/indentLine'
-
-" Colours show up in terminal as actual colours
-Plug 'gko/vim-coloresque'
 
 " Better flow integration
 Plug 'flowtype/vim-flow'
@@ -36,6 +36,7 @@ Plug 'mhartington/oceanic-next'
 " Syntax
 Plug 'othree/yajs.vim'
 Plug 'sheerun/vim-polyglot'
+
 " Styled Components
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
@@ -43,8 +44,8 @@ Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'Valloric/YouCompleteMe'
 
 " Snippets
-Plug 'epilande/vim-es2015-snippets'
-Plug 'epilande/vim-react-snippets'
+Plug 'mulholio/vim-es2015-snippets'
+Plug 'mulholio/vim-react-snippets'
 Plug 'SirVer/ultisnips'
 
 " Airline bar
@@ -53,9 +54,6 @@ Plug 'vim-airline/vim-airline'
 " Fuzzy search
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-
-" File Icons (MUST GO LAST)
-Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
@@ -112,6 +110,14 @@ let g:UltiSnipsListSnippets = "<C-s>"
 let g:UltiSnipsJumpForwardTrigger = "<C-f>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-d>"
 
+" Bracket matching options
+let g:mta_filetypes = {
+  \ 'html': 1,
+  \ 'xml': 1,
+  \ 'xhtml': 1,
+  \ 'javascript.jsx': 1,
+  \}
+
 " octave syntax
 augroup filetypedetect 
 au! BufRead,BufNewFile *.m,*.oct set filetype=octave 
@@ -119,10 +125,6 @@ augroup END
 
 " IndentLine
 let g:indentLine_char='│'
-
-" Icons in airline
-let g:airline_powerline_fonts = 1
-let g:webdevicons_enable_airline_tabline = 1
 
 " =================================================================================================
 " BASE
@@ -178,10 +180,12 @@ nnoremap <leader>f :FZF<CR>
 nnoremap <leader>d :NERDTreeFind<CR>
 nnoremap <leader>v :vsplit<CR>
 nnoremap <leader>h :split<CR>
-nnoremap <leader>t <c-w><c-w>
 
 " Make file directory mapping easier
 inoremap <c-f> <c-x><c-f>
+
+" Jump to matching tag
+nnoremap <leader>t :MtaJumpToOtherTag<cr>
 
 " Keep blocks selected when indenting
 vmap < <gv
@@ -197,14 +201,6 @@ noremap  <silent> <End>  g<End>
 inoremap <silent> <Home> <C-o>g<Home>
 inoremap <silent> <End>  <C-o>g<End>
 
-" move lines up and down
-nnoremap = ddp
-nnoremap - dd2kp
-
-" enable deletion in insert mode
-inoremap <c-d> <esc>ddi
-
-" convert CURRENT WORD TO UPPERCASE in insert mode
+" convert CURRENT WORD TO UPPERCASE
 inoremap <c-u> <esc>bveUea
 nnoremap <c-u> bveUe
-
