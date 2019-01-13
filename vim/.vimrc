@@ -34,11 +34,12 @@ Plug 'flowtype/vim-flow'
 Plug 'mhartington/oceanic-next'
 
 " Syntax
+" Js specific
 Plug 'othree/yajs.vim'
+" General, catch-all
 Plug 'sheerun/vim-polyglot'
-
 " Styled Components
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'styled-components/vim-styled-components', { 'branch': 'develop' }
 
 " Completion
 Plug 'Valloric/YouCompleteMe'

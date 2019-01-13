@@ -64,7 +64,6 @@ function free-port() {
 }
 
 # Aliases
-alias lo3="lsof -i :3000"
 alias lf="lsof -i :"
 alias clr="clear"
 alias fs="foreman start -f Procfile.development"
@@ -82,12 +81,14 @@ alias gsta="git status"
 alias gbra="git branch"
 alias glog="git log"
 alias glogg="git log --oneline --graph --decorate --all"
-
+alias or-restore='rake db:drop DISABLE_DATABASE_ENVIRONMENT_CHECK=1; rake db:create; pg_restore --host "localhost" --port "5432" --username "jamesmulholland" --password --dbname "orulo_development" --verbose "/Users/jamesmulholland/proj/or_backup"'
 # add Z
 . /usr/local/Cellar/z/1.9/etc/profile.d/z.sh
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+# export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
