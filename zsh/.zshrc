@@ -65,7 +65,7 @@ function free-port() {
 
 # Aliases
 alias lf="lsof -i :"
-alias clr="clear"
+alias c="clear"
 alias fs="foreman start -f Procfile.development"
 alias cor="cd ~/proj/Orulo"
 alias cpr="cd ~/proj/"

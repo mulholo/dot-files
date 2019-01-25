@@ -24,6 +24,9 @@ Plug 'Raimondi/delimitMate'
 " Tag matching
 Plug 'Valloric/MatchTagAlways'
 
+" Multiple cursors
+Plug 'terryma/vim-multiple-cursors'
+
 " Vertical bars for spaces
 Plug 'Yggdroot/indentLine'
 
@@ -44,9 +47,15 @@ Plug 'styled-components/vim-styled-components', { 'branch': 'develop' }
 " Completion
 Plug 'Valloric/YouCompleteMe'
 
+" Emmet
+Plug 'mattn/emmet-vim'
+
+" Repl
+Plug 'metakirby5/codi.vim'
+
 " Snippets
-Plug 'mulholio/vim-es2015-snippets'
-Plug 'mulholio/vim-react-snippets'
+"Plug 'mulholio/vim-es2015-snippets'
+"Plug 'mulholio/vim-react-snippets'
 Plug 'SirVer/ultisnips'
 
 " Airline bar
@@ -101,6 +110,12 @@ let g:ycm_filter_diagnostics = {
   \    }
   \ }
 
+" Autocomplete show up sooner
+let g:ycm_min_num_of_chars_for_completion = 1
+
+" Allow ,, to trigger emmet
+let g:user_emmet_leader_key=','
+
 " Jump to middle on <CR> and space bracket expansion
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
@@ -110,6 +125,11 @@ let g:UltiSnipsExpandTrigger = "<C-l>"
 let g:UltiSnipsListSnippets = "<C-s>"
 let g:UltiSnipsJumpForwardTrigger = "<C-f>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-d>"
+
+" Open UltiSnips in a split window rather than replacing current buffer 
+let g:UltiSnipsEditSplit="vertical"
+" Define 
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.dotfiles/vim/UltiSnips']
 
 " Bracket matching options
 let g:mta_filetypes = {
@@ -182,6 +202,14 @@ nnoremap <leader>d :NERDTreeFind<CR>
 nnoremap <leader>v :vsplit<CR>
 nnoremap <leader>h :split<CR>
 
+" YouCompleteMe mappings
+" mneumonics: j - jump, g - get, t - type
+nnoremap <leader>j2 :YcmCompleter GoTo<CR>
+nnoremap <leader>jt :YcmCompleter GoToType<CR>
+nnoremap <leader>jr :YcmCompleter GoToReferences<CR>
+nnoremap <leader>gt :YcmCompleter GetType<CR>
+nnoremap <leader>gd :YcmCompleter GetDoc<CR>
+
 " Make file directory mapping easier
 inoremap <c-f> <c-x><c-f>
 
@@ -203,5 +231,4 @@ inoremap <silent> <Home> <C-o>g<Home>
 inoremap <silent> <End>  <C-o>g<End>
 
 " convert CURRENT WORD TO UPPERCASE
-inoremap <c-u> <esc>bveUea
 nnoremap <c-u> bveUe
