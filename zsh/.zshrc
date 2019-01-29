@@ -71,6 +71,7 @@ alias cor="cd ~/proj/Orulo"
 alias cpr="cd ~/proj/"
 alias v="nvim"
 alias nd="nnn ~/Dropbox"
+alias dv="yarn dev"
 # git
 alias gche="git checkout"
 alias gpul="git pull"

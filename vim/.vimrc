@@ -53,9 +53,10 @@ Plug 'mattn/emmet-vim'
 " Repl
 Plug 'metakirby5/codi.vim'
 
+" Testing
+Plug 'janko-m/vim-test'
+
 " Snippets
-"Plug 'mulholio/vim-es2015-snippets'
-"Plug 'mulholio/vim-react-snippets'
 Plug 'SirVer/ultisnips'
 
 " Airline bar
@@ -161,11 +162,10 @@ let g:oceanic_next_terminal_italic = 1
 colorscheme OceanicNext
 let g:airline_theme='oceanicnext'
 set cursorcolumn                " show which column the cursor is in
-set backspace=indent,eol,start  " Make backspace behave sanely
 set number relativenumber       " Set relative line number and current line number
 set confirm                     " Ask what to do about unsaved/read-only files
 filetype plugin indent on       " Enable file type detection and language-dependent indenting.
-set synmaxcol=250 " Performance
+" set synmaxcol=250 " Performance
 
 " Italic comments
 let &t_ZH="\e[3m"
@@ -210,11 +210,13 @@ nnoremap <leader>jr :YcmCompleter GoToReferences<CR>
 nnoremap <leader>gt :YcmCompleter GetType<CR>
 nnoremap <leader>gd :YcmCompleter GetDoc<CR>
 
+" vim-test mappings
+nnoremap <leader>tn :TestNearest<CR>
+nnoremap <leader>tf :TestFile<CR>
+nnoremap <leader>tl :TestLast<CR>
+
 " Make file directory mapping easier
 inoremap <c-f> <c-x><c-f>
-
-" Jump to matching tag
-nnoremap <leader>t :MtaJumpToOtherTag<cr>
 
 " Keep blocks selected when indenting
 vmap < <gv
