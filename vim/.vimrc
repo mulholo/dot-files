@@ -27,6 +27,9 @@ Plug 'Valloric/MatchTagAlways'
 " Multiple cursors
 Plug 'terryma/vim-multiple-cursors'
 
+" Surrounds (brackets, tags, quotes ...)
+Plug 'tpope/vim-surround'
+
 " Vertical bars for spaces
 Plug 'Yggdroot/indentLine'
 
