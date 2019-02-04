@@ -30,6 +30,9 @@ Plug 'terryma/vim-multiple-cursors'
 " Surrounds (brackets, tags, quotes ...)
 Plug 'tpope/vim-surround'
 
+" Allow . for vim-surround commands
+Plug 'tpope/vim-repeat'
+
 " Vertical bars for spaces
 Plug 'Yggdroot/indentLine'
 
@@ -161,7 +164,8 @@ endif
 
 syntax enable
 let g:oceanic_next_terminal_bold = 1
-let g:oceanic_next_terminal_italic = 1
+let g:oceanic_next_terminal_italic = 0
+set background=dark
 colorscheme OceanicNext
 let g:airline_theme='oceanicnext'
 set cursorcolumn                " show which column the cursor is in
@@ -171,9 +175,9 @@ filetype plugin indent on       " Enable file type detection and language-depend
 " set synmaxcol=250 " Performance
 
 " Italic comments
-let &t_ZH="\e[3m"
-let &t_ZR="\e[23m"
-highlight Comment cterm=italic  
+" let &t_ZH="\e[3m"
+" let &t_ZR="\e[23m"
+" highlight Comment cterm=italic  
 
 " tabs etc
 set tabstop=2
