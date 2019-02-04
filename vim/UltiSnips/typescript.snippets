@@ -1,5 +1,47 @@
-# ES2015
-snippet "i(mport|mp|m)?" "import" br
+# :help UltiSnips for options e.g. b: only at start of line
+# GENERAL ==================================================
+snippet td "TODO" b
+// TODO: ${1:desc} (`!v strftime("%c")` @`echo $USER`)
+endsnippet
+
+snippet doc "JSDoc description" b
+/**
+ * ${1}
+ */
+endsnippet
+
+snippet # "H1 Comment" b
+/*==========================================================
+  $1
+==========================================================*/
+endsnippet
+
+snippet ## "H2 Comment" b
+/* -$1----------------------------------------------------*/
+endsnippet
+
+# JEST =====================================================
+
+snippet dsc "Describe block" b
+describe('${1:`!v expand('%:t:r:s?\.test$??')`}', () => {
+  it('${2:$1}', () => {
+		$3
+  });
+});
+endsnippet
+
+snippet it "It block" b
+it('$1', () => {
+	$2
+});
+endsnippet
+
+# ES2015 ===================================================
+snippet "i(m)?" "import" br
+import ${1} from '${2:$1}';
+endsnippet
+
+snippet "ii" "import" br
 import ${1} from '${2:./}${3:$1}';
 endsnippet
 
@@ -49,7 +91,16 @@ snippet cl "console.log(...)"
 console.log('${2:$1: }', ${1});
 endsnippet
 
-# React & JSX
+# React & JSX ==============================================
+
+snippet re "React Functional Component" b
+import React from 'react';
+endsnippet
+
+snippet st "React Functional Component" b
+import styled$1 from '$2styled-components';
+endsnippet
+
 snippet rfc "React Functional Component" b
 import React from 'react';
 const ${1:`!v expand('%:t:r')`} = () =>
