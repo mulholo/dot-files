@@ -1,7 +1,7 @@
 # :help UltiSnips for options e.g. b: only at start of line
 # GENERAL ==================================================
 snippet td "TODO" b
-// TODO: ${1:desc} (`!v strftime("%c")` @`echo $USER`)
+// TODO: ${1:desc} (`!v strftime("%x - %H:%M")` @`echo $USER`)
 endsnippet
 
 snippet doc "JSDoc description" b
@@ -36,13 +36,50 @@ it('$1', () => {
 });
 endsnippet
 
+# NODE =====================================================
+snippet r.p "router.post" b
+router.post('/$1', (req, res, next) => {
+	$2
+});
+endsnippet
+
+snippet r.g "router.get" b
+router.get('/$1', (req, res, next) => {
+	$2
+});
+endsnippet
+
+snippet r.d "router.post" b
+router.delete('/$1', (req, res, next) => {
+	$2
+});
+endsnippet
+
+snippet r.pu "router.post" b
+router.put('/$1', (req, res, next) => {
+	$2
+});
+endsnippet
+
 # ES2015 ===================================================
+snippet "r" "const requrie" br
+const $1 = require('${2:$1}');
+endsnippet
+
+snippet "req" "require" br
+require('$1');
+endsnippet
+
+snippet "ri" "const requrie internal" br
+const $1 = require('${2:.}/${2:$1}');
+endsnippet
+
 snippet "i(m)?" "import" br
 import ${1} from '${2:$1}';
 endsnippet
 
 snippet "ii" "import" br
-import ${1} from '${2:./}${3:$1}';
+import ${1} from '${2:.}/${3:$1}';
 endsnippet
 
 snippet "e(xport|xp|x)?" "export" br
@@ -88,10 +125,10 @@ const ${1:name} = (${2:args}) => {
 endsnippet
 
 snippet cl "console.log(...)"
-console.log('${2:$1: }', ${1});
+console.log('${2:$1: }', ${1})
 endsnippet
 
-# React & JSX ==============================================
+# REACT & JSX ==============================================
 
 snippet re "React Functional Component" b
 import React from 'react';
@@ -157,6 +194,18 @@ endsnippet
 
 snippet ref "Ref" i
 ref={${1:ref} => { this.${2:name} = $1; }}
+endsnippet
+
+snippet j/ "JSX Comment" b
+{/* $1 */}
+endsnippet
+
+snippet jtd "JSX TODO Comment" b
+{/* TODO: ${1:desc} (`!v strftime("%x - %H:%M")` @`echo $USER`) */}
+endsnippet
+
+snippet jfm "JSX FIXME Comment" b
+{/* FIXME: ${1:desc} (`!v strftime("%x - %H:%M")` @`echo $USER`) */}
 endsnippet
 
 # PropTypes
