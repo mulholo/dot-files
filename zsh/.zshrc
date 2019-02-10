@@ -34,11 +34,6 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -82,7 +77,6 @@ alias gsta="git status"
 alias gbra="git branch"
 alias glog="git log"
 alias glogg="git log --oneline --graph --decorate --all"
-alias or-restore='rake db:drop DISABLE_DATABASE_ENVIRONMENT_CHECK=1; rake db:create; pg_restore --host "localhost" --port "5432" --username "jamesmulholland" --password --dbname "orulo_development" --verbose "/Users/jamesmulholland/proj/or_backup"'
 # add Z
 . /usr/local/Cellar/z/1.9/etc/profile.d/z.sh
 
@@ -107,3 +101,6 @@ BULLETTRAIN_PROMPT_ORDER=(
 )
 
 BULLETTRAIN_CONTEXT_DEFAULT_USER=jamesmulholland
+
+export NVM_DIR="/Users/jamesmulholland/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

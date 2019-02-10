@@ -206,8 +206,17 @@ set clipboard=unnamed
 let mapleader=" "
 nnoremap <leader>f :FZF<CR>
 nnoremap <leader>d :NERDTreeFind<CR>
-nnoremap <leader>v :vsplit<CR>
-nnoremap <leader>h :split<CR>
+
+" align s and i splits with NERDTree
+nnoremap <leader>s :vsplit<CR>
+nnoremap <leader>i :split<CR>
+
+" align window jumping with tmux
+nnoremap <leader>h <c-w>h
+nnoremap <leader>j <c-w>j
+nnoremap <leader>k <c-w>k
+nnoremap <leader>l <c-w>l
+nnoremap <leader>o <c-w><c-w>
 
 " YouCompleteMe mappings
 " mneumonics: j - jump, g - get, t - type
