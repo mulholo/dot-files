@@ -18,12 +18,6 @@ Plug 'airblade/vim-gitgutter'
 " Syntax correction
 Plug 'w0rp/ale'
 
-" Bracket matching
-Plug 'Raimondi/delimitMate'
-
-" Tag matching
-Plug 'Valloric/MatchTagAlways'
-
 " Multiple cursors
 Plug 'terryma/vim-multiple-cursors'
 
@@ -33,9 +27,6 @@ Plug 'tpope/vim-surround'
 " Allow . for vim-surround commands
 Plug 'tpope/vim-repeat'
 
-" Vertical bars for spaces
-Plug 'Yggdroot/indentLine'
-
 " Better flow integration
 Plug 'flowtype/vim-flow'
 
@@ -43,7 +34,7 @@ Plug 'flowtype/vim-flow'
 Plug 'mhartington/oceanic-next'
 
 " Syntax
-" Js specific
+" Js specific to work with oceanic next
 Plug 'othree/yajs.vim'
 " General, catch-all
 Plug 'sheerun/vim-polyglot'
@@ -109,16 +100,21 @@ let $FZF_DEFAULT_COMMAND='fd --type f'
 " javascript syntax
 let g:javascript_plugin_flow = 1
 
-" disable type warnings in flow
+" Disable Flow checks on save
+let g:flow#enable = 0
+" Don't use vim-flow quickfix window (
+let g:flow#showquickfix = 0
+
+" disable YCM type warnings in flow
 " "level": "error", "warning" could disable all
 let g:ycm_filter_diagnostics = {
   \ "javascript": {
-  \      "regex": [ "ts file" ],
+  \      "regex": [ "ts file", "'=' expected", "';' expected" ],
   \    }
   \ }
 
-" Autocomplete show up sooner
-let g:ycm_min_num_of_chars_for_completion = 1
+" YCM autocomplete show up sooner
+let g:ycm_min_num_of_chars_for_completion = 2
 
 " Allow ,, to trigger emmet
 let g:user_emmet_leader_key=','
@@ -127,7 +123,7 @@ let g:user_emmet_leader_key=','
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
 
-" Avoid conflicting maps with YouCompleteMe
+" Avoid Ultisnips conflicting maps with YouCompleteMe
 let g:UltiSnipsExpandTrigger = "<C-l>"
 let g:UltiSnipsListSnippets = "<C-s>"
 let g:UltiSnipsJumpForwardTrigger = "<C-f>"
@@ -135,24 +131,13 @@ let g:UltiSnipsJumpBackwardTrigger = "<C-d>"
 
 " Open UltiSnips in a split window rather than replacing current buffer 
 let g:UltiSnipsEditSplit="vertical"
-" Define 
+" Set Ultisnips directory location
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.dotfiles/vim/UltiSnips']
 
-" Bracket matching options
-let g:mta_filetypes = {
-  \ 'html': 1,
-  \ 'xml': 1,
-  \ 'xhtml': 1,
-  \ 'javascript.jsx': 1,
-  \}
-
-" octave syntax
+" Octave syntax
 augroup filetypedetect 
 au! BufRead,BufNewFile *.m,*.oct set filetype=octave 
 augroup END 
-
-" IndentLine
-let g:indentLine_char='│'
 
 " =================================================================================================
 " BASE
@@ -172,7 +157,6 @@ set cursorcolumn                " show which column the cursor is in
 set number relativenumber       " Set relative line number and current line number
 set confirm                     " Ask what to do about unsaved/read-only files
 filetype plugin indent on       " Enable file type detection and language-dependent indenting.
-" set synmaxcol=250 " Performance
 
 " Italic comments
 " let &t_ZH="\e[3m"
@@ -206,6 +190,7 @@ set clipboard=unnamed
 let mapleader=" "
 nnoremap <leader>f :FZF<CR>
 nnoremap <leader>d :NERDTreeFind<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
 
 " align s and i splits with NERDTree
 nnoremap <leader>s :vsplit<CR>
