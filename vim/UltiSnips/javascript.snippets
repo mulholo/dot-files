@@ -14,6 +14,10 @@ snippet doc "JSDoc description" b
  */
 endsnippet
 
+snippet mlog "Functional logger"
+.map(o => console.log(o) || o)
+endsnippet
+
 snippet # "H1 Comment" b
 /*==========================================================
   $1
@@ -24,112 +28,121 @@ snippet ## "H2 Comment" b
 /* -$1------------------------------------------------------*/
 endsnippet
 
+snippet stb "Stubbed-out function error" b
+throw new Error(
+  'This function has not been implemented. Please add' +
+  'code and tests to use it'
+)
+endsnippet
+
 # JEST =====================================================
 
 snippet dsc "Describe block" b
 describe('${1:`!v expand('%:t:r:s?\.test$??')`}', () => {
   it('${2:$1}', () => {
 		$3
-  });
-});
+  })
+})
 endsnippet
 
 snippet it "It block" b
-it('$1', () => {
-	$2
-});
+it('$1', ${3:()} => {
+	${2:expect(
+	).to()}
+})
 endsnippet
 
 # NODE =====================================================
 snippet r.p "router.post" b
 router.post('/$1', (req, res, next) => {
 	$2
-});
+})
 endsnippet
 
 snippet r.g "router.get" b
 router.get('/$1', (req, res, next) => {
 	$2
-});
+})
 endsnippet
 
 snippet r.d "router.post" b
 router.delete('/$1', (req, res, next) => {
 	$2
-});
+})
 endsnippet
 
 snippet r.pu "router.post" b
 router.put('/$1', (req, res, next) => {
 	$2
-});
+})
 endsnippet
 
 # ES2015 ===================================================
 snippet "r" "const requrie" br
-const $1 = require('${2:$1}');
+const $1 = require('${2:$1}')
 endsnippet
 
 snippet "req" "require" br
-require('$1');
+require('$1')
 endsnippet
 
 snippet "ri" "const requrie internal" br
-const $1 = require('${2:.}/${2:$1}');
+const $1 = require('${2:.}/${2:$1}')
 endsnippet
 
 snippet "i(m)?" "import" br
-import ${1} from '${2:$1}';
+import ${1} from '${2:$1}'
 endsnippet
 
 snippet "ii" "import" br
-import ${1} from '${2:.}/${3:$1}';
+import ${1} from '${2:.}/${3:$1}'
 endsnippet
 
 snippet "ex(port|p)?" "export" br
-export { $1 };
+export { $1 }
 endsnippet
 
 snippet "ed" "export default" br
-export default ${1:`!v expand('%:t:r')`};
+export default ${1:`!v expand('%:t:r')`}
+
 endsnippet
 
 snippet ie "Import file then export" b
-import ${1} from '${2:./}${3:$1}';
+import ${1} from '${2:./}${3:$1}'
 
-export ${4:default} $1;
+export ${4:default} $1
 endsnippet
 
 snippet :f "method: func(...) { ... }"
 ${1:key}: ${2:(args)} => {
-	return $4;
+	return $4
 }${3:,}
 endsnippet
 
 snippet "\.(map|filter|forEach|reduce|some)" "Array method with an arrow function" r
 .`!p snip.rv = match.group(1)`(${1:(c, i)} => {
-	return $2;
-});
+	return $2
+})
 endsnippet
 
 snippet "\.(map|filter|forEach|reduce|some)=" "Array method with an arrow function inline" rA
-.`!p snip.rv = match.group(1)`(${1:(c, i)} => $2);
+.`!p snip.rv = match.group(1)`(${1:(c, i)} => $2)
 endsnippet
 
 snippet => "Arrow function"
 (${1:args}) => {
-	return $3;
-}${2:;}
+	return $3
+}
 endsnippet
 
 snippet =>> "Inline arrow function" A
-(${1:args}) => ($2);
+(${1:args}) => ($2)
 endsnippet
 
 snippet c=> "Const Function" bA
 const ${1:name} = (${2:args}) => {
-	return $4;
-}${3:;}
+	return $4
+}
 endsnippet
 
 snippet cl "console.log(...)"
@@ -138,35 +151,45 @@ endsnippet
 
 # REACT & JSX ==============================================
 
-snippet re "React Functional Component" b
-import React from 'react';
+snippet pstate "Print state" b
+<pre>{JSON.stringify(this.state, null, 2)}</pre>
 endsnippet
 
-snippet st "React Functional Component" b
-import styled$1 from '$2styled-components';
+snippet pprops "Print props" b
+<pre>{JSON.stringify(this.props, null, 2)}</pre>
+endsnippet
+
+snippet re "Import react" b
+import React${1: }from 'react'
+endsnippet
+
+snippet st "Import styled-components" b
+import styled${2: }from '$1styled-components'
 endsnippet
 
 snippet rfc "React Functional Component" b
-import React from 'react';
-const ${1:`!v expand('%:t:r')`} = () =>
-	<div>
-	</div>;
+import React from 'react'
 
-export default $1;
+const ${1:`!v expand('%:t:r')`} = () => (
+	<div>
+	</div>
+)
+
+export default $1
 endsnippet
 
 snippet rsc "React Styled Component" b
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const ${1:`!v expand('%:t:r')`} = styled.${2:div}\`
 	$3
-\`;
+\`
 
-export default $1;
+export default $1
 endsnippet
 
 snippet pp "Get Props"
-${props => props.${1}};
+${props => props.${1}}
 endsnippet
 
 snippet cn "className"
@@ -183,25 +206,17 @@ endsnippet
 snippet dp "Default Props" b
 ${1:`!v expand('%:t:r')`.}defaultProps = {
 	$2
-};
+}
 endsnippet
 
 snippet set "Set State"
 this.setState({
 	${1}: ${2}
-});
-endsnippet
-
-snippet props "Get Property" i
-this.props.${1}
-endsnippet
-
-snippet state "Get State" i
-this.state.${1}
+})
 endsnippet
 
 snippet ref "Ref" i
-ref={${1:ref} => { this.${2:name} = $1; }}
+ref={${1:ref} => { this.${2:name} = $1 }}
 endsnippet
 
 snippet j/ "JSX Comment" b
@@ -220,7 +235,7 @@ endsnippet
 snippet pt "PropTypes Definition" b
 ${1:`!v expand('%:t:r')`.}propTypes = {
 	${2:className}: ${3:PropTypes.string},
-};
+}
 endsnippet
 
 snippet  pt.a "PropTypes Array" w
@@ -285,4 +300,21 @@ endsnippet
 
 snippet ir "isRequired" w
 isRequired,
+endsnippet
+
+snippet "ved" "mobx view export default" br
+export default withViewWrapper(`!v expand('%:t:r')`)
+
+endsnippet
+
+snippet "std" "store destructuring" br
+const { ${1} } = this.props.rootStore
+endsnippet
+
+snippet "leg" "legacy code eslint ignores" br
+/* Legacy code: disable new style rules for convenience until refactor */
+/* eslint max-len: 0  max-params: 0 */
+/* eslint extra-rules/no-long-files: 0 complexity: 0 */
+/* eslint class-methods-use-this: 0 max-lines-per-function: 0 */
+/* eslint extra-rules/potential-point-free: 0 no-magic-numbers: 0 */
 endsnippet

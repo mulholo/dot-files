@@ -1,7 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
-name = James Mulholland
-	email = jmulholland1618@gmail.com
+name = mulholio
+	email = james@jmulholland.com
 [color]
   pager = true
   ui = auto
@@ -65,3 +65,8 @@ linenumber = normal
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[alias]
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches
+  a = add
+  b = branch
+  c = commit

@@ -5,7 +5,7 @@ export ZSH="/Users/jamesmulholland/.oh-my-zsh"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 export TERM="xterm-256color"
-ZSH_THEME="bullet-train"
+ZSH_THEME=""
 
 ENABLE_CORRECTION="true"
 
@@ -34,6 +34,9 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+autoload -U promptinit; promptinit
+prompt pure
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -50,35 +53,24 @@ fi
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# kill specified port
-function kill-port() {
-  kill -kill "$(lsof -t -i :$1)"
-}
-function free-port() {
-  kill "$(lsof -t -i :$1)"
-}
-
 # Aliases
 alias lf="lsof -i :"
 alias c="clear"
 alias fs="foreman start -f Procfile.development"
-alias cor="cd ~/proj/Orulo"
 alias cpr="cd ~/proj/"
 alias v="nvim"
-alias nd="nnn ~/Dropbox"
 alias dv="yarn dev"
+alias zshrc="nvim ~/.zshrc"
+alias vimrc="nvim ~/.vimrc"
+alias venv="source venv/bin/activate"
 # git
 alias gche="git checkout"
 alias gpul="git pull"
-alias gpus="git push"
-alias gadd="git add ."
-alias gcom="git commit -m "
-alias gsta="git status"
 alias gbra="git branch"
-alias glog="git log"
-alias glogg="git log --oneline --graph --decorate --all"
 # add Z
 . /usr/local/Cellar/z/1.9/etc/profile.d/z.sh
+# avoid clash with xcode ctags
+alias ctags="`brew --prefix`/bin/ctags"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 # export PATH="$PATH:$HOME/.rvm/bin"
@@ -86,21 +78,6 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Bullet Train Options
-BULLETTRAIN_PROMPT_ORDER=(
-  status
-  custom
-  context
-  dir
-  screen
-  aws
-  git
-  hg
-  cmd_exec_time
-)
-
-BULLETTRAIN_CONTEXT_DEFAULT_USER=jamesmulholland
 
 export NVM_DIR="/Users/jamesmulholland/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
