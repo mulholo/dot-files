@@ -78,4 +78,4 @@ alias ctags="`brew --prefix`/bin/ctags"
 export NVM_DIR="/Users/jamesmulholland/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-source /Users/jamesmulholland/.dot-files/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /Users/jamesmulholland/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
