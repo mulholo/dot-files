@@ -3,7 +3,6 @@ export ZSH="/Users/jamesmulholland/.oh-my-zsh"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
-
 export TERM="xterm-256color"
 ZSH_THEME=""
 
@@ -28,7 +27,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  zsh-syntax-highlighting
+  # zsh-syntax-highlighting
   yarn
 )
 
@@ -46,6 +45,8 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
    export EDITOR='vim'
 fi
+
+export FZF_DEFAULT_COMMAND="ag -l --hidden -g '^(?!.*node_modules\/|.*dist\/|.*build).*$'"
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -72,12 +73,9 @@ alias gbra="git branch"
 # avoid clash with xcode ctags
 alias ctags="`brew --prefix`/bin/ctags"
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-# export PATH="$PATH:$HOME/.rvm/bin"
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export NVM_DIR="/Users/jamesmulholland/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+source /Users/jamesmulholland/.dot-files/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
