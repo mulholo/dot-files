@@ -67,7 +67,7 @@ Plug 'janko-m/vim-test'
 Plug 'SirVer/ultisnips'
 
 " Fuzzy search
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
 call plug#end()
@@ -103,7 +103,6 @@ let g:ale_statusline_format = ['X %d', '? %d', '']
 let g:ale_echo_msg_format = '%linter% says: %s %- (code)%'
 
 " FZF
-let $FZF_DEFAULT_COMMAND='fd --type f'
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-i': 'split',
@@ -221,7 +220,7 @@ let g:tagbar_type_javascript = {
 " Use system clipboard
 set clipboard=unnamed
 
-" Auto reload vimrc
+" Auto reload vimrc 
 augroup myvimrc
   au!
   au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
