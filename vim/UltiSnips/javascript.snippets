@@ -14,6 +14,10 @@ snippet doc "JSDoc description" b
  */
 endsnippet
 
+snippet pdoc "JSDoc param"
+@param {${1}} ${2}
+endsnippet
+
 snippet mlog "Functional logger"
 .map(o => console.log(o) || o)
 endsnippet
@@ -182,6 +186,16 @@ snippet rsc "React Styled Component" b
 import styled from 'styled-components'
 
 const ${1:`!v expand('%:t:r')`} = styled.${2:div}\`
+	$3
+\`
+
+export default $1
+endsnippet
+
+snippet rnsc "React Native Styled Component" b
+import styled from 'styled-components/native'
+
+const ${1:`!v expand('%:t:r')`} = styled.${2:View}\`
 	$3
 \`
 
