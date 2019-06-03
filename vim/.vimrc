@@ -24,17 +24,17 @@ Plug 'w0rp/ale'
 " Multiple cursors
 Plug 'terryma/vim-multiple-cursors'
 
+" Lines to indicate indentation
+Plug 'Yggdroot/indentLine'
+
 " Surrounds (brackets, tags, quotes ...)
 Plug 'tpope/vim-surround'
 
 " Allow . for vim-surround commands
 Plug 'tpope/vim-repeat'
 
-" Tag Viewer
-Plug 'majutsushi/tagbar'
-
 " Better flow integration
-Plug 'flowtype/vim-flow'
+" Plug 'flowtype/vim-flow'
 
 " Theme
 " Plug 'mhartington/oceanic-next'
@@ -50,6 +50,9 @@ Plug 'styled-components/vim-styled-components', { 'branch': 'develop' }
 Plug 'jxnblk/vim-mdx-js'
 " Python PEP8 check
 Plug 'nvie/vim-flake8'
+
+" CSS colors shown inline
+Plug 'ap/vim-css-color'
 
 " Completion
 Plug 'Valloric/YouCompleteMe'
@@ -79,6 +82,10 @@ let NERDTreeQuitOnOpen = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
+" Indentations
+let g:indentLine_char = '│'
+let g:indentLine_setColors = 0
+
 " ALE
 " disable completion
 let g:ale_completion_enabled = 0
@@ -86,8 +93,10 @@ let g:ale_completion_enabled = 0
 let g:ale_fix_on_save = 1
 " set a better timeout
 let g:ale_lint_delay = 50
+
+" Add flow to javascript as needed
 let g:ale_linters = {
-\ 'javascript': ['eslint', 'flow'],
+\ 'javascript': ['eslint' ],
 \ 'html': ['htmlhint'],
 \ 'css': ['stylelint'],
 \ 'python': ['flake8'],
@@ -112,11 +121,12 @@ let g:fzf_action = {
 let python_highlight_all=1
 
 " javascript syntax
-let g:javascript_plugin_flow = 1
+
+" let g:javascript_plugin_flow = 1
 " Disable Flow checks on save
-let g:flow#enable = 0
+" let g:flow#enable = 0
 " Don't use vim-flow quickfix window (
-let g:flow#showquickfix = 0
+" let g:flow#showquickfix = 0
 
 " disable YCM type warnings in flow
 " "level": "error", "warning" could disable all
@@ -142,7 +152,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<C-d>"
 " Open UltiSnips in a split window rather than replacing current buffer 
 let g:UltiSnipsEditSplit="vertical"
 " Set UltiSnips directory location
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.dotfiles/vim/UltiSnips']
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.dot-files/vim/UltiSnips']
 
 " Octave syntax
 augroup filetypedetect 
@@ -158,7 +168,6 @@ set termguicolors
 endif
 
 syntax enable
-colorscheme nova
 
 " Light themes
 " set background=light
@@ -192,12 +201,30 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
   \| exe "normal! g'\"" | endif
 endif
 
-" Prettier folds
-function! PrettyFoldText()
-  let foldsize = (v:foldend-v:foldstart)
-  return '::'.getline(v:foldstart).' ('.foldsize.' lines)'
+" vim-test docker setup
+let g:test#suite_command = 'docker exec -it web_client yarn test $file'
+let g:test#file_command = 'docker exec -it web_client yarn test $file'
+
+function! RunTests(command_variable)
+  if !exists(a:command_variable)
+    echo 'The ' . a:command_variable ' variable must be set to run this command.'
+    return
+  endif
+
+  execute 'let l:command = ' . a:command_variable
+  let l:command = substitute(l:command, '$file', expand('%'), 'g')
+
+  split
+  execute 'terminal ' . l:command
 endfunction
-set foldtext=PrettyFoldText()
+
+function! TestSuite()
+  call RunTests('g:test#suite_command')
+endfunction
+
+function! TestFile()
+  call RunTests('g:test#file_command')
+endfunction
 
 " Tagbar JS types
 let g:tagbar_type_javascript = {
@@ -220,6 +247,10 @@ let g:tagbar_type_javascript = {
 " Use system clipboard
 set clipboard=unnamed
 
+" Ignore case in / searches unless you type capital letters
+set ignorecase
+set smartcase
+
 " Auto reload vimrc 
 augroup myvimrc
   au!
@@ -240,6 +271,9 @@ nnoremap <leader>i :split<CR>
 
 " Quick Open Tagbar
 nnoremap <leader>tt :TagbarToggle<CR>
+
+" Copy the path to the current file into system-level clipboard
+nnoremap <leader>cp :let @+ = expand("%")<CR>
 
 " Jump between ALE errors speedily
 nmap <silent> <leader>ak <Plug>(ale_previous_wrap)
@@ -267,7 +301,10 @@ nnoremap <leader>gd :YcmCompleter GetDoc<CR>
 nnoremap <leader>tn :TestNearest<CR>
 nnoremap <leader>tf :TestFile<CR>
 nnoremap <leader>tl :TestLast<CR>
-" Make it easy to exit insert mode in test window
+" For testing inside docker
+nnoremap <leader>td :call TestFile()<CR>
+
+" Make it easy to exit insert mode in test window / terminal
 if has('nvim')
   tmap <C-o> <C-\><C-n>
 endif

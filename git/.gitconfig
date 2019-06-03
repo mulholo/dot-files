@@ -56,10 +56,15 @@ linenumber = normal
 [core]
 	excludesfiles = /Users/jamesmulholland/.gitignore
 	editor = nvim
+[difftool]
+  prompt = true
 [diff]
-	tool = vimdiff
+	tool = nvimdiff
+[difftool "nvimdiff"]
+  cmd = "nvim -d -u ~/.vimrc \"$LOCAL\" \"$REMOTE\""
 [merge]
 	tool = vimdiff
+  conflictstyle = diff3
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -70,3 +75,5 @@ linenumber = normal
   a = add
   b = branch
   c = commit
+[mergetool]
+	path = nvim -d

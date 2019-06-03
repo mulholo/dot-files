@@ -40,11 +40,12 @@ prompt pure
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='nvim'
-else
-   export EDITOR='vim'
-fi
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='nvim'
+# else
+#   export EDITOR='vim'
+# fi
+export EDITOR='nvim'
 
 export FZF_DEFAULT_COMMAND="ag -l --hidden -g '^(?!.*node_modules\/|.*dist\/|.*build).*$'"
 
@@ -57,23 +58,30 @@ export FZF_DEFAULT_COMMAND="ag -l --hidden -g '^(?!.*node_modules\/|.*dist\/|.*b
 # Aliases
 alias lf="lsof -i :"
 alias c="clear"
-alias fs="foreman start -f Procfile.development"
 alias cpr="cd ~/proj/"
 alias v="nvim"
 alias dv="yarn dev"
 alias zshrc="nvim ~/.zshrc"
 alias vimrc="nvim ~/.vimrc"
 alias venv="source venv/bin/activate"
-# git
-alias gche="git checkout"
-alias gpul="git pull"
-alias gbra="git branch"
+alias pom="noti ~/pomodoro"
+alias jira="~/go/bin/jira"
+# Show current requested and assigned PRS
+alias prs="hub pr list --state=open --format='%pC%>(8)%i%Creset %t %n   Author: %au | Requested: %rs %n   URL: %U %n%n' --limit=200 --sort=long-running | grep --color='never' --context=2 -E 'mulholio'"
+# Memrise
+alias wa-up="docker-compose -f docker-compose.yml -f webapp/docker-compose-dev.yml up"
+alias wa-down="docker-compose -f docker-compose.yml -f webapp/docker-compose-dev.yml down"
+alias wc-up="docker-compose -f docker-compose.yml -f webapp/docker-compose-dev.yml -f web_client/docker-compose-dev.yml up"
+alias wc-down="docker-compose -f docker-compose.yml -f webapp/docker-compose-dev.yml -f web_client/docker-compose-dev.yml down"
+
 # add Z
 . /usr/local/Cellar/z/1.9/etc/profile.d/z.sh
 # avoid clash with xcode ctags
 alias ctags="`brew --prefix`/bin/ctags"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export GOPATH=$HOME/go
 
 export NVM_DIR="/Users/jamesmulholland/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
