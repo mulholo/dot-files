@@ -15,7 +15,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " Git symbols in your gutter
 Plug 'airblade/vim-gitgutter'
 
-" Git tool
+" Git tools
 Plug 'tpope/vim-fugitive'
 
 " Syntax correction
@@ -33,13 +33,22 @@ Plug 'tpope/vim-surround'
 " Allow . for vim-surround commands
 Plug 'tpope/vim-repeat'
 
-" Better flow integration
-" Plug 'flowtype/vim-flow'
+" Autcompletion
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
-" Theme
-" Plug 'mhartington/oceanic-next'
-Plug 'trevordmiller/nova-vim'
-Plug 'NLKNguyen/papercolor-theme'
+" Language Support ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+" Flow support
+" Plug 'flowtype/vim-flow'
+" Reason Support
+Plug 'reasonml-editor/vim-reason-plus'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
+" Any theme you can dream of
+Plug 'flazz/vim-colorschemes'
 
 " Syntax
 " General, catch-all
@@ -54,10 +63,7 @@ Plug 'nvie/vim-flake8'
 " CSS colors shown inline
 Plug 'ap/vim-css-color'
 
-" Completion
-Plug 'Valloric/YouCompleteMe'
-
-" Emmet
+" Emmet snippet expansion
 Plug 'mattn/emmet-vim'
 
 " Repl
@@ -75,6 +81,8 @@ Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
+" NERDTree ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 " Close NERDTree when a file is opened
 let NERDTreeQuitOnOpen = 1
 
@@ -82,11 +90,15 @@ let NERDTreeQuitOnOpen = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
-" Indentations
+" IndentLine ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+" disable by default
+let g:indentLine_enabled = 0
 let g:indentLine_char = '│'
 let g:indentLine_setColors = 0
 
-" ALE
+" ALE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 " disable completion
 let g:ale_completion_enabled = 0
 " enable sfix on save
@@ -96,7 +108,7 @@ let g:ale_lint_delay = 50
 
 " Add flow to javascript as needed
 let g:ale_linters = {
-\ 'javascript': ['eslint' ],
+\ 'javascript': ['eslint'],
 \ 'html': ['htmlhint'],
 \ 'css': ['stylelint'],
 \ 'python': ['flake8'],
@@ -111,30 +123,43 @@ highlight clear ALEWarningSign
 let g:ale_statusline_format = ['X %d', '? %d', '']
 let g:ale_echo_msg_format = '%linter% says: %s %- (code)%'
 
-" FZF
+" FZF ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-i': 'split',
   \ 'ctrl-s': 'vsplit' }
 
-" python syntax
+" Python ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 let python_highlight_all=1
 
-" javascript syntax
+" Flow ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 " let g:javascript_plugin_flow = 1
 " Disable Flow checks on save
 " let g:flow#enable = 0
 " Don't use vim-flow quickfix window (
-" let g:flow#showquickfix = 0
 
-" disable YCM type warnings in flow
-" "level": "error", "warning" could disable all
-let g:ycm_filter_diagnostics = {
-  \ "javascript": {
-  \      "regex": [ "ts file", "'=' expected", "';' expected" ],
-  \    }
-  \ }
+
+" Octave ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+augroup filetypedetect 
+au! BufRead,BufNewFile *.m,*.oct set filetype=octave 
+augroup END 
+
+" Deoplete ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+" Reason Configuration
+let g:LanguageClient_serverCommands = {
+    \ 'reason': ['~/reason-language-server.exe'],
+    \ }
+
+" enable autocomplete
+let g:deoplete#enable_at_startup = 1
+
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " ,, to trigger emmet
 let g:user_emmet_leader_key=','
@@ -142,6 +167,8 @@ let g:user_emmet_leader_key=','
 " Jump to middle on <CR> and space bracket expansion
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
+
+" UltiSnips ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 " Avoid UltiSnips conflicting maps with YouCompleteMe
 let g:UltiSnipsExpandTrigger = "<C-l>"
@@ -154,52 +181,7 @@ let g:UltiSnipsEditSplit="vertical"
 " Set UltiSnips directory location
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.dot-files/vim/UltiSnips']
 
-" Octave syntax
-augroup filetypedetect 
-au! BufRead,BufNewFile *.m,*.oct set filetype=octave 
-augroup END 
-
-" ==========================================================
-" BASE
-" ==========================================================
-
-if (has("termguicolors"))
-set termguicolors
-endif
-
-syntax enable
-
-" Light themes
-" set background=light
-" colorscheme PaperColor
-
-" Dark themes
-set background=dark
-colorscheme nova
-
-set cursorline                " show which column the cursor is in
-set number relativenumber     " Set relative line number and current line number
-set confirm                   " Ask what to do about unsaved/read-only files
-filetype plugin indent on     " Enable file type detection and language-dependent indenting.
-
-" Fix neovim cursorline colour issue
-highlight CursorLine ctermfg=black
-
-" tabs etc
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set expandtab
-
-" Automatic line formatting for markdown
-au BufRead,BufNewFile *.md setlocal wrap linebreak nolist " Prevent annoying character hides in markdown
-au BufRead,BufNewFile *.md let g:indentLine_setConceal = 0
-
-" Open to last position when reopening a file
-if has("autocmd")
-au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-  \| exe "normal! g'\"" | endif
-endif
+" vim-test ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 " vim-test docker setup
 let g:test#suite_command = 'docker exec -it web_client yarn test $file'
@@ -226,23 +208,41 @@ function! TestFile()
   call RunTests('g:test#file_command')
 endfunction
 
-" Tagbar JS types
-let g:tagbar_type_javascript = {
-      \ 'ctagstype': 'javascript',
-      \ 'kinds': [
-      \ 'A:arrays',
-      \ 'P:properties',
-      \ 'T:tags',
-      \ 'O:objects',
-      \ 'G:generator functions',
-      \ 'F:functions',
-      \ 'C:constructors/classes',
-      \ 'M:methods',
-      \ 'V:variables',
-      \ 'I:imports',
-      \ 'E:exports',
-      \ 'S:styled components'
-      \ ]}
+
+" ==========================================================
+" BASE
+" ==========================================================
+
+" Colors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+if (has("termguicolors"))
+set termguicolors
+endif
+syntax enable
+colorscheme tomorrow-night-blue
+" Fix neovim cursorline colour issue
+highlight CursorLine ctermfg=black
+
+set cursorline                " show which column the cursor is in
+set number relativenumber     " Set relative line number and current line number
+set confirm                   " Ask what to do about unsaved/read-only files
+filetype plugin indent on     " Enable file type detection and language-dependent indenting.
+
+" tabs etc
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+
+" Automatic line formatting for markdown
+au BufRead,BufNewFile *.md setlocal wrap linebreak nolist " Prevent annoying character hides in markdown
+au BufRead,BufNewFile *.md let g:indentLine_setConceal = 0
+
+" Open to last position when reopening a file
+if has("autocmd")
+au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+  \| exe "normal! g'\"" | endif
+endif
 
 " Use system clipboard
 set clipboard=unnamed
@@ -288,14 +288,6 @@ nnoremap <leader>o <c-w><c-w>
 
 nnoremap <leader>n gt
 nnoremap <leader>p gT
-
-" YouCompleteMe mappings
-" mneumonics: j - jump, g - get, t - type
-nnoremap <leader>j2 :YcmCompleter GoTo<CR>
-nnoremap <leader>jt :YcmCompleter GoToType<CR>
-nnoremap <leader>jr :YcmCompleter GoToReferences<CR>
-nnoremap <leader>gt :YcmCompleter GetType<CR>
-nnoremap <leader>gd :YcmCompleter GetDoc<CR>
 
 " vim-test mappings
 nnoremap <leader>tn :TestNearest<CR>

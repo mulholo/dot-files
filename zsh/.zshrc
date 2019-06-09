@@ -36,6 +36,12 @@ source $ZSH/oh-my-zsh.sh
 autoload -U promptinit; promptinit
 prompt pure
 
+# Base16 Shell (hyper color fix)
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -82,6 +88,8 @@ alias ctags="`brew --prefix`/bin/ctags"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export GOPATH=$HOME/go
+
+export PATH="$HOME/.npm-global/bin:$PATH"
 
 export NVM_DIR="/Users/jamesmulholland/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

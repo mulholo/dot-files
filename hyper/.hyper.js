@@ -126,12 +126,8 @@ module.exports = {
   },
 
   // format: [@org/]project[#version]
-  plugins: [
-    'hypercwd',
-    // 'hyper-aurora', - another theme
-    'nova-hyperterm',
-    'hyper-tabs-enhanced',
-  ],
+  plugins: ['hypercwd', // 'hyper-aurora', - another theme
+  'nova-hyperterm', 'hyper-tabs-enhanced', "hyper-night-owl"],
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
