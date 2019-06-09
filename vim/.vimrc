@@ -47,6 +47,9 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 
+" Italic comments
+Plug 'codehearts/mascara-vim'
+
 " Any theme you can dream of
 Plug 'flazz/vim-colorschemes'
 
@@ -223,10 +226,25 @@ colorscheme tomorrow-night-blue
 " Fix neovim cursorline colour issue
 highlight CursorLine ctermfg=black
 
+" Italics (not working for me atm :(. Think it's iterm's fault)
+set t_ZH=^[[3m
+set t_ZR=^[[23m
+" highlight Comment gui=italic
+" highlight Comment cterm=italic
+" highlight htmlArg gui=italic
+" highlight htmlArg cterm=italic
+
 set cursorline                " show which column the cursor is in
 set number relativenumber     " Set relative line number and current line number
 set confirm                   " Ask what to do about unsaved/read-only files
 filetype plugin indent on     " Enable file type detection and language-dependent indenting.
+
+function! SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
 
 " tabs etc
 set tabstop=2
