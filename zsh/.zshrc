@@ -73,6 +73,7 @@ alias wa-up="docker-compose -f docker-compose.yml -f webapp/docker-compose-dev.y
 alias wa-down="docker-compose -f docker-compose.yml -f webapp/docker-compose-dev.yml down"
 alias wc-up="docker-compose -f docker-compose.yml -f webapp/docker-compose-dev.yml -f web_client/docker-compose-dev.yml up"
 alias wc-down="docker-compose -f docker-compose.yml -f webapp/docker-compose-dev.yml -f web_client/docker-compose-dev.yml down"
+alias stik="nvim ~/.stik.md"
 
 # add Z
 . /usr/local/Cellar/z/1.9/etc/profile.d/z.sh

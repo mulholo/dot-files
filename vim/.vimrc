@@ -57,7 +57,8 @@ Plug 'autozimu/LanguageClient-neovim', {
 Plug 'codehearts/mascara-vim'
 
 " Any theme you can dream of
-Plug 'flazz/vim-colorschemes'
+" Plug 'flazz/vim-colorschemes'
+Plug 'lifepillar/vim-solarized8'
 
 " Syntax
 " General, catch-all
@@ -236,7 +237,8 @@ if (has("termguicolors"))
 set termguicolors
 endif
 syntax enable
-colorscheme tomorrow-night-blue
+set background=dark
+colorscheme solarized8 " tomorrow-night-blue
 " Fix neovim cursorline colour issue
 highlight CursorLine ctermfg=black
 
