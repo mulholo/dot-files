@@ -237,8 +237,9 @@ if (has("termguicolors"))
 set termguicolors
 endif
 syntax enable
-set background=dark
-colorscheme solarized8 " tomorrow-night-blue
+set background=light
+colorscheme solarized8_flat " tomorrow-night-blue
+let g:solarized_visibility = "high"
 " Fix neovim cursorline colour issue
 highlight CursorLine ctermfg=black
 
