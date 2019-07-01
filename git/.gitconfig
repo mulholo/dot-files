@@ -54,7 +54,7 @@ name = mulholio
   separator = red bold
 linenumber = normal
 [core]
-	excludesfiles = /Users/jamesmulholland/.gitignore
+	excludesfile = /Users/jamesmulholland/.dot-files/git/.gitignore
 	editor = nvim
 [difftool]
   prompt = true

@@ -21,9 +21,6 @@ Plug 'tpope/vim-fugitive'
 " Syntax correction
 Plug 'w0rp/ale'
 
-" Multiple cursors
-Plug 'terryma/vim-multiple-cursors'
-
 " Lines to indicate indentation
 Plug 'Yggdroot/indentLine'
 
@@ -37,7 +34,16 @@ Plug 'tpope/vim-repeat'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " Language Support ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" These are largely useful to help deoplete.
+" :help deoplete-options then search for EXTERNAL SOURCES to
+" see more language server extension options
 
+" Python Support
+Plug 'deoplete-plugins/deoplete-jedi'
+Plug 'python/black'
+
+" TypeScript Support
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 " Flow support
 " Plug 'flowtype/vim-flow'
 " Reason Support
@@ -47,8 +53,12 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 
+" Italic comments
+Plug 'codehearts/mascara-vim'
+
 " Any theme you can dream of
-Plug 'flazz/vim-colorschemes'
+" Plug 'flazz/vim-colorschemes'
+Plug 'lifepillar/vim-solarized8'
 
 " Syntax
 " General, catch-all
@@ -116,6 +126,8 @@ let g:ale_linters = {
 let g:ale_fixers = {
 \ 'javascript': ['prettier', 'eslint'],
 \ 'typescript': ['prettier', 'eslint'],
+\ 'css': ['prettier'],
+\ 'python': ['black'],
 \}
 
 highlight clear ALEErrorSign
@@ -133,6 +145,12 @@ let g:fzf_action = {
 " Python ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 let python_highlight_all=1
+
+" Setup virtual envs for python so you don't need a new one
+" for every file you make
+" https://github.com/deoplete-plugins/deoplete-jedi#virtual-environments
+" let g:python_host_prog = '~/deoplete-venvs/venv2/bin/python'
+" let g:python3_host_prog = '~/deoplete-venvs/venv3/bin/python3'
 
 " Flow ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -219,14 +237,27 @@ if (has("termguicolors"))
 set termguicolors
 endif
 syntax enable
-colorscheme tomorrow-night-blue
+set background=light
+colorscheme solarized8_flat " tomorrow-night-blue
+let g:solarized_visibility = "high"
 " Fix neovim cursorline colour issue
 highlight CursorLine ctermfg=black
+
+" Enable italics
+set t_ZH=^[[3m
+set t_ZR=^[[23m
 
 set cursorline                " show which column the cursor is in
 set number relativenumber     " Set relative line number and current line number
 set confirm                   " Ask what to do about unsaved/read-only files
 filetype plugin indent on     " Enable file type detection and language-dependent indenting.
+
+function! SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
 
 " tabs etc
 set tabstop=2
@@ -279,13 +310,20 @@ nnoremap <leader>cp :let @+ = expand("%")<CR>
 nmap <silent> <leader>ak <Plug>(ale_previous_wrap)
 nmap <silent> <leader>aj <Plug>(ale_next_wrap)
 
+" Deoplete TypeScript
+" Jump to X
+nnoremap <leader>jd :TSDef<CR>
+nnoremap <leader>jt :TSTypeDef<CR>
+" Get X
+nnoremap <leader>gt :TSType<CR>
+nnoremap <leader>gd :TSDoc<CR>
+
 " align window jumping with tmux
 nnoremap <leader>h <c-w>h
 nnoremap <leader>j <c-w>j
 nnoremap <leader>k <c-w>k
 nnoremap <leader>l <c-w>l
 nnoremap <leader>o <c-w><c-w>
-
 nnoremap <leader>n gt
 nnoremap <leader>p gT
 
