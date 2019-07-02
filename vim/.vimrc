@@ -233,6 +233,10 @@ endfunction
 
 " Colors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+" Enable italics
+set t_ZH="\e[3m"
+set t_ZR="\e[23m"
+
 if (has("termguicolors"))
 set termguicolors
 endif
@@ -243,9 +247,6 @@ let g:solarized_visibility = "high"
 " Fix neovim cursorline colour issue
 highlight CursorLine ctermfg=black
 
-" Enable italics
-set t_ZH=^[[3m
-set t_ZR=^[[23m
 
 set cursorline                " show which column the cursor is in
 set number relativenumber     " Set relative line number and current line number
