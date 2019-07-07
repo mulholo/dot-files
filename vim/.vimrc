@@ -82,6 +82,9 @@ Plug 'metakirby5/codi.vim'
 " Testing
 Plug 'janko-m/vim-test'
 
+" Align Things Easily
+Plug 'junegunn/vim-easy-align'
+
 " Snippets
 Plug 'SirVer/ultisnips'
 
@@ -310,6 +313,11 @@ nnoremap <leader>cp :let @+ = expand("%")<CR>
 " Jump between ALE errors speedily
 nmap <silent> <leader>ak <Plug>(ale_previous_wrap)
 nmap <silent> <leader>aj <Plug>(ale_next_wrap)
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " Deoplete TypeScript
 " Jump to X
