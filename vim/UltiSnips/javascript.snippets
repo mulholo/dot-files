@@ -51,8 +51,7 @@ endsnippet
 
 snippet it "It block" b
 it('$1', ${3:()} => {
-	${2:expect(
-	).to()}
+	$2
 })
 endsnippet
 
@@ -246,6 +245,11 @@ snippet jfm "JSX FIXME Comment" b
 endsnippet
 
 # PropTypes
+
+snippet ipt "PropTypes importa" b
+import PropTypes from 'prop-types'
+endsnippet
+
 snippet pt "PropTypes Definition" b
 ${1:`!v expand('%:t:r')`.}propTypes = {
 	${2:className}: ${3:PropTypes.string},

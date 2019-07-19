@@ -13,3 +13,7 @@ $ stow
 ## Tmux
 
 `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm` to install tmux plugin manager
+
+## Italics
+
+Sometimes my terminal seems to have issues using italics within Tmux. [This guide](https://alexpearce.me/2014/05/italics-in-iterm2-vim-tmux/) shows you how to fix it

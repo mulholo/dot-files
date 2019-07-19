@@ -82,6 +82,9 @@ Plug 'metakirby5/codi.vim'
 " Testing
 Plug 'janko-m/vim-test'
 
+" Align Things Easily
+Plug 'junegunn/vim-easy-align'
+
 " Snippets
 Plug 'SirVer/ultisnips'
 
@@ -233,6 +236,10 @@ endfunction
 
 " Colors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+" Enable italics
+set t_ZH="\e[3m"
+set t_ZR="\e[23m"
+
 if (has("termguicolors"))
 set termguicolors
 endif
@@ -243,9 +250,6 @@ let g:solarized_visibility = "high"
 " Fix neovim cursorline colour issue
 highlight CursorLine ctermfg=black
 
-" Enable italics
-set t_ZH=^[[3m
-set t_ZR=^[[23m
 
 set cursorline                " show which column the cursor is in
 set number relativenumber     " Set relative line number and current line number
@@ -309,6 +313,11 @@ nnoremap <leader>cp :let @+ = expand("%")<CR>
 " Jump between ALE errors speedily
 nmap <silent> <leader>ak <Plug>(ale_previous_wrap)
 nmap <silent> <leader>aj <Plug>(ale_next_wrap)
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " Deoplete TypeScript
 " Jump to X
