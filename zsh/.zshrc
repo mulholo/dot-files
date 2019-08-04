@@ -65,6 +65,7 @@ alias vimrc="nvim ~/.vimrc"
 alias venv="source venv/bin/activate"
 alias pom="noti ~/pomodoro"
 alias jira="~/go/bin/jira"
+alias ngrok="~/ngrok"
 # Show current requested and assigned PRS
 alias prs="hub pr list --state=open --format='%pC%>(8)%i%Creset %t %n   Author: %au | Requested: %rs %n   URL: %U %n%n' --limit=200 --sort=long-running | grep --color='never' --context=2 -E 'mulholio'"
 # Memrise
