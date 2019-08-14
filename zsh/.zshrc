@@ -72,6 +72,8 @@ alias prs="hub pr list --state=open --format='%pC%>(8)%i%Creset %t %n   Author: 
 alias wa-up="docker-compose -f docker-compose.yml -f webapp/docker-compose-dev.yml up"
 alias wa-down="docker-compose -f docker-compose.yml -f webapp/docker-compose-dev.yml down"
 alias wc-up="docker-compose -f docker-compose.yml -f webapp/docker-compose-dev.yml -f web_client/docker-compose-dev.yml up"
+alias wc-up:only="docker-compose web_client/docker-compose-dev.yml up"
+alias wc-down:only="docker-compose web_client/docker-compose-dev.yml down"
 alias wc-down="docker-compose -f docker-compose.yml -f webapp/docker-compose-dev.yml -f web_client/docker-compose-dev.yml down"
 alias stik="nvim ~/.stik.md"
 
