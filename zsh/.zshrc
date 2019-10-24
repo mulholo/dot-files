@@ -6,7 +6,9 @@ export ZSH="/Users/jamesmulholland/.oh-my-zsh"
 export TERM="xterm-256color"
 ZSH_THEME=""
 
-ENABLE_CORRECTION="true"
+#disable auto correct
+ENABLE_CORRECTION="false"
+unsetopt correct_all
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -66,16 +68,21 @@ alias venv="source venv/bin/activate"
 alias pom="noti ~/pomodoro"
 alias jira="~/go/bin/jira"
 alias ngrok="~/ngrok"
+alias stik="nvim ~/.stik.md"
 # Show current requested and assigned PRS
 alias prs="hub pr list --state=open --format='%pC%>(8)%i%Creset %t %n   Author: %au | Requested: %rs %n   URL: %U %n%n' --limit=200 --sort=long-running | grep --color='never' --context=2 -E 'mulholio'"
 # Memrise
 alias wa-up="docker-compose -f docker-compose.yml -f webapp/docker-compose-dev.yml up"
 alias wa-down="docker-compose -f docker-compose.yml -f webapp/docker-compose-dev.yml down"
 alias wc-up="docker-compose -f docker-compose.yml -f webapp/docker-compose-dev.yml -f web_client/docker-compose-dev.yml up"
-alias wc-up:only="docker-compose web_client/docker-compose-dev.yml up"
-alias wc-down:only="docker-compose web_client/docker-compose-dev.yml down"
 alias wc-down="docker-compose -f docker-compose.yml -f webapp/docker-compose-dev.yml -f web_client/docker-compose-dev.yml down"
-alias stik="nvim ~/.stik.md"
+alias dc="cd ~/proj/memrise && docker-compose -f docker-compose.yml -f webapp/docker-compose-dev.yml -f web_client/docker-compose-dev.yml" # args go after here
+alias wsh="docker exec -it web_client sh"
+
+# FUCK
+eval $(thefuck --alias)
+eval $(thefuck --alias feck)
+eval $(thefuck --alias FUCK)
 
 # add Z
 . /usr/local/Cellar/z/1.9/etc/profile.d/z.sh
