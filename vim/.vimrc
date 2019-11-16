@@ -27,14 +27,20 @@ Plug 'Yggdroot/indentLine'
 " Surrounds (brackets, tags, quotes ...)
 Plug 'tpope/vim-surround'
 
-" Add comment action for `gc` e.g. gcip to comment a paragraph
+" Add comment operator under `gc` e.g. gcip to comment a paragraph
 Plug 'tpope/vim-commentary'
+
+" Add replace operator under `gr` 
+Plug 'vim-scripts/ReplaceWithRegister'
 
 " Allow . for vim-surround commands
 Plug 'tpope/vim-repeat'
 
 " Autcompletion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+" Sorting
+Plug 'christoomey/vim-sort-motion'
 
 " Language Support ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " These are largely useful to help deoplete.
