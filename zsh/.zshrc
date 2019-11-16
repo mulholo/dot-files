@@ -74,6 +74,7 @@ alias wa-down="docker-compose -f docker-compose.yml -f webapp/docker-compose-dev
 alias wc-up="docker-compose -f docker-compose.yml -f webapp/docker-compose-dev.yml -f web_client/docker-compose-dev.yml up"
 alias wc-down="docker-compose -f docker-compose.yml -f webapp/docker-compose-dev.yml -f web_client/docker-compose-dev.yml down"
 alias stik="nvim ~/.stik.md"
+alias fun="echo 'Coding is fun. Shutting off the world, solving problems, being in flow; the satisfaction of working hard is one of the best feeling you can have for an hour. Make some red, green, refactor loops. Learn somethign new. Improve your skills. Be a hacker.'"
 
 # add Z
 . /usr/local/Cellar/z/1.9/etc/profile.d/z.sh
@@ -88,6 +89,8 @@ export PATH="$HOME/.npm-global/bin:$PATH"
 
 export NVM_DIR="/Users/jamesmulholland/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+export PATH="$HOME/.fastlane/bin:$PATH"
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
