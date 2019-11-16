@@ -27,6 +27,9 @@ Plug 'Yggdroot/indentLine'
 " Surrounds (brackets, tags, quotes ...)
 Plug 'tpope/vim-surround'
 
+" Add comment action for `gc` e.g. gcip to comment a paragraph
+Plug 'tpope/vim-commentary'
+
 " Allow . for vim-surround commands
 Plug 'tpope/vim-repeat'
 
