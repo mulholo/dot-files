@@ -45,9 +45,15 @@ Plug 'christoomey/vim-sort-motion'
 " Enable other text object plugins
 Plug 'kana/vim-textobj-user'
 
-" Text object for parts of camel and snake-case variables
+" Add text object for parts of camel and snake-case variables
 " e.g. foo_ba|r_baz -> civquux -> foo_quux_baz
 Plug 'Julian/vim-textobj-variable-segment'
+
+" Add text object for lines
+" ai -> indentation level and line above
+" ii -> indentation level, no line above
+" aI -> indentation level, line above and line below
+Plug 'michaeljsmith/vim-indent-object'
 
 " Language Support ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " These are largely useful to help deoplete.
