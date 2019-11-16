@@ -36,9 +36,6 @@ Plug 'vim-scripts/ReplaceWithRegister'
 " Allow . for vim-surround commands
 Plug 'tpope/vim-repeat'
 
-" Autcompletion
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
 " Sorting
 Plug 'christoomey/vim-sort-motion'
 
@@ -56,24 +53,8 @@ Plug 'Julian/vim-textobj-variable-segment'
 Plug 'michaeljsmith/vim-indent-object'
 
 " Language Support ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-" These are largely useful to help deoplete.
-" :help deoplete-options then search for EXTERNAL SOURCES to
-" see more language server extension options
-
 " Python Support
-Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'python/black'
-
-" TypeScript Support
-Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
-" Flow support
-" Plug 'flowtype/vim-flow'
-" Reason Support
-Plug 'reasonml-editor/vim-reason-plus'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
 
 " Haskell
 Plug 'eagletmt/ghcmod-vim'
@@ -82,8 +63,7 @@ Plug 'Shougo/vimproc'
 " Italic comments
 Plug 'codehearts/mascara-vim'
 
-" Any theme you can dream of
-" Plug 'flazz/vim-colorschemes'
+" Solarized Theme
 Plug 'lifepillar/vim-solarized8'
 
 " Syntax
@@ -145,7 +125,6 @@ let g:ale_fix_on_save = 1
 " set a better timeout
 let g:ale_lint_delay = 50
 
-" Add flow to javascript as needed
 let g:ale_linters = {
 \ 'javascript': ['eslint'],
 \ 'html': ['htmlhint'],
@@ -175,35 +154,11 @@ let g:fzf_action = {
 
 let python_highlight_all=1
 
-" Setup virtual envs for python so you don't need a new one
-" for every file you make
-" https://github.com/deoplete-plugins/deoplete-jedi#virtual-environments
-" let g:python_host_prog = '~/deoplete-venvs/venv2/bin/python'
-" let g:python3_host_prog = '~/deoplete-venvs/venv3/bin/python3'
-
-" Flow ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-" let g:javascript_plugin_flow = 1
-" Disable Flow checks on save
-" let g:flow#enable = 0
-" Don't use vim-flow quickfix window (
-
-
 " Octave ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 augroup filetypedetect 
 au! BufRead,BufNewFile *.m,*.oct set filetype=octave 
 augroup END 
-
-" Deoplete ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-" Reason Configuration
-let g:LanguageClient_serverCommands = {
-    \ 'reason': ['~/reason-language-server.exe'],
-    \ }
-
-" enable autocomplete
-let g:deoplete#enable_at_startup = 1
 
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -276,7 +231,6 @@ let g:solarized_visibility = "high"
 " Fix neovim cursorline colour issue
 highlight CursorLine ctermfg=black
 
-
 set cursorline                " show which column the cursor is in
 set number relativenumber     " Set relative line number and current line number
 set confirm                   " Ask what to do about unsaved/read-only files
@@ -345,7 +299,7 @@ xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
-" Deoplete TypeScript
+" TypeScript
 " Jump to X
 nnoremap <leader>jd :TSDef<CR>
 nnoremap <leader>jt :TSTypeDef<CR>
