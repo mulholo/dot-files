@@ -53,6 +53,10 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 
+" Haskell
+Plug 'eagletmt/ghcmod-vim'
+Plug 'Shougo/vimproc'
+
 " Italic comments
 Plug 'codehearts/mascara-vim'
 
