@@ -42,6 +42,13 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Sorting
 Plug 'christoomey/vim-sort-motion'
 
+" Enable other text object plugins
+Plug 'kana/vim-textobj-user'
+
+" Text object for parts of camel and snake-case variables
+" e.g. foo_ba|r_baz -> civquux -> foo_quux_baz
+Plug 'Julian/vim-textobj-variable-segment'
+
 " Language Support ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " These are largely useful to help deoplete.
 " :help deoplete-options then search for EXTERNAL SOURCES to
@@ -257,7 +264,7 @@ if (has("termguicolors"))
 set termguicolors
 endif
 syntax enable
-set background=light
+set background=dark
 colorscheme solarized8_flat " tomorrow-night-blue
 let g:solarized_visibility = "high"
 " Fix neovim cursorline colour issue
