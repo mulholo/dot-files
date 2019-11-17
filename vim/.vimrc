@@ -105,6 +105,24 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " https://github.com/neoclide/coc.nvim#example-vim-configuration
 
+let g:coc_global_extensions = [
+  \ 'coc-json',
+  \ 'coc-pairs',
+  \ 'coc-html',
+  \ 'coc-tsserver',
+  \ 'coc-snippets',
+  \ 'coc-word',
+  \ 'coc-jest',
+  \ 'coc-prettier',
+  \ 'coc-dictionary',
+  \ 'coc-highlight',
+  \ 'coc-yaml',
+  \ 'coc-svg',
+  \ 'coc-markdownlint',
+  \ 'coc-python',
+  \ 'coc-styled-components',
+  \ 'coc-stylelint']
+
 " if hidden is not set, TextEdit might fail.
 set hidden
 
@@ -134,6 +152,8 @@ inoremap <silent><expr> <TAB>
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+let g:UltiSnipsExpandTrigger = "<nop>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -210,6 +230,15 @@ imap <C-j> <Plug>(coc-snippets-expand-jump)
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
+
+" Run jest for current project
+command! -nargs=0 Jest :call  CocAction('runCommand', 'jest.projectTest')
+
+" Run jest for current file
+command! -nargs=0 JestCurrent :call  CocAction('runCommand', 'jest.fileTest', ['%'])
+
+" Run jest for current test
+nnoremap <leader>te :call CocAction('runCommand', 'jest.singleTest')<CR>
 
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
