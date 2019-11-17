@@ -19,6 +19,8 @@
     > example coc setup: https://github.com/neoclide/coc.nvim#example-vim-configurationj
     * [x] coc.vim https://github.com/neoclide/coc.nvim
     * [ ] FZF fixes
+    * [ ] Haskell for Coc http://marco-lopes.com/articles/Vim-and-Haskell-in-2019/
+    * [ ] Make UltiSnips work with coc-snippets
 
 ## Done
 
