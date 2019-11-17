@@ -153,8 +153,6 @@ inoremap <silent><expr> <TAB>
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-let g:UltiSnipsExpandTrigger = "<nop>"
-
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
@@ -315,18 +313,6 @@ nnoremap <leader>td :call TestFile()<CR>
 if has('nvim')
   tmap <C-o> <C-\><C-n>
 endif
-
-
-" Snippets ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-" These get managed by coc-snippets
-Plug 'SirVer/ultisnips'
-
-" Open UltiSnips in a split window rather than replacing
-" current buffer 
-let g:UltiSnipsEditSplit="vertical"
-" Set UltiSnips directory location
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.dot-files/vim/UltiSnips']
 
 " Fuzzy search ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Plug '/usr/local/opt/fzf'
