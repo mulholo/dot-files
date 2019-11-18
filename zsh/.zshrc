@@ -58,15 +58,13 @@ export FZF_DEFAULT_COMMAND="ag -l --hidden -g '^(?!.*node_modules\/|.*dist\/|.*b
 
 # Aliases
 alias lf="lsof -i :"
-alias c="clear"
 alias cpr="cd ~/proj/"
+alias dif="git diff"
+alias sta="git status"
 alias v="nvim"
-alias dv="yarn dev"
 alias zshrc="nvim ~/.zshrc"
 alias vimrc="nvim ~/.vimrc"
-alias venv="source venv/bin/activate"
 alias pom="noti ~/pomodoro"
-alias jira="~/go/bin/jira"
 alias ngrok="~/ngrok"
 alias stik="nvim ~/.stik.md"
 # Show current requested and assigned PRS
