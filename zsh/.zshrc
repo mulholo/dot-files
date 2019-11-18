@@ -93,6 +93,10 @@ alias ctags="`brew --prefix`/bin/ctags"
 
 export GOPATH=$HOME/go
 
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
+export ANDROID_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
+export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
+
 export PATH="$HOME/.npm-global/bin:$PATH"
 
 export NVM_DIR="/Users/jamesmulholland/.nvm"
