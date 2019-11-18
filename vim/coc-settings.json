@@ -1,0 +1,27 @@
+{
+  "coc.preferences.jumpCommand": "drop",
+  "coc.preferences.hoverTarget": "float",
+  "diagnostic.refreshOnInsertMode": true,
+  "suggest.floatEnable": true,
+  "suggest.noselect": false,
+  "suggest.acceptSuggestionOnCommitCharacter": true,
+  "suggest.enablePreview": true,
+  "suggest.enablePreselect": true,
+  "diagnostic.maxWindowHeight": 30,
+  "signature.maxWindowHeight": 20,
+  "diagnostic.checkCurrentLine": true,
+  "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "Markdown",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "prettier.requireConfig": false,
+  "tsserver.formatOnType": true,
+  "jest.terminalPosition": "bottom",
+  "coc.preferences.formatOnType": true
+}
