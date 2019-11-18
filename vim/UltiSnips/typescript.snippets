@@ -82,8 +82,12 @@ snippet "ii" "import" br
 import ${1} from '${2:.}/${3:$1}';
 endsnippet
 
+snippet "ed" "export" br
+export default ${1:`!v expand('%:t:r')`}
+endsnippet
+
 snippet "e(xport|xp|x)?" "export" br
-export ${1:default };
+export { $1 }
 endsnippet
 
 snippet ie "Import file then export" b
@@ -130,6 +134,10 @@ endsnippet
 
 # REACT & JSX ==============================================
 
+snippet is "import styles" b 
+import * as S from '${1:`!v expand('%:t:r')`}Styles'
+endsnippet
+
 snippet re "React Functional Component" b
 import React from 'react';
 endsnippet
@@ -158,7 +166,11 @@ export default $1;
 endsnippet
 
 snippet pp "Get Props"
-${props => props.${1}};
+${props => props.${1}}
+endsnippet
+
+snippet ppp "Get Props destructured"
+${({ theme$1 }) => ${2}};
 endsnippet
 
 snippet cn "className"
@@ -277,4 +289,19 @@ endsnippet
 
 snippet ir "isRequired" w
 isRequired,
+endsnippet
+
+snippet story "Storybook file" b
+import React from 'react'
+import { storiesOf } from '@storybook/react'
+import ${1:`!v expand('%:t:r')`} from './index'
+
+storiesOf('Library|$1', module)
+  .add('$1', () => <$1/>)
+endsnippet
+
+
+# CSS ======================================================
+snippet red "border: 2px solid red" b 
+border: 2px solid red;
 endsnippet

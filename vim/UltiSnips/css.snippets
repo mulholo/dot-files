@@ -5,3 +5,24 @@ endsnippet
 snippet ig "styleint ignore"
 /* stylelint-disable-next-line */
 endsnippet
+
+snippet va "styleint ignore"
+var(--$1);
+endsnippet
+
+snippet cl "class" b
+.$1 {
+	$2
+}
+endsnippet
+
+snippet fl "display: flex" 
+display: flex;
+${1:justify-content: center;}
+${2:flex-direction: column;}
+${3:align-items: center;}
+endsnippet
+
+snippet red "red debug border" 
+border: 2px solid red;
+endsnippet
