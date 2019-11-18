@@ -250,8 +250,9 @@ Plug 'python/black'
 Plug 'nvie/vim-flake8'
 
 " Haskell --------------------
-Plug 'eagletmt/ghcmod-vim'
-Plug 'Shougo/vimproc'
+Plug 'neovimhaskell/haskell-vim'
+" For when I want to improve this:
+" http://marco-lopes.com/articles/Vim-and-Haskell-in-2019/
 
 " Generic --------------------
 " Catch-all syntax

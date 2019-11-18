@@ -23,6 +23,5 @@
   "prettier.requireConfig": false,
   "tsserver.formatOnType": true,
   "jest.terminalPosition": "bottom",
-  "coc.source.ultisnips.enable": true,
   "coc.preferences.formatOnType": true
 }
