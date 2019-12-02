@@ -72,7 +72,7 @@ alias prs="hub pr list --state=open --format='%pC%>(8)%i%Creset %t %n   Author: 
 # Memrise
 alias wa-up="docker-compose -f docker-compose.yml -f webapp/docker-compose-dev.yml up"
 alias wa-down="docker-compose -f docker-compose.yml -f webapp/docker-compose-dev.yml down"
-alias dc="cd ~/proj/memrise && docker-compose -f docker-compose.yml -f webapp/docker-compose-dev.yml -f web_client/docker-compose-dev.yml" # args go after here
+alias dc="cd ~/proj/memrise && docker-compose -f docker-compose.yml -f webapp/docker-compose-dev.yml -f web_client/docker-compose-dev.yml -f meme/docker-compose-dev.yml" # args go after here
 alias wsh="docker exec -it web_client sh"
 
 # FUCK
