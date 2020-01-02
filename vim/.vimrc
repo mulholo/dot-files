@@ -386,6 +386,9 @@ set clipboard=unnamed
 set ignorecase
 set smartcase
 
+" Clear search with ESC
+nnoremap <esc> :noh<return><esc>
+
 " Auto reload vimrc 
 augroup myvimrc
   au!
