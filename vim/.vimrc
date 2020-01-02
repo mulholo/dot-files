@@ -270,6 +270,24 @@ Plug 'mattn/emmet-vim'
 " ,, to trigger emmet
 let g:user_emmet_leader_key=','
 
+" Airline ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'edkolev/tmuxline.vim'
+
+" Use nice symbols from a powerline font
+let g:airline_powerline_fonts = 1
+
+" Left is configured with a, b, c, right with x, y, z
+" cwin and win affect the current (active) window and the
+" in-active windows respectively.
+let g:tmuxline_preset = {
+      \'a'    : '#S',
+      \'b'    : '#W',
+      \'win'  : '#I #W',
+      \'cwin' : '#I #W',
+      \'y'    : '%R'}
+
 " Theming ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Plug 'lifepillar/vim-solarized8'
 
@@ -294,10 +312,6 @@ function! RunTests(command_variable)
 
   split
   execute 'terminal ' . l:command
-endfunction
-
-function! TestSuite()
-  call RunTests('g:test#suite_command')
 endfunction
 
 function! TestFile()
