@@ -276,7 +276,10 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 
 " Use nice symbols from a powerline font
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
+let g:tmuxline_powerline_separators = 0
+
+" Confusingly, we config tmux here
 
 " Left is configured with a, b, c, right with x, y, z
 " cwin and win affect the current (active) window and the
