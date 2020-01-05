@@ -187,9 +187,6 @@ endfunction
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
-
 augroup mygroup
   autocmd!
   " Setup formatexpr specified filetype(s).
@@ -337,7 +334,27 @@ endif
 Plug '/usr/local/opt/fzf' " use brew-installed fzf instance
 Plug 'junegunn/fzf.vim'
 
-nnoremap <leader>f :Files<CR>
+" search files from working directory
+nnoremap <leader>f :FZF<CR>
+
+" search inside files with Rg then fzf the output
+" Don't add another map with a second char after this or
+" the load for this will slow down
+nnoremap <leader>r :Rg<CR>
+
+" fzf search open windows
+nnoremap <leader>w :Windows<CR>
+
+" fzf search lines in cur. buffer
+nnoremap <leader>b :BLines<CR>
+
+" fzf search command history
+nnoremap <leader>c :History:<CR>
+
+" fzf search search history
+nnoremap <leader>/ :History:<CR>
+
+" TODO fzf search snippets once ultisnips working with COC
 
 " Match actions to NERDTree
 let g:fzf_action = {
@@ -419,7 +436,10 @@ augroup END
 " ==========================================================
 
 " Copy the path to the current file into system-level clipboard
-nnoremap <leader>cp :let @+ = expand("%")<CR>
+function! s:copy_file_path() 
+  let @+ = expand("%")
+endfunction
+command! -nargs=0 CopyFilePath :call s:copy_file_path()
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -431,7 +451,6 @@ nnoremap <leader>h <c-w>h
 nnoremap <leader>j <c-w>j
 nnoremap <leader>k <c-w>k
 nnoremap <leader>l <c-w>l
-nnoremap <leader>o <c-w><c-w>
 nnoremap <leader>n gt
 nnoremap <leader>p gT
 
