@@ -333,15 +333,17 @@ if has('nvim')
 endif
 
 " Fuzzy search ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Plug '/usr/local/opt/fzf'
+
+Plug '/usr/local/opt/fzf' " use brew-installed fzf instance
 Plug 'junegunn/fzf.vim'
 
+nnoremap <leader>f :Files<CR>
+
+" Match actions to NERDTree
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-i': 'split',
   \ 'ctrl-s': 'vsplit' }
-
-nnoremap <leader>f :FZF<CR>
 
 call plug#end()
 
