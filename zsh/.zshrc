@@ -77,9 +77,12 @@ alias wa-up="docker-compose -f docker-compose.yml -f webapp/docker-compose-dev.y
 alias wa-down="docker-compose -f docker-compose.yml -f webapp/docker-compose-dev.yml down"
 alias dc="cd ~/proj/memrise && docker-compose -f docker-compose.yml -f webapp/docker-compose-dev.yml -f meme/docker-compose-dev.yml -f cas/docker-compose-dev.yml" # args go after here
 
+# feck - fuzzy checkout
+# Use FZF to search all branches and checkout immediately
+alias feck="git branch | fzf | xargs git checkout"
+
 # FUCK
 eval $(thefuck --alias)
-eval $(thefuck --alias feck)
 eval $(thefuck --alias FUCK)
 alias stik="nvim ~/.stik.md"
 alias fun="echo 'Coding is fun. Shutting off the world, solving problems, being in flow; the satisfaction of working hard is one of the best feeling you can have for an hour. Make some red, green, refactor loops. Learn somethign new. Improve your skills. Be a hacker.'"
