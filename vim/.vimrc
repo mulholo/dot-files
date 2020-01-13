@@ -441,6 +441,9 @@ function! s:copy_file_path()
 endfunction
 command! -nargs=0 CopyFilePath :call s:copy_file_path()
 
+" Type // to perform search for visual selection
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
+
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
