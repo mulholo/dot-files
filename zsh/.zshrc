@@ -77,6 +77,7 @@ alias prs="hub pr list --state=open --format='%pC%>(8)%i%Creset %t %n   Author: 
 alias wa-up="docker-compose -f docker-compose.yml -f webapp/docker-compose-dev.yml up"
 alias wa-down="docker-compose -f docker-compose.yml -f webapp/docker-compose-dev.yml down"
 alias dc="cd ~/proj/memrise && docker-compose -f docker-compose.yml -f webapp/docker-compose-dev.yml -f meme/docker-compose-dev.yml -f cas/docker-compose-dev.yml" # args go after here
+alias get-coverage="yarn test:coverage && open coverage/lcov-report/index.html"
 
 # feck - fuzzy checkout
 # Use FZF to search all branches and checkout immediately
