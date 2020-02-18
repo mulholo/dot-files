@@ -183,6 +183,8 @@ font:
 #draw_bold_text_with_bright_colors: true
 
 # Colors (Solarized Dark)
+# Pick from table at the bottom here if there are further issues
+# https://ethanschoonover.com/solarized/
 colors:
   # Default colors
   primary:
@@ -196,9 +198,9 @@ colors:
 
   # Normal colors
   normal:
-    black:   '0x073642' # base02
-    red:     '0xdc322f' # red
-    green:   '0x859900' # green
+    black:   '#262626' # base02
+    red:     '#d70000' # red
+    green:   '#859900' # green
     yellow:  '0xb58900' # yellow
     blue:    '0x268bd2' # blue
     magenta: '0xd33682' # magenta
@@ -208,8 +210,8 @@ colors:
   # Bright colors
   bright:
     black:   '#526F76' # base03
-    red:     '0xcb4b16' # orange
-    green:   '0x586e75' # base01
+    red:     '#d75f00' # orange
+    green:   '#5f8700' # base01
     yellow:  '0x657b83' # base00
     blue:    '0x839496' # base0
     magenta: '0x6c71c4' # violet
