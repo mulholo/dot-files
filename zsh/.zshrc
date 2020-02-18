@@ -48,7 +48,8 @@ prompt pure
 # fi
 export EDITOR='nvim'
 
-export FZF_DEFAULT_COMMAND="ag -l --hidden -g '^(?!.*node_modules\/|.*dist\/|.*build).*$'"
+export FZF_DEFAULT_COMMAND="rg --files --hidden --follow"
+export FZF_DEFAULT_OPTS='--height 96% --preview="bat --style=numbers --color=always {} | head -500" --preview-window=right:62%'
 
 # Hide annoying iTerm2 title
 echo -ne "\033]0;" "\007"
@@ -117,3 +118,4 @@ if [ -f '/Users/jamesmulholland/google-cloud-sdk/path.zsh.inc' ]; then . '/Users
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/jamesmulholland/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jamesmulholland/google-cloud-sdk/completion.zsh.inc'; fi
+fpath+=${ZDOTDIR:-~}/.zsh_functions

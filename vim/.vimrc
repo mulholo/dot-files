@@ -335,6 +335,10 @@ Plug '/usr/local/opt/fzf' " use brew-installed fzf instance
 Plug 'junegunn/fzf.vim'
 
 " search files from working directory
+" nnoremap <leader>f :GFiles<CR>
+" fzf file fuzzy search that respects .gitignore
+" If in git directory, show only files that are committed, staged, or unstaged
+" else use regular :Files
 nnoremap <leader>f :FZF<CR>
 
 " search inside files with Rg then fzf the output
