@@ -83,6 +83,8 @@ alias get-coverage="yarn test:coverage && open coverage/lcov-report/index.html"
 # feck - fuzzy checkout
 # Use FZF to search all branches and checkout immediately
 alias feck="git branch | fzf | xargs git checkout"
+# copy current branch name to clipboard
+alias bcopy="git branch | grep '^\*' | cut -d' ' -f2 | tr -d '\n' | pbcopy"
 
 # FUCK
 eval $(thefuck --alias)
