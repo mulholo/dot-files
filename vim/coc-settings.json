@@ -24,5 +24,10 @@
   "tsserver.formatOnType": true,
   "jest.terminalPosition": "bottom",
   "snippets.userSnippetsDirectory": "~/.dot-files/vim/UltiSnips",
+  "snippets.extends": {
+    "javascriptreact": ["javascript"],
+    "typescript": ["javascript"],
+    "typescriptreact": ["typescript"]
+  },
   "coc.preferences.formatOnType": true
 }
