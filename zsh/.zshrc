@@ -47,6 +47,7 @@ prompt pure
 #   export EDITOR='vim'
 # fi
 export EDITOR='nvim'
+export VIMCONFIG="$HOME/.dot-files/vim"
 
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow"
 export FZF_DEFAULT_OPTS='--height 96% --preview="bat --style=numbers --color=always {} | head -500" --preview-window=right:62%'

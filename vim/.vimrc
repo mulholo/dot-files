@@ -165,7 +165,7 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Or use `complete_info` if your vim support it, like:
 " inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" Use `[g` and `]g` to navigate diagnostics
+" Use `cj` and `ck` to navigate diagnostics
 " Pairs nicely with the ALE mappings
 nmap <silent> ck <Plug>(coc-diagnostic-prev)
 nmap <silent> cj <Plug>(coc-diagnostic-next)
@@ -432,7 +432,7 @@ nnoremap <esc> :noh<return><esc>
 " Auto reload vimrc 
 augroup myvimrc
   au!
-  au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+  au BufWritePost .vimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
 augroup END
 
 " ==========================================================

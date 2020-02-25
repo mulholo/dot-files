@@ -23,5 +23,6 @@
   "prettier.requireConfig": false,
   "tsserver.formatOnType": true,
   "jest.terminalPosition": "bottom",
+  "snippets.userSnippetsDirectory": "~/.dot-files/vim/UltiSnips",
   "coc.preferences.formatOnType": true
 }
