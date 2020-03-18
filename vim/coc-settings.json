@@ -27,6 +27,7 @@
   "snippets.extends": {
     "javascriptreact": ["javascript"],
     "typescript": ["javascript"],
+    "html": ["javascript"],
     "typescriptreact": ["javascriptreact"]
   },
   "coc.preferences.formatOnType": true
