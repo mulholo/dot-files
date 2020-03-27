@@ -110,6 +110,7 @@ let g:coc_global_extensions = [
   \ 'coc-pairs',
   \ 'coc-html',
   \ 'coc-tsserver',
+  \ 'coc-reason',
   \ 'coc-snippets',
   \ 'coc-word',
   \ 'coc-jest',
@@ -290,9 +291,6 @@ let g:tmuxline_preset = {
 
 " Theming ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Plug 'lifepillar/vim-solarized8'
-
-" Repl ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Plug 'metakirby5/codi.vim'
 
 " Testing ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Plug 'janko-m/vim-test'
