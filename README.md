@@ -10,11 +10,20 @@ I struggled for ages to have a proper system in place but now I use GNU Stow in 
 
 ### Usage
 
-```bash
-$ git clone git@github.com:mulholio/dot-files.git ~/.dot-files
-$ cd ~/.dot-files
-$ stow
-```
+- []Clone
+
+  ```bash
+  $ git clone git@github.com:mulholio/dot-files.git ~/.dot-files
+  ```
+
+- [ ] Run `stow`
+
+  ```bash
+  $ cd ~/.dot-files
+  $ stow
+  ```
+
+- [] Install Homebrew packages with Brewfile: `brew bundle`
 
 ### Tmux
 
@@ -30,13 +39,19 @@ Sometimes my terminal seems to have issues using italics within Tmux. [This guid
 
 - [Taskell](https://github.com/smallhadroncollider/taskell)
 - [Alfred](https://www.alfredapp.com/)
- - [Spotify](http://alfred-spotify-mini-player.com/setup/)
- - [Keyboard Maestro](https://github.com/iansinnott/alfred-maestro)
+- [Spotify](http://alfred-spotify-mini-player.com/setup/)
+- [Keyboard Maestro](https://github.com/iansinnott/alfred-maestro)
 
 ---
 
 ## Appendix
 
 ### Inspiration
+
 - https://github.com/nikitavoloboev/my-mac-os
+- https://github.com/jessfraz/dotfiles/tree/master/bin
+- https://github.com/jessfraz/.vim
+- https://github.com/davidxmoody/dotfiles
+- https://github.com/christoomey/dotfiles
 - https://alexpearce.me/2016/02/managing-dotfiles-with-stow/
+
