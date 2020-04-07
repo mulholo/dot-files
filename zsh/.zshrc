@@ -61,42 +61,33 @@ echo -ne "\033]0;" "\007"
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# Aliases
-alias lf="lsof -i :"
-alias cpr="cd ~/proj/"
-alias dif="git diff"
-alias sta="git status"
-alias current-branch="git rev-parse --abbrev-ref HEAD"
-alias v="nvim"
-alias zshrc="nvim ~/.zshrc"
-alias vimrc="nvim ~/.vimrc"
-alias pom="noti ~/pomodoro"
-alias ngrok="~/ngrok"
-alias stik="nvim ~/.stik.md"
-# Show current requested and assigned PRS
-alias prs="hub pr list --state=open --format='%pC%>(8)%i%Creset %t %n   Author: %au | Requested: %rs %n   URL: %U %n%n' --limit=200 --sort=long-running | grep --color='never' --context=2 -E 'mulholio'"
-# Memrise
-alias wa-up="docker-compose -f docker-compose.yml -f webapp/docker-compose-dev.yml up"
-alias wa-down="docker-compose -f docker-compose.yml -f webapp/docker-compose-dev.yml down"
-alias dc="cd ~/proj/memrise && docker-compose -f docker-compose.yml -f webapp/docker-compose-dev.yml -f meme/docker-compose-dev.yml -f cas/docker-compose-dev.yml" # args go after here
-alias get-coverage="yarn test:coverage && open coverage/lcov-report/index.html"
+# Src: https://davidxmoody.com/2014/permanent-bash-aliases/
+# Example usage:
+# mkalias hello=echo hello world  # Quotes optional
+mkalias() {
+  # Flatten arguments into one string
+  local full_string=$*
 
-# feck - fuzzy checkout
-# Use FZF to search all branches and checkout immediately
-alias feck="git branch | fzf | xargs git checkout"
-# copy current branch name to clipboard
-alias bcopy="git branch | grep '^\*' | cut -d' ' -f2 | tr -d '\n' | pbcopy"
+  # Extract the first and last parts
+  local alias_name=${full_string%%=*}
+  local alias_result=${full_string#*=}
+
+  # Construct the new command
+  local alias_command="alias $alias_name='$alias_result'"
+
+  # Execute the command, if successful then print 
+  # out the alias and add it to ~/.bash_aliases
+  eval "$alias_command" && \
+  alias "$alias_name" | tee -a "$HOME/.bash_aliases"
+}
 
 # FUCK
 eval $(thefuck --alias)
 eval $(thefuck --alias FUCK)
-alias stik="nvim ~/.stik.md"
-alias fun="echo 'Coding is fun. Shutting off the world, solving problems, being in flow; the satisfaction of working hard is one of the best feeling you can have for an hour. Make some red, green, refactor loops. Learn somethign new. Improve your skills. Be a hacker.'"
 
 # add Z
 . /usr/local/Cellar/z/1.9/etc/profile.d/z.sh
 # avoid clash with xcode ctags
-alias ctags="`brew --prefix`/bin/ctags"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
