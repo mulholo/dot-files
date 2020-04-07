@@ -110,7 +110,6 @@ let g:coc_global_extensions = [
   \ 'coc-pairs',
   \ 'coc-html',
   \ 'coc-tsserver',
-  \ 'coc-reason',
   \ 'coc-snippets',
   \ 'coc-word',
   \ 'coc-jest',
@@ -240,6 +239,12 @@ nnoremap <leader>te :call CocAction('runCommand', 'jest.singleTest')<CR>
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Other Language Support & Syntax ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+" ReasonML -------------------
+let g:LanguageClient_serverCommands = {
+    \ 'reason': ['/Users/jamesmulholland/.dot-files/vim/reason-language-server']
+    \ }
+
 " Python ---------------------
 let python_highlight_all=1
 " Formatting

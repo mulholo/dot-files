@@ -1,4 +1,10 @@
 {
+  "coc.source.dictionary.priority": 1,
+  "coc.source.word.priority": 1,
+  "coc.source.buffer.priority": 2,
+  "coc.source.around.priority": 3,
+  "coc.source.file.priority": 4,
+  "coc.source.ultisnips.priority": 10,
   "coc.preferences.jumpCommand": "drop",
   "coc.preferences.hoverTarget": "float",
   "diagnostic.refreshOnInsertMode": true,
