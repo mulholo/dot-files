@@ -78,7 +78,7 @@ mkalias() {
   # Execute the command, if successful then print 
   # out the alias and add it to ~/.bash_aliases
   eval "$alias_command" && \
-  alias "$alias_name" | tee -a "$HOME/.aliases"
+  alias "$alias_name" | tee -a "$HOME/.bash_aliases"
 }
 
 source $HOME/.bash_aliases
