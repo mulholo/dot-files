@@ -81,7 +81,7 @@ mkalias() {
   alias "$alias_name" | tee -a "$HOME/.aliases"
 }
 
-source $HOME/.aliases
+source $HOME/.bash_aliases
 
 # FUCK
 eval $(thefuck --alias)
