@@ -1,12 +1,9 @@
-alias cpr="cd ~/proj/"
-alias current_branch="git rev-parse --abbrev-ref HEAD"
 alias v="nvim"
+alias cpr="cd ~/proj/"
+alias curbranch="git rev-parse --abbrev-ref HEAD"
 alias zshrc="nvim ~/.zshrc"
-alias vimrc="nvim ~/.vimrc"
 alias pom="noti ~/pomodoro"
 alias ngrok="~/ngrok"
-# Show current requested and assigned PRS
-alias prs="hub pr list --state=open --format='%pC%>(8)%i%Creset %t %n   Author: %au | Requested: %rs %n   URL: %U %n%n' --limit=200 --sort=long-running | grep --color='never' --context=2 -E 'mulholio'"
 # copy current branch name to clipboard
 alias bcopy="git branch | grep '^\*' | cut -d' ' -f2 | tr -d '\n' | pbcopy"
 
