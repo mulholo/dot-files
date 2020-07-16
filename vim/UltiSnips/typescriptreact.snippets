@@ -33,3 +33,19 @@ const msgs = defineMessages({
   $1
 });
 endsnippet
+
+snippet story "storybook" b
+import React from 'react';
+import `!p snip.rv = snip.basename[:-8]` from '.';
+
+const ${1:Story} = () => (
+	$2
+);
+
+export { $1 as `!p snip.rv = snip.basename[:-8]` };
+
+export default {
+  title: 'Library/`!p snip.rv = snip.basename[:-8]`'
+	$3
+};
+endsnippet
