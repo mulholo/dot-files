@@ -85,10 +85,14 @@ mkalias() {
   # Execute the command, if successful then print 
   # out the alias and add it to ~/.bash_aliases
   eval "$alias_command" && \
-  alias "$alias_name" | tee -a "$HOME/.bash_aliases"
+  echo "$alias_command" >> "$HOME/.bash_aliases" && \
+  echo "$alias_command"
 }
 
 source $HOME/.bash_aliases
+
+
+export TMUXINATOR_CONFIG="~/.tmuxinator"
 
 # FUCK
 eval $(thefuck --alias)
@@ -113,6 +117,10 @@ export NVM_DIR="/Users/jamesmulholland/.nvm"
 
 export PATH="$HOME/.fastlane/bin:$PATH"
 
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 export BAT_CONFIG_PATH="/Users/jamesmulholland/.dot-files/bat/bat.conf"
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -124,3 +132,5 @@ if [ -f '/Users/jamesmulholland/google-cloud-sdk/path.zsh.inc' ]; then . '/Users
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/jamesmulholland/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jamesmulholland/google-cloud-sdk/completion.zsh.inc'; fi
 fpath+=${ZDOTDIR:-~}/.zsh_functions
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
+export PATH="/usr/local/opt/swagger-codegen@2/bin:$PATH"
