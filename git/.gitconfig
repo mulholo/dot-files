@@ -56,7 +56,7 @@ linenumber = normal
 [core]
 	excludesfile = /Users/jamesmulholland/.dot-files/git/.gitignore
 	editor = nvim
-  pager = delta --dark
+  pager = delta --dark --side-by-side
 [difftool]
   prompt = true
 [diff]
