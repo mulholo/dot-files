@@ -111,17 +111,12 @@ let g:coc_global_extensions = [
   \ 'coc-html',
   \ 'coc-tsserver',
   \ 'coc-snippets',
-  \ 'coc-word',
-  \ 'coc-jest',
   \ 'coc-prettier',
   \ 'coc-dictionary',
   \ 'coc-highlight',
   \ 'coc-yaml',
   \ 'coc-svg',
-  \ 'coc-markdownlint',
-  \ 'coc-python',
-  \ 'coc-styled-components',
-  \ 'coc-stylelint']
+  \ 'coc-styled-components']
 
 " if hidden is not set, TextEdit might fail.
 set hidden
@@ -225,15 +220,6 @@ imap <C-j> <Plug>(coc-snippets-expand-jump)
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
-
-" Run jest for current project
-command! -nargs=0 Jest :call  CocAction('runCommand', 'jest.projectTest')
-
-" Run jest for current file
-command! -nargs=0 JestCurrent :call  CocAction('runCommand', 'jest.fileTest', ['%'])
-
-" Run jest for current test
-nnoremap <leader>te :call CocAction('runCommand', 'jest.singleTest')<CR>
 
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
@@ -372,6 +358,8 @@ let g:fzf_action = {
   \ 'ctrl-s': 'vsplit' }
 
 call plug#end()
+
+let g:kite_supported_languages = ['python', 'javascript', 'go']
 
 " ==========================================================
 " GENERAL CONFIG
