@@ -337,20 +337,22 @@ endif
 Plug '/usr/local/opt/fzf' " use brew-installed fzf instance
 Plug 'junegunn/fzf.vim'
 
-" search files from working directory
-" nnoremap <leader>f :GFiles<CR>
-" fzf file fuzzy search that respects .gitignore
-" If in git directory, show only files that are committed, staged, or unstaged
-" else use regular :Files
-nnoremap <leader>f :FZF<CR>
+" search files
+nnoremap <leader>f :GFiles<CR>
 
 " search inside files with Rg then fzf the output
 " Don't add another map with a second char after this or
 " the load for this will slow down
 nnoremap <leader>r :Rg<CR>
+" Fix bat preview:
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --color=always --smart-case -- '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
 
 " fzf search open windows
 nnoremap <leader>w :Windows<CR>
+
 
 " fzf search lines in cur. buffer
 nnoremap <leader>b :BLines<CR>
