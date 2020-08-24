@@ -21,44 +21,6 @@ const ${1:`!v expand('%:t:r')`} = () => (
 export default $1
 endsnippet
 
-snippet rsc "React Styled Component" b
-import styled from 'styled-components'
-
-export const ${1:`!v expand('%:t:r')`} = styled.${2:div}\`
-	$3
-\`
-endsnippet
-
-snippet rscc "Styled Component with CSS" b
-import styled, { css } from 'styled-components'
-
-export const $1 = styled.${2:div}(({ theme }) => css\`
-	$3
-\`);
-endsnippet
-
-snippet sc "React Styled Component" b
-export const ${1:`!v expand('%:t:r')`} = styled.${2:div}\`
-	$3
-\`
-endsnippet
-
-snippet scc "React Styled Component using CSS" b
-export const $1 = styled.${2:div}(({ theme }) => css\`
-	$3
-\`);
-endsnippet
-
-snippet rnsc "React Native Styled Component" b
-import styled from 'styled-components/native'
-
-const ${1:`!v expand('%:t:r')`} = styled.${2:View}\`
-	$3
-\`
-
-export default $1
-endsnippet
-
 snippet cn "className"
 className="$1"
 endsnippet
