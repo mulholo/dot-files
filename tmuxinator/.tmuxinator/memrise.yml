@@ -30,7 +30,7 @@ startup_window: editor
 # startup_pane: 1
 
 windows:
-  - editor: nvim ./web_client
+  - editor: cd web_client && nvim .
   - server:
       layout: even-horizontal
       panes:
