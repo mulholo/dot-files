@@ -112,8 +112,6 @@ let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-snippets',
   \ 'coc-prettier',
-  \ 'coc-dictionary',
-  \ 'coc-highlight',
   \ 'coc-yaml',
   \ 'coc-svg',
   \ 'coc-styled-components']
@@ -286,7 +284,7 @@ Plug 'lifepillar/vim-solarized8'
 " Testing ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Plug 'janko-m/vim-test'
 
-" vim-test docker setup
+" vim-test docker setup for Memrise
 let g:test#suite_command = 'docker exec -it web_client yarn test $file'
 let g:test#file_command = 'docker exec -it web_client yarn test $file'
 
@@ -440,7 +438,7 @@ function! s:copy_file_path()
 endfunction
 command! -nargs=0 CopyFilePath :call s:copy_file_path()
 
-" Type // to perform search for visual selection
+" Type // in VISUAL mode to search for text under cursor
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)

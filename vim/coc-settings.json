@@ -19,8 +19,6 @@
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
-    "markdown",
-    "Markdown",
     "javascript",
     "javascriptreact",
     "typescript",
