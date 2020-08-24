@@ -324,7 +324,7 @@ Plug '/usr/local/opt/fzf' " use brew-installed fzf instance
 Plug 'junegunn/fzf.vim'
 
 " search files
-nnoremap <leader>f :GFiles<CR>
+nnoremap <leader>f :Files<CR>
 
 " search inside files with Rg then fzf the output
 " Don't add another map with a second char after this or
