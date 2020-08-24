@@ -257,6 +257,11 @@ Plug 'mattn/emmet-vim'
 " ,, to trigger emmet
 let g:user_emmet_leader_key=','
 
+" Markdown -------------------
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+" do not close the preview tab when switching to other buffers
+let g:mkdp_auto_close = 0
+
 " Airline ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
