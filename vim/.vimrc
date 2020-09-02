@@ -113,6 +113,7 @@ let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-prettier',
   \ 'coc-yaml',
+  \ 'coc-tailwindcss',
   \ 'coc-svg',
   \ 'coc-styled-components']
 
