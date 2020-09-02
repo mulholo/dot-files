@@ -28,6 +28,10 @@ name = mulholio
   commit = blue
   whitespace = red
   context = normal
+  newMoved = green dim
+  oldMoved = yellow dim
+  newMovedAlternative = blue dim
+  oldMovedAlternative = red dim
 [color "branch"]
   current = cyan
   local = blue
