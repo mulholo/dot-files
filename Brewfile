@@ -15,6 +15,7 @@ brew "git-delta"
 brew "gnu-sed"
 brew "howdoi"
 brew "neovim"
+brew "noti"
 brew "postgresql", restart_service: true
 brew "ripgrep"
 brew "stow"
