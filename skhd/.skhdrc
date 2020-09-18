@@ -9,3 +9,9 @@ shift + alt - h : yabai -m window --swap west
 shift + alt - j : yabai -m window --swap south
 shift + alt - k : yabai -m window --swap north
 shift + alt - l : yabai -m window --swap east
+
+# enable/disable tiling
+# t for tile
+ctrl + alt - t : yabai -m space --layout bsp
+# for float
+ctrl + alt - f : yabai -m space --layout float
