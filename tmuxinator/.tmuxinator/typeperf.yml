@@ -1,7 +1,7 @@
 # typeperf.yml
 
 name: TYPEPERF
-root: ~/proj/typeperf/
+root: ~/proj/typeperf-frontend/
 
 # Project hooks
 
