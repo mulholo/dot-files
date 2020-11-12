@@ -104,6 +104,9 @@ eval $(thefuck --alias FUCK)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# init rbenv
+eval "$(rbenv init -)"
+
 export GOPATH=$HOME/go
 
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
