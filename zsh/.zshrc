@@ -25,8 +25,8 @@ source ~/.zplug/init.zsh
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # HIST_STAMPS="mm/dd/yyyy"
 
-zplug "plugins/git",   from:oh-my-zsh
-zplug "plugins/yarn",   from:oh-my-zsh
+zplug "plugins/git",   from:oh-my-zsh, lazy:true
+zplug "plugins/yarn",   from:oh-my-zsh, lazy:true
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -40,9 +40,6 @@ fi
 zplug load --verbose
 
 source $ZSH/oh-my-zsh.sh
-
-autoload -U promptinit; promptinit
-prompt pure
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -122,7 +119,6 @@ export PATH="$HOME/.fastlane/bin:$PATH"
 
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
 export BAT_CONFIG_PATH="/Users/jamesmulholland/.dot-files/bat/bat.conf"
 
@@ -137,3 +133,7 @@ if [ -f '/Users/jamesmulholland/google-cloud-sdk/completion.zsh.inc' ]; then . '
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
 export PATH="/usr/local/opt/swagger-codegen@2/bin:$PATH"
+
+# command prompt
+eval "$(starship init zsh)"
+
