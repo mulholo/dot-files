@@ -13,7 +13,7 @@ I struggled for ages to have a proper system in place but now I use GNU Stow in 
 - []Clone
 
   ```bash
-  $ git clone git@github.com:mulholio/dot-files.git ~/.dot-files
+  $ git clone https://github.com/mulholio/dot-files ~/.dot-files
   ```
 
 - [ ] Run `stow`
