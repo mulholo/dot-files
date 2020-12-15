@@ -152,7 +152,7 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Use <cr> to confirm completion, `<C-g>u` means break undo
+" Use <CR> to confirm completion, `<C-g>u` means break undo
 " chain at current position.
 " Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
@@ -225,11 +225,6 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Other Language Support & Syntax ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-" ReasonML -------------------
-let g:LanguageClient_serverCommands = {
-    \ 'reason': ['/Users/jamesmulholland/.dot-files/vim/reason-language-server']
-    \ }
-
 " Python ---------------------
 let python_highlight_all=1
 " Formatting
@@ -290,10 +285,6 @@ Plug 'lifepillar/vim-solarized8'
 " Testing ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Plug 'janko-m/vim-test'
 
-" vim-test docker setup for Memrise
-let g:test#suite_command = 'docker exec -it web_client yarn test $file'
-let g:test#file_command = 'docker exec -it web_client yarn test $file'
-
 function! RunTests(command_variable)
   if !exists(a:command_variable)
     echo 'The ' . a:command_variable ' variable must be set to run this command.'
@@ -314,8 +305,6 @@ endfunction
 nnoremap <leader>tn :TestNearest<CR>
 nnoremap <leader>tf :TestFile<CR>
 nnoremap <leader>tl :TestLast<CR>
-" For testing inside docker
-nnoremap <leader>td :call TestFile()<CR>
 
 " Make it easy to exit insert mode in test window / terminal
 if has('nvim')
@@ -353,8 +342,6 @@ nnoremap <leader>c :History:<CR>
 " fzf search search history
 nnoremap <leader>/ :History:<CR>
 
-" TODO fzf search snippets once ultisnips working with COC
-
 " Match actions to NERDTree
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
@@ -362,8 +349,6 @@ let g:fzf_action = {
   \ 'ctrl-s': 'vsplit' }
 
 call plug#end()
-
-let g:kite_supported_languages = ['python', 'javascript', 'go']
 
 " ==========================================================
 " GENERAL CONFIG
