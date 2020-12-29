@@ -81,3 +81,5 @@ linenumber = normal
   c = commit
 [mergetool]
 	path = nvim -d
+[credential "https://github.com"]
+	helper = !gh auth git-credential
