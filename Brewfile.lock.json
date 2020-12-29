@@ -8,16 +8,16 @@
         "revision": "19e06aec198dd9366486c668abaae7b548a3b305"
       },
       "homebrew/cask": {
-        "revision": "f78a5406b1154fa272d32b7011e822cca3f7288b"
+        "revision": "d6f31f6907c4b5c04ebf75f186962071cf7ad3d6"
       },
       "homebrew/cask-versions": {
         "revision": "c7585ec4835ca19c66823f6b3d1ee8859b54457e"
       },
       "homebrew/core": {
-        "revision": "81f7384dcc49338247435e1f3aaa232a21246525"
+        "revision": "b84a846bc4bc31e0f30b9edfdd90740176f9aff8"
       },
       "homebrew/services": {
-        "revision": "302f7340790efe3763788f062c235f499b5e8827"
+        "revision": "3b3a81e5617eef07ed38bf9e12d5ea9fea915f37"
       }
     },
     "brew": {
@@ -806,6 +806,10 @@
             }
           }
         }
+      },
+      "nvm": {
+        "version": "0.37.2",
+        "bottle": false
       }
     },
     "cask": {
@@ -822,7 +826,7 @@
       "big_sur": {
         "HOMEBREW_VERSION": "2.7.1",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "81f7384dcc49338247435e1f3aaa232a21246525",
+        "Homebrew/homebrew-core": "b84a846bc4bc31e0f30b9edfdd90740176f9aff8",
         "CLT": "12.3.0.0.1.1607026830",
         "Xcode": "12.3",
         "macOS": "11.0.1"
