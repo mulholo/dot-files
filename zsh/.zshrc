@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/jamesmulholland/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -96,12 +96,13 @@ eval $(thefuck --alias)
 eval $(thefuck --alias FUCK)
 
 # add Z
-. /usr/local/Cellar/z/1.9/etc/profile.d/z.sh
+. $HOME/z.sh
 # avoid clash with xcode ctags
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # init rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
 export GOPATH=$HOME/go
@@ -112,7 +113,7 @@ export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
 
 export PATH="$HOME/.npm-global/bin:$PATH"
 
-export NVM_DIR="/Users/jamesmulholland/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 export PATH="$HOME/.fastlane/bin:$PATH"
@@ -120,16 +121,13 @@ export PATH="$HOME/.fastlane/bin:$PATH"
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 
-export BAT_CONFIG_PATH="/Users/jamesmulholland/.dot-files/bat/bat.conf"
-
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
+export BAT_CONFIG_PATH="$HOME/bat.conf"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/jamesmulholland/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jamesmulholland/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/jamesmulholland/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jamesmulholland/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
 export PATH="/usr/local/opt/swagger-codegen@2/bin:$PATH"
@@ -137,3 +135,4 @@ export PATH="/usr/local/opt/swagger-codegen@2/bin:$PATH"
 # command prompt
 eval "$(starship init zsh)"
 
+source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
