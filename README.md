@@ -19,8 +19,8 @@ I struggled for ages to have a proper system in place but now I use GNU Stow in 
 - [ ] Run `stow`
 
   ```bash
-  $ cd ~/.dot-files
-  $ stow
+  $ stow vim
+  $ stow ...
   ```
 
 - [ ] Install Homebrew packages with Brewfile: `brew bundle`
