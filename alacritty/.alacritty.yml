@@ -3,14 +3,14 @@
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
-#env:
+env:
   # TERM variable
   #
   # This value is used to set the `$TERM` environment variable for
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
-  #TERM: xterm-256color
+  TERM: xterm-256color
 
 window:
   # Window dimensions (changes require restart)
@@ -100,16 +100,16 @@ window:
 #tabspaces: 8
 
 # Font configuration
-# font:
+font:
   # Normal (roman) font face
-  # normal:
+  normal:
     # Font family
     #
     # Default:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    # family: # Dank Mono does not work # Monaco
+    family: 'Dank Mono' # Dank Mono does not work # Monaco
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
@@ -148,7 +148,7 @@ window:
     #style: Bold Italic
 
   # Point size
-  #size: 11.0
+  size: 12.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -185,38 +185,41 @@ window:
 # Colors (Solarized Dark)
 # Pick from table at the bottom here if there are further issues
 # https://ethanschoonover.com/solarized/
+#
+#
+# Colors (Solarized Dark)
 colors:
   # Default colors
   primary:
-    background: '0x002b36' # base03
-    foreground: '0x839496' # base0
+    background: '#002b36' # base03
+    foreground: '#839496' # base0
 
   # Cursor colors
   cursor:
-    text:   '0x002b36' # base03
-    cursor: '0x839496' # base0
+    text:   '#002b36' # base03
+    cursor: '#839496' # base0
 
   # Normal colors
   normal:
-    black:   '#262626' # base02
-    red:     '#d70000' # red
+    black:   '#073642' # base02
+    red:     '#dc322f' # red
     green:   '#859900' # green
-    yellow:  '0xb58900' # yellow
-    blue:    '0x268bd2' # blue
-    magenta: '0xd33682' # magenta
-    cyan:    '0x2aa198' # cyan
-    white:   '0xeee8d5' # base2
+    yellow:  '#b58900' # yellow
+    blue:    '#268bd2' # blue
+    magenta: '#d33682' # magenta
+    cyan:    '#2aa198' # cyan
+    white:   '#eee8d5' # base2
 
   # Bright colors
   bright:
-    black:   '#526F76' # base03
-    red:     '#d75f00' # orange
-    green:   '#5f8700' # base01
-    yellow:  '0x657b83' # base00
-    blue:    '0x839496' # base0
-    magenta: '0x6c71c4' # violet
-    cyan:    '0x93a1a1' # base1
-    white:   '0xfdf6e3' # base3
+    black:   '#002b36' # base03
+    red:     '#cb4b16' # orange
+    green:   '#586e75' # base01
+    yellow:  '#657b83' # base00
+    blue:    '#839496' # base0
+    magenta: '#6c71c4' # violet
+    cyan:    '#93a1a1' # base1
+    white:   '#fdf6e3' # base3
 
   # Indexed Colors
   #
