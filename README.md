@@ -1,6 +1,6 @@
 # Dot Files
 
-This is where I save all my settings and config information for my Mac.
+This is where I save all my settings and config information for my computers.
 
 This has two main components: 1) Dot files and 2) General config information, written in this README.
 

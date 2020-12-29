@@ -313,7 +313,9 @@ endif
 
 " Fuzzy search ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Plug '/usr/local/opt/fzf' " use brew-installed fzf instance
+" Access git-install fzf instance
+Plug '~/.fzf' 
+" Install fzf vim plugin (note the .vim suffix)
 Plug 'junegunn/fzf.vim'
 
 " search files
