@@ -1,6 +1,3 @@
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 export TERM="xterm-256color"
@@ -25,9 +22,6 @@ source ~/.zplug/init.zsh
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # HIST_STAMPS="mm/dd/yyyy"
 
-zplug "plugins/git",   from:oh-my-zsh, lazy:true
-zplug "plugins/yarn",   from:oh-my-zsh, lazy:true
-
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -38,8 +32,6 @@ fi
 
 # # Then, source plugins and add commands to $PATH
 zplug load --verbose
-
-source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -136,3 +128,4 @@ export PATH="/usr/local/opt/swagger-codegen@2/bin:$PATH"
 eval "$(starship init zsh)"
 
 source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fpath+=${ZDOTDIR:-~}/.zsh_functions
