@@ -86,6 +86,7 @@ export TMUXINATOR_CONFIG="~/.tmuxinator"
 # FUCK
 eval $(thefuck --alias)
 eval $(thefuck --alias FUCK)
+export THEFUCK_REQUIRE_CONFIRMATION="false"
 
 # add Z
 . $HOME/z.sh
