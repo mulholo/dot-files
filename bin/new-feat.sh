@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Starts a new feature branch to match the Jira ticket number
-# e.g. new-feat 1234 "write new feat script" -> git checkout -b WEBSITE-1234-write-new-feat-script
+# e.g. new-feat 1234 "write new feat script" -> git checkout -b WEBSITE-1234/write-new-feat-script
 
 jira_project="WEBSITE"
 number=$1
@@ -12,7 +12,7 @@ if [[ -z "$number" ]]; then
 elif [[ -z "$description" ]]; then
   echo "no description passed"
 else
-  hyphenated_description_=${description// /-}
-  branch_name="${jira_project}-${number}-${hyphenated_description_}"
+  hyphenated_description=${description// /-}
+  branch_name="${jira_project}-${number}/${hyphenated_description}"
   cd ~/proj/memrise && git checkout master && git pull && git checkout -b $branch_name
 fi
