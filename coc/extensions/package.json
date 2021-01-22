@@ -1,8 +1,0 @@
-{
-  "dependencies": {
-    "coc-prettier": ">=1.1.20",
-    "coc-styled-components": ">=0.4.0",
-    "coc-svg": ">=0.0.13",
-    "coc-tailwindcss": ">=0.7.0"
-  }
-}
