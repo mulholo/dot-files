@@ -71,6 +71,9 @@ Plug 'michaeljsmith/vim-indent-object'
 
 " Language Support & Syntax ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+" :See LSP config section below
+Plug 'neovim/nvim-lspconfig'
+
 " Catch-all syntax
 Plug 'sheerun/vim-polyglot'
 
@@ -143,6 +146,18 @@ nnoremap <leader>tl :TestLast<CR>
 tmap <C-o> <C-\><C-n>
 
 call plug#end()
+
+" ==========================================================
+" LSP
+" ==========================================================
+
+" Language server protocol setup
+" Thanks to https://nathansmith.io/posts/neovim-lsp/
+
+" See docs for more language servers:
+" https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
+
+lua require("lsp")
 
 " ==========================================================
 " GENERAL CONFIG
