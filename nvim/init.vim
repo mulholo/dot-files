@@ -71,14 +71,9 @@ Plug 'michaeljsmith/vim-indent-object'
 
 " Language Support & Syntax ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-" Haskell --------------------
-Plug 'neovimhaskell/haskell-vim'
-" For when I want to improve this:
-" http://marco-lopes.com/articles/Vim-and-Haskell-in-2019/
-
-" Generic --------------------
 " Catch-all syntax
 Plug 'sheerun/vim-polyglot'
+
 " Italic comments
 Plug 'codehearts/mascara-vim'
 
