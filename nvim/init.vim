@@ -27,44 +27,11 @@ nnoremap <leader>d :NERDTreeFind<CR>
 nnoremap <leader>s :vsplit<CR>
 nnoremap <leader>i :split<CR>
 
-
 " Git symbols in gutter ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Plug 'airblade/vim-gitgutter'
 
 " Various git tools ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Plug 'tpope/vim-fugitive'
-
-" Errors and linting ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Plug 'w0rp/ale'
-
-" disable completion
-let g:ale_completion_enabled = 0
-" enable sfix on save
-let g:ale_fix_on_save = 1
-" set a better timeout
-let g:ale_lint_delay = 50
-
-let g:ale_linters = {
-\ 'javascript': ['eslint'],
-\ 'html': ['htmlhint'],
-\ 'css': ['stylelint'],
-\ 'python': ['flake8'],
-\}
-let g:ale_fixers = {
-\ 'javascript': ['prettier', 'eslint'],
-\ 'typescript': ['prettier', 'eslint'],
-\ 'css': ['prettier'],
-\ 'python': ['black'],
-\}
-
-highlight clear ALEErrorSign
-highlight clear ALEWarningSign
-let g:ale_statusline_format = ['X %d', '? %d', '']
-let g:ale_echo_msg_format = '%linter% says: %s %- (code)%'
-
-" Jump between ALE errors speedily
-nmap <silent> <leader>ak <Plug>(ale_previous_wrap)
-nmap <silent> <leader>aj <Plug>(ale_next_wrap)
 
 " Select surrounding (, <tag>, ' etc. ~~~~~~~~~~~~~~~~~~~~~~
 Plug 'tpope/vim-surround'
@@ -104,13 +71,6 @@ Plug 'michaeljsmith/vim-indent-object'
 
 " Language Support & Syntax ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-" Python ---------------------
-let python_highlight_all=1
-" Formatting
-Plug 'python/black'
-" PEP8 check
-Plug 'nvie/vim-flake8'
-
 " Haskell --------------------
 Plug 'neovimhaskell/haskell-vim'
 " For when I want to improve this:
@@ -125,7 +85,6 @@ Plug 'codehearts/mascara-vim'
 " JS/TS ----------------------
 Plug 'styled-components/vim-styled-components', {
   \ 'branch': 'develop' }
-Plug 'jxnblk/vim-mdx-js'
 
 " HTML -----------------------
 Plug 'mattn/emmet-vim'
@@ -186,48 +145,7 @@ nnoremap <leader>tf :TestFile<CR>
 nnoremap <leader>tl :TestLast<CR>
 
 " Make it easy to exit insert mode in test window / terminal
-if has('nvim')
-  tmap <C-o> <C-\><C-n>
-endif
-
-" Fuzzy search ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-" Access git-install fzf instance
-Plug '~/.fzf' 
-" Install fzf vim plugin (note the .vim suffix)
-Plug 'junegunn/fzf.vim'
-
-" search files
-nnoremap <leader>f :Files<CR>
-
-" search inside files with Rg then fzf the output
-" Don't add another map with a second char after this or
-" the load for this will slow down
-nnoremap <leader>r :Rg<CR>
-" Fix bat preview:
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --color=always --smart-case -- '.shellescape(<q-args>), 1,
-  \   fzf#vim#with_preview(), <bang>0)
-
-" fzf search open windows
-nnoremap <leader>w :Windows<CR>
-
-
-" fzf search lines in cur. buffer
-nnoremap <leader>b :BLines<CR>
-
-" fzf search command history
-nnoremap <leader>c :History:<CR>
-
-" fzf search search history
-nnoremap <leader>/ :History:<CR>
-
-" Match actions to NERDTree
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-i': 'split',
-  \ 'ctrl-s': 'vsplit' }
+tmap <C-o> <C-\><C-n>
 
 call plug#end()
 
@@ -261,16 +179,6 @@ set cursorline                " show which column the cursor is in
 set number relativenumber     " Set relative line number and current line number
 set confirm                   " Ask what to do about unsaved/read-only files
 filetype plugin indent on     " Enable file type detection and language-dependent indenting.
-
-function! SynStack()
-  if !exists("*synstack")
-    return
-  endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
-
-" status line ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-set statusline+=\ %F\ %l\:%c
 
 " tabs etc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 set tabstop=2
@@ -327,8 +235,6 @@ nnoremap <leader>h <c-w>h
 nnoremap <leader>j <c-w>j
 nnoremap <leader>k <c-w>k
 nnoremap <leader>l <c-w>l
-nnoremap <leader>n gt
-nnoremap <leader>p gT
 
 " Make file directory mapping easier
 inoremap <c-f> <c-x><c-f>
