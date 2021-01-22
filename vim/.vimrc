@@ -15,10 +15,12 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Close NERDTree when a file is opened
-let NERDTreeQuitOnOpen = 1
+let g:NERDTreeQuitOnOpen = 1
 " Style NERDTree
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeMinimalMenu = 1
+let g:NERDTreeDirArrows = 1
+let g:NERDTreeWinSize=60
 
 nnoremap <leader>d :NERDTreeFind<CR>
 " align s and i splits with NERDTree
@@ -313,7 +315,9 @@ endif
 
 " Fuzzy search ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Plug '/usr/local/opt/fzf' " use brew-installed fzf instance
+" Access git-install fzf instance
+Plug '~/.fzf' 
+" Install fzf vim plugin (note the .vim suffix)
 Plug 'junegunn/fzf.vim'
 
 " search files

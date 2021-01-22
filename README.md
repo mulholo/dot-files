@@ -1,6 +1,6 @@
 # Dot Files
 
-This is where I save all my settings and config information for my Mac.
+This is where I save all my settings and config information for my computers.
 
 This has two main components: 1) Dot files and 2) General config information, written in this README.
 
@@ -10,7 +10,7 @@ I struggled for ages to have a proper system in place but now I use GNU Stow in 
 
 ### Usage
 
-- []Clone
+- [ ] Clone
 
   ```bash
   $ git clone https://github.com/mulholio/dot-files ~/.dot-files
@@ -19,11 +19,11 @@ I struggled for ages to have a proper system in place but now I use GNU Stow in 
 - [ ] Run `stow`
 
   ```bash
-  $ cd ~/.dot-files
-  $ stow
+  $ stow vim
+  $ stow ...
   ```
 
-- [] Install Homebrew packages with Brewfile: `brew bundle`
+- [ ] Install Homebrew packages with Brewfile: `brew bundle`
 
 ### Tmux
 
