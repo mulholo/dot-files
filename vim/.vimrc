@@ -354,6 +354,10 @@ call plug#end()
 " GENERAL CONFIG
 " ==========================================================
 
+" Show &nbsp and tabs
+" Great for avoiding trailing whitespace and broken md files
+:set list
+
 " Colors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 " Enable italics
