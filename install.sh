@@ -13,9 +13,12 @@ echo "✅ Homebrew installed."
 # Install packages via Homebrew
 echo "Installing packages via Homebrew..."
 brew bundle
+brew instal --HEAD neovim
+echo "✅ Installed packages via Homebrew."
 
 echo "Stowing config"
 stow zsh
 stow git
+stow z
 echo "✅ Stowed config."
 
