@@ -77,6 +77,10 @@ Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-lua/lsp-status.nvim'
 Plug 'SirVer/ultisnips'
 Plug 'dense-analysis/ale'
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 " Catch-all syntax
 Plug 'sheerun/vim-polyglot'
@@ -187,6 +191,7 @@ call plug#end()
 " https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
 
 lua require("lsp")
+lua require("searching")
 
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -236,6 +241,11 @@ nmap <silent> <leader>ag <Plug>(ale_first)
 nmap <silent> <leader>aG <Plug>(ale_last
 nmap <silent> <leader>ak <Plug>(ale_previous_wrap)
 nmap <silent> <leader>aj <Plug>(ale_next_wrap)
+
+" Searching ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>rg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " ==========================================================
 " GENERAL CONFIG
