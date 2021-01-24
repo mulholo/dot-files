@@ -8,23 +8,16 @@ local on_attach = function(client, bufnr)
 
   -- Keybindings for LSPs
   -- Note these are in on_attach so that they don't override bindings in a non-LSP setting
-  -- TODO anki
   vim.fn.nvim_set_keymap("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", {noremap = true, silent = true})
   vim.fn.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", {noremap = true, silent = true})
   vim.fn.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.implementation()<CR>", {noremap = true, silent = true})
-
   -- show type | mnemonic: go interface
   vim.fn.nvim_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.type_definition()<CR>", {noremap = true, silent = true})
   vim.fn.nvim_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", {noremap = true, silent = true})
-
   vim.fn.nvim_set_keymap("n", "gj", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", {noremap = true, silent = true})
   vim.fn.nvim_set_keymap("n", "gk", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", {noremap = true, silent = true})
-
-  -- show error list | mnemonic: go lint
+  -- show error list | mnemonic: list
   vim.fn.nvim_set_keymap("n", "gl", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", {noremap = true, silent = true})
-
-  -- mnemonic: pretty
-  vim.fn.nvim_set_keymap("n", "<space>p", "<cmd>lua vim.lsp.buf.formatting()<CR>", {noremap = true, silent = true})
 end
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
@@ -68,5 +61,3 @@ nvim_lsp.jsonls.setup {
   on_attach = on_attach,
   capabilities = lsp_status.capabilities
 }
-
--- TODO other LSs

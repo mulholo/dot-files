@@ -1,7 +1,7 @@
 let mapleader=" "
 
 " ==========================================================
-" PLUGINS 
+" PLUGINS
 " ==========================================================
 
 call plug#begin('~/.vim/plugged')
@@ -49,7 +49,7 @@ Plug 'tpope/vim-commentary'
 
 " Replace --------------------
 " e.g. `gre` to replace to end of word with current buffer
-" contents  
+" contents
 Plug 'vim-scripts/ReplaceWithRegister'
 
 " Sort -----------------------
@@ -76,6 +76,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-lua/lsp-status.nvim'
 Plug 'SirVer/ultisnips'
+Plug 'dense-analysis/ale'
 
 " Catch-all syntax
 Plug 'sheerun/vim-polyglot'
@@ -175,6 +176,7 @@ set shortmess+=c
 " Use completion-nvim in every buffer
 autocmd BufEnter * lua require'completion'.on_attach()
 
+" Snippets ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 let g:completion_enable_snippet = 'UltiSnips'
 
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
@@ -183,6 +185,33 @@ let g:completion_matching_smart_case = 1
 let g:UltiSnipsExpandTrigger="<CR>"
 let g:UltiSnipsJumpForwardTrigger="<c-n>"
 let g:UltiSnipsJumpBackwardTrigger="<c-p>"
+
+" ALE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+let g:ale_completion_enabled = 0
+let g:ale_disable_lsp = 1 " Since we use builtin LSP
+let g:ale_fix_on_save = 1
+let g:ale_lint_delay = 50
+let g:ale_linters = {
+\ 'javascript': ['eslint'],
+\}
+let g:ale_sign_error = 'E'
+let g:ale_sign_warning = 'W'
+let g:ale_fixers = {
+\ '*': ['remove_trailing_lines', 'trim_whitespace'],
+\ 'javascript': ['prettier', 'eslint'],
+\ 'typescript': ['prettier', 'eslint'],
+\ 'css': ['prettier'],
+\}
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
+let g:ale_echo_msg_format = '%linter%: %s (%code%)'
+let g:ale_javascript_eslint_suppress_missing_config = 1
+
+" Jump between ALE errors speedily
+nmap <silent> <leader>ag <Plug>(ale_first)
+nmap <silent> <leader>aG <Plug>(ale_last
+nmap <silent> <leader>ak <Plug>(ale_previous_wrap)
+nmap <silent> <leader>aj <Plug>(ale_next_wrap)
 
 " ==========================================================
 " GENERAL CONFIG
@@ -248,11 +277,11 @@ augroup myvimrc
 augroup END
 
 " ==========================================================
-" MAPPINGS 
+" MAPPINGS
 " ==========================================================
 
 " Copy the path to the current file into system-level clipboard
-function! s:copy_file_path() 
+function! s:copy_file_path()
   let @+ = expand("%")
 endfunction
 command! -nargs=0 CopyFilePath :call s:copy_file_path()
