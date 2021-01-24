@@ -74,7 +74,6 @@ Plug 'michaeljsmith/vim-indent-object'
 " :See LSP config section below
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
-Plug 'nvim-lua/lsp-status.nvim'
 Plug 'SirVer/ultisnips'
 Plug 'dense-analysis/ale'
 
