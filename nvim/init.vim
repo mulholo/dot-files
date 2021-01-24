@@ -241,7 +241,7 @@ set smartcase
 " Clear search with ESC
 nnoremap <esc> :noh<return><esc>
 
-" Auto reload vimrc 
+" Auto reload vimrc
 augroup myvimrc
   au!
   au BufWritePost .vimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
