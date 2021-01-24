@@ -104,10 +104,35 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 
 " Use nice symbols from a powerline font
-let g:airline_powerline_fonts = 0
-let g:tmuxline_powerline_separators = 0
+let g:airline_powerline_fonts = 1
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_stl_path_style = 'short'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
-" Confusingly, we config tmux here
+" show ALE errors in bottom right
+let g:airline#extensions#ale#enabled = 1
+
+let showtabline=2 " always show tabline
+
+function! AirlineInit()
+  let g:airline_section_a = airline#section#create(['mode', 'paste'])
+  set noshowmode " we do not need to show -- insert -- due to airline line above
+  let g:airline_section_b = airline#section#create(['branch'])
+  let g:airline_section_x = ''
+  let g:airline_section_y = ''
+endfunction
+autocm VimEnter * call AirlineInit()
+
+let g:airline_detect_spell=0
+
+" Confusingly, we config tmux here (to align with airline)
+let g:tmuxline_powerline_separators = 1
 
 " Left is configured with a, b, c, right with x, y, z
 " cwin and win affect the current (active) window and the
@@ -205,7 +230,6 @@ let g:ale_fixers = {
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 let g:ale_echo_msg_format = '%linter%: %s (%code%)'
-let g:ale_javascript_eslint_suppress_missing_config = 1
 
 " Jump between ALE errors speedily
 nmap <silent> <leader>ag <Plug>(ale_first)
@@ -269,12 +293,6 @@ set smartcase
 
 " Clear search with ESC
 nnoremap <esc> :noh<return><esc>
-
-" Auto reload vimrc
-augroup myvimrc
-  au!
-  au BufWritePost .vimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
-augroup END
 
 " ==========================================================
 " MAPPINGS
