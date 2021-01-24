@@ -22,6 +22,9 @@ local on_attach = function(client, bufnr)
 
   -- show error list | mnemonic: go lint
   vim.fn.nvim_set_keymap("n", "gl", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", {noremap = true, silent = true})
+
+  -- mnemonic: pretty
+  vim.fn.nvim_set_keymap("n", "<space>p", "<cmd>lua vim.lsp.buf.formatting()<CR>", {noremap = true, silent = true})
 end
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
@@ -34,6 +37,36 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 )
 
 nvim_lsp.tsserver.setup{
+  on_attach = on_attach,
+  capabilities = lsp_status.capabilities
+}
+
+nvim_lsp.tsserver.setup{
+  on_attach = on_attach,
+  capabilities = lsp_status.capabilities
+}
+
+nvim_lsp.bashls.setup{
+  on_attach = on_attach,
+  capabilities = lsp_status.capabilities
+}
+
+nvim_lsp.html.setup{
+  on_attach = on_attach,
+  capabilities = lsp_status.capabilities
+}
+
+nvim_lsp.pyls.setup{
+  on_attach = on_attach,
+  capabilities = lsp_status.capabilities
+}
+
+nvim_lsp.yamlls.setup{
+  on_attach = on_attach,
+  capabilities = lsp_status.capabilities
+}
+
+nvim_lsp.jsonls.setup {
   on_attach = on_attach,
   capabilities = lsp_status.capabilities
 }

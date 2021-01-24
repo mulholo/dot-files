@@ -22,3 +22,13 @@ stow git
 stow z
 echo "✅ Stowed config."
 
+echo "Installing NPM packages..."
+npm i -g typescript typscript-language-server \
+  vscode-html-languageserver-bin \
+  vscode-json-languageserver \
+  yaml-language-server
+echo "✅ Installed NPM packages"
+
+echo "Installing pip packages..."
+pip install python-language-server
+echo "✅ Installed pip packages"
