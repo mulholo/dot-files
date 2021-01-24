@@ -73,6 +73,9 @@ Plug 'michaeljsmith/vim-indent-object'
 
 " :See LSP config section below
 Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
+Plug 'nvim-lua/lsp-status.nvim'
+Plug 'SirVer/ultisnips'
 
 " Catch-all syntax
 Plug 'sheerun/vim-polyglot'
@@ -158,6 +161,28 @@ call plug#end()
 " https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
 
 lua require("lsp")
+
+" Use <Tab> and <S-Tab> to navigate through popup menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" Set completeopt to have a better completion experience
+set completeopt=menuone,noinsert,noselect
+
+" Avoid showing message extra message when using completion
+set shortmess+=c
+
+" Use completion-nvim in every buffer
+autocmd BufEnter * lua require'completion'.on_attach()
+
+let g:completion_enable_snippet = 'UltiSnips'
+
+let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
+let g:completion_sorting = "none"
+let g:completion_matching_smart_case = 1
+let g:UltiSnipsExpandTrigger="<CR>"
+let g:UltiSnipsJumpForwardTrigger="<c-n>"
+let g:UltiSnipsJumpBackwardTrigger="<c-p>"
 
 " ==========================================================
 " GENERAL CONFIG
