@@ -136,7 +136,7 @@ autocm VimEnter * call AirlineInit()
 let g:airline_detect_spell=0
 
 " Confusingly, we config tmux here (to align with airline)
-let g:tmuxline_powerline_separators = 1
+let g:tmuxline_powerline_separators = 0
 
 " Left is configured with a, b, c, right with x, y, z
 " cwin and win affect the current (active) window and the
