@@ -1,0 +1,293 @@
+extends JavaScript
+
+# :help UltiSnips for options e.g. b: only at start of line
+# GENERAL ==================================================
+snippet td "TODO" b
+// TODO: ${1:desc} (`!v strftime("%x - %H:%M")` @`echo $USER`)
+endsnippet
+
+snippet # "H1 Comment" b
+/*==========================================================
+  $1
+==========================================================*/
+endsnippet
+
+snippet ## "H2 Comment" b
+/* -$1----------------------------------------------------*/
+endsnippet
+
+# JEST =====================================================
+
+snippet dsc "Describe block" b
+describe('${1:`!v expand('%:t:r:s?\.test$??')`}', () => {
+  it('${2:$1}', () => {
+		$3
+  });
+});
+endsnippet
+
+snippet it "It block" b
+it('$1', () => {
+	$2
+});
+endsnippet
+
+# NODE =====================================================
+snippet r.p "router.post" b
+router.post('/$1', (req, res, next) => {
+	$2
+});
+endsnippet
+
+snippet r.g "router.get" b
+router.get('/$1', (req, res, next) => {
+	$2
+});
+endsnippet
+
+snippet r.d "router.post" b
+router.delete('/$1', (req, res, next) => {
+	$2
+});
+endsnippet
+
+snippet r.pu "router.post" b
+router.put('/$1', (req, res, next) => {
+	$2
+});
+endsnippet
+
+# ES2015 ===================================================
+snippet "r" "const requrie" br
+const $1 = require('${2:$1}');
+endsnippet
+
+snippet "req" "require" br
+require('$1');
+endsnippet
+
+snippet "ri" "const requrie internal" br
+const $1 = require('${2:.}/${2:$1}');
+endsnippet
+
+snippet "i(m)?" "import" br
+import ${1} from '${2:$1}';
+endsnippet
+
+snippet "ii" "import" br
+import ${1} from '${2:.}/${3:$1}';
+endsnippet
+
+snippet "ed" "export" br
+export default ${1:`!v expand('%:t:r')`}
+endsnippet
+
+snippet "e(xport|xp|x)?" "export" br
+export { $1 }
+endsnippet
+
+snippet ie "Import file then export" b
+import ${1} from '${2:./}${3:$1}';
+
+export ${4:default} $1;
+endsnippet
+
+snippet :f "method: func(...) { ... }"
+${1:key}: ${2:(args)} => {
+	return $4;
+}${3:,}
+endsnippet
+
+snippet "\.(map|filter|forEach|reduce|some)" "Array method with an arrow function" r
+.`!p snip.rv = match.group(1)`(${1:(c, i)} => {
+	return $2;
+});
+endsnippet
+
+snippet "\.(map|filter|forEach|reduce|some)=" "Array method with an arrow function inline" rA
+.`!p snip.rv = match.group(1)`(${1:(c, i)} => $2);
+endsnippet
+
+snippet => "Arrow function"
+(${1:args}) => {
+	return $3;
+}${2:;}
+endsnippet
+
+snippet =>> "Inline arrow function" A
+(${1:args}) => ($2);
+endsnippet
+
+snippet c=> "Const Function" bA
+const ${1:name} = (${2:args}) => {
+	return $4;
+}${3:;}
+endsnippet
+
+snippet cl "console.log(...)"
+console.log('${2:$1: }', ${1})
+endsnippet
+
+# REACT & JSX ==============================================
+
+snippet is "import styles" b 
+import * as S from '${1:`!v expand('%:t:r')`}Styles'
+endsnippet
+
+snippet re "React Functional Component" b
+import React from 'react';
+endsnippet
+
+snippet st "React Functional Component" b
+import styled$1 from '$2styled-components';
+endsnippet
+
+snippet rfc "React Functional Component" b
+import React from 'react';
+const ${1:`!v expand('%:t:r')`} = () =>
+	<div>
+	</div>;
+
+export default $1;
+endsnippet
+
+snippet pp "Get Props"
+${props => props.${1}}
+endsnippet
+
+snippet ppp "Get Props destructured"
+${({ theme$1 }) => ${2}};
+endsnippet
+
+snippet cn "className"
+className=$1
+endsnippet
+
+# Tailwind
+snippet cnt "className tailwind"
+className={`
+	$1
+`}
+endsnippet
+
+snippet dp "Default Props" b
+${1:`!v expand('%:t:r')`.}defaultProps = {
+	$2
+};
+endsnippet
+
+snippet set "Set State"
+this.setState({
+	${1}: ${2}
+});
+endsnippet
+
+snippet props "Get Property" i
+this.props.${1}
+endsnippet
+
+snippet state "Get State" i
+this.state.${1}
+endsnippet
+
+snippet ref "Ref" i
+ref={${1:ref} => { this.${2:name} = $1; }}
+endsnippet
+
+snippet j/ "JSX Comment" b
+{/* $1 */}
+endsnippet
+
+snippet jtd "JSX TODO Comment" b
+{/* TODO: ${1:desc} (`!v strftime("%x - %H:%M")` @`echo $USER`) */}
+endsnippet
+
+snippet jfm "JSX FIXME Comment" b
+{/* FIXME: ${1:desc} (`!v strftime("%x - %H:%M")` @`echo $USER`) */}
+endsnippet
+
+# PropTypes
+snippet pt "PropTypes Definition" b
+${1:`!v expand('%:t:r')`.}propTypes = {
+	${2:className}: ${3:PropTypes.string},
+};
+endsnippet
+
+snippet  pt.a "PropTypes Array" w
+PropTypes.array${1:,}
+endsnippet
+
+snippet   pt.b "PropTypes Boolean" w
+PropTypes.bool${1:,}
+endsnippet
+
+snippet pt.f "PropTypes Function" w
+PropTypes.func${1:,}
+endsnippet
+
+snippet pt.n "PropTypes Number" w
+PropTypes.number${1:,}
+endsnippet
+
+snippet pt.o "PropTypes Object" w
+PropTypes.object${1:,}
+endsnippet
+
+snippet pt.s "PropType String" w
+PropTypes.string${1:,}
+endsnippet
+
+snippet pt.no "PropTypes Node" w
+PropTypes.node${1:,}
+endsnippet
+
+snippet pt.e "PropTypes Element" w
+PropTypes.element${1:,}
+endsnippet
+
+snippet pt.io "PropTypes instanceOf" w
+PropTypes.instanceOf(${2:PropTypes.string})${1:,}
+endsnippet
+
+snippet pt.one "PropTypes oneOf" w
+PropTypes.oneOf(['$2'$3])${1:,}
+endsnippet
+
+snippet pt.onet "PropTypes oneOfType" w
+PropTypes.oneOfType([
+	$2
+])${1:,}
+endsnippet
+
+snippet pt.ao "PropTypes arrayOf" w
+PropTypes.arrayOf(${2:PropTypes.string})${1:,}
+endsnippet
+
+snippet pt.oo "PropTypes objectOf" w
+PropTypes.objectOf(${2:PropTypes.string})${1:,}
+endsnippet
+
+snippet pt.sh "PropTyes Shape" w
+PropTypes.shape({
+	$2
+})${1:,}
+endsnippet
+
+snippet ir "isRequired" w
+isRequired,
+endsnippet
+
+snippet story "Storybook file" b
+import React from 'react'
+import { storiesOf } from '@storybook/react'
+import ${1:`!v expand('%:t:r')`} from './index'
+
+storiesOf('Library|$1', module)
+  .add('$1', () => <$1/>)
+endsnippet
+
+
+# CSS ======================================================
+snippet red "border: 2px solid red" b 
+border: 2px solid red;
+endsnippet

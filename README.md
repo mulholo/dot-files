@@ -1,8 +1,6 @@
-# Dot Files
+# `.config`: Dot Files and Configuration
 
 This is where I save all my settings and config information for my computers.
-
-This has two main components: 1) Dot files and 2) General config information, written in this README.
 
 ## 1. Dot Files
 
@@ -13,17 +11,14 @@ I struggled for ages to have a proper system in place but now I use GNU Stow in 
 - [ ] Clone
 
   ```bash
-  $ git clone https://github.com/mulholio/dot-files ~/.dot-files
+  $ git clone https://github.com/mulholio/.config
   ```
 
-- [ ] Run `stow`
+- [ ] Install script
 
   ```bash
-  $ stow vim
-  $ stow ...
+  $ ./install.sh
   ```
-
-- [ ] Install Homebrew packages with Brewfile: `brew bundle`
 
 ### Tmux
 
@@ -32,15 +27,6 @@ I struggled for ages to have a proper system in place but now I use GNU Stow in 
 ### Italics
 
 Sometimes my terminal seems to have issues using italics within Tmux. [This guide](https://alexpearce.me/2014/05/italics-in-iterm2-vim-tmux/) shows you how to fix it
-
----
-
-## 2. General Config and Favourite Apps
-
-- [Taskell](https://github.com/smallhadroncollider/taskell)
-- [Alfred](https://www.alfredapp.com/)
-- [Spotify](http://alfred-spotify-mini-player.com/setup/)
-- [Keyboard Maestro](https://github.com/iansinnott/alfred-maestro)
 
 ---
 
