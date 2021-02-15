@@ -32,3 +32,7 @@ echo "✅ Installed NPM packages"
 echo "Installing pip packages..."
 pip install python-language-server
 echo "✅ Installed pip packages"
+
+echo "Adding zsh syntax higlighting"
+cd ~ && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+echo "✅ Added zsh syntax higlighting"

@@ -71,7 +71,7 @@ mkalias() {
   # Construct the new command
   local alias_command="alias $alias_name='$alias_result'"
 
-  # Execute the command, if successful then print 
+  # Execute the command, if successful then print
   # out the alias and add it to ~/.bash_aliases
   eval "$alias_command" && \
   echo "$alias_command" >> "$HOME/.bash_aliases" && \
