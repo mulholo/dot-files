@@ -36,10 +36,7 @@ source ~/.dot-files/init.vim" > .config/nvim/init.vim
 echo "✅ Linked nvim config"
 
 echo "Installing NPM packages..."
-npm i -g typescript typscript-language-server \
-  vscode-html-languageserver-bin \
-  vscode-json-languageserver \
-  yaml-language-server
+npm i -g typescript neovim
 echo "✅ Installed NPM packages"
 
 echo "Installing pip packages..."
