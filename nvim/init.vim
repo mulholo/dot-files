@@ -70,17 +70,7 @@ Plug 'Julian/vim-textobj-variable-segment'
 Plug 'michaeljsmith/vim-indent-object'
 
 " Language Support & Syntax ~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-" :See LSP config section below
-Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
-Plug 'nvim-lua/lsp-status.nvim'
 Plug 'SirVer/ultisnips'
-Plug 'dense-analysis/ale'
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
 
 " Catch-all syntax
 Plug 'sheerun/vim-polyglot'
@@ -180,32 +170,6 @@ tmap <C-o> <C-\><C-n>
 
 call plug#end()
 
-" ==========================================================
-" LSP
-" ==========================================================
-
-" Language server protocol setup
-" Thanks to https://nathansmith.io/posts/neovim-lsp/
-
-" See docs for more language servers:
-" https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
-
-" TODO lua require("lsp")
-" TODO lua require("searching")
-
-" Use <Tab> and <S-Tab> to navigate through popup menu
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" Set completeopt to have a better completion experience
-set completeopt=menuone,noinsert,noselect
-
-" Avoid showing message extra message when using completion
-set shortmess+=c
-
-" Use completion-nvim in every buffer
-autocmd BufEnter * lua require'completion'.on_attach()
-
 " Snippets ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 let g:completion_enable_snippet = 'UltiSnips'
 
@@ -244,11 +208,6 @@ nmap <silent> <leader>ag <Plug>(ale_first)
 nmap <silent> <leader>aG <Plug>(ale_last
 nmap <silent> <leader>ak <Plug>(ale_previous_wrap)
 nmap <silent> <leader>aj <Plug>(ale_next_wrap)
-
-" Searching ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>rg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " ==========================================================
 " GENERAL CONFIG
