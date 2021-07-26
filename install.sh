@@ -17,9 +17,14 @@ brew instal --HEAD neovim
 echo "✅ Installed packages via Homebrew."
 
 echo "Stowing config"
-stow zsh
+stow alacritty
+stow bat
 stow git
+stow tmux
+stow tmuxinator
+stow yarn
 stow z
+stow zsh
 echo "✅ Stowed config."
 
 echo "Installing NPM packages..."
