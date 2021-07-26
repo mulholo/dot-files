@@ -190,8 +190,8 @@ call plug#end()
 " See docs for more language servers:
 " https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
 
-lua require("lsp")
-lua require("searching")
+" TODO lua require("lsp")
+" TODO lua require("searching")
 
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
