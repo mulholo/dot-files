@@ -1,9 +1,9 @@
 .DS_Store
 
-# These may contain secrets so do not add to source control
 gh
 stripe
 firebase
 configstore
 karabiner
 .airtableblocksrc.json
+gatsby
