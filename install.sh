@@ -41,3 +41,7 @@ echo "✅ Installed pip packages"
 echo "Adding zsh syntax higlighting"
 cd ~ && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 echo "✅ Added zsh syntax higlighting"
+
+echo "Setting up tmux plugins"
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+echo "✅ Set up tmux plugins"
