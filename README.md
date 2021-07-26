@@ -1,4 +1,4 @@
-# `.config`: Dot Files and Configuration
+# Dot Files and Configuration
 
 This is where I save all my settings and config information for my computers.
 
@@ -11,7 +11,8 @@ I struggled for ages to have a proper system in place but now I use GNU Stow in 
 - [ ] Clone
 
   ```bash
-  $ git clone https://github.com/mulholio/.config
+  $ cd
+  $ git clone https://github.com/mulholio/dot-files .dot-files
   ```
 
 - [ ] Install script
@@ -19,10 +20,6 @@ I struggled for ages to have a proper system in place but now I use GNU Stow in 
   ```bash
   $ ./install.sh
   ```
-
-### Tmux
-
-`git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm` to install tmux plugin manager
 
 ### Italics
 
