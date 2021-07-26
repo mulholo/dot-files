@@ -1,6 +1,6 @@
 # This is Git's per-user configuration file.
 [user]
-name = mulholio
+	name = James Mulholland
 	email = james@jmulholland.com
 [color]
   pager = true
@@ -58,7 +58,7 @@ name = mulholio
   separator = red bold
 linenumber = normal
 [core]
-	excludesfile = /Users/jamesmulholland/.dot-files/git/.gitignore
+	excludesfile = ~/.gitignore
 	editor = nvim
   pager = delta --dark --side-by-side
 [difftool]
