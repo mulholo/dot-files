@@ -98,9 +98,13 @@ export THEFUCK_REQUIRE_CONFIRMATION="false"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-export GOPATH=$HOME/go
+export JAVA_HOME=$(/usr/libexec/java_home)
 
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
+# go
+export PATH=$PATH:$(go env GOPATH)/bin
+export GOPATH=$(go env GOPATH)
+export gopath=$(go env GOPATH)
+
 export ANDROID_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
 export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
 
