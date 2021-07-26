@@ -2,7 +2,7 @@
 
 This is where I save all my settings and config information for my computers.
 
-## 1. Dot Files
+## 1. Dot Files
 
 I struggled for ages to have a proper system in place but now I use GNU Stow in order to create symlinks and keep everything nicely organised and backed up (thanks to [Alex Pearce](https://github.com/alexpearce/dotfiles) for this.)
 
@@ -30,7 +30,7 @@ Sometimes my terminal seems to have issues using italics within Tmux. [This guid
 
 ---
 
-## Appendix
+## Appendix
 
 ### Inspiration
 
@@ -40,4 +40,3 @@ Sometimes my terminal seems to have issues using italics within Tmux. [This guid
 - https://github.com/davidxmoody/dotfiles
 - https://github.com/christoomey/dotfiles
 - https://alexpearce.me/2016/02/managing-dotfiles-with-stow/
-
