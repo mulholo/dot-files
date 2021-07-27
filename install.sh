@@ -50,3 +50,7 @@ echo "✅ Added zsh syntax higlighting"
 echo "Setting up tmux plugins"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 echo "✅ Set up tmux plugins"
+
+echo "Setting up fzf auto-complete"
+$(brew --prefix)/opt/fzf/install
+echo "✅ Set up fzf auto-complete"
