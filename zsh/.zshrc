@@ -31,6 +31,8 @@ export TMUXINATOR_CONFIG="~/.tmuxinator"
 
 # fuck
 export THEFUCK_REQUIRE_CONFIRMATION="false"
+# make 'fuck' command work in terminal
+eval $(thefuck --alias)
 
 # z
 . $HOME/z.sh
