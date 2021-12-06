@@ -89,7 +89,7 @@ eval "$(pyenv init -)"
 # CLIs ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Hasura auto-completion on command line
-hasura completion zsh --file=$HOME/.oh-my-zsh/completions/_hasura
+# hasura completion zsh --file=$HOME/.oh-my-zsh/completions/_hasura
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # The next line updates PATH for the Google Cloud SDK.
