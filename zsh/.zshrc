@@ -48,6 +48,21 @@ source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
+# CLIs ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# Hasura auto-completion on command line
+# hasura completion zsh --file=$HOME/.oh-my-zsh/completions/_hasura
+#
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
+
+export GPG_TTY=$(tty)
+
 # Language setup ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Go
@@ -55,9 +70,18 @@ export PATH=$PATH:$(go env GOPATH)/bin
 export GOPATH=$(go env GOPATH)
 export gopath=$(go env GOPATH)
 
+#home
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Python
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+
 # Node
 export PATH="$HOME/.npm-global/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
+# KEEP THIS LINE AT THE BOTTOM.
+# See: https://stackoverflow.com/questions/24585261/nvm-keeps-forgetting-node-in-new-terminal-session
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # Auto run nvm in directories with an nvmrc
@@ -82,20 +106,3 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
-# Python
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-
-# CLIs ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-# Hasura auto-completion on command line
-# hasura completion zsh --file=$HOME/.oh-my-zsh/completions/_hasura
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
-
-export GPG_TTY=$(tty)
