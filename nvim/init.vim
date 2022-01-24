@@ -70,7 +70,7 @@ Plug 'Julian/vim-textobj-variable-segment'
 Plug 'michaeljsmith/vim-indent-object'
 
 " Language Support & Syntax ~~~~~~~~~~~~~~~~~~~~~~~~~~
-Plug 'SirVer/ultisnips'
+" Plug 'SirVer/ultisnips'
 
 " Catch-all syntax
 Plug 'sheerun/vim-polyglot'
