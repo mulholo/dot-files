@@ -35,6 +35,7 @@ open -g -a "Roam Research"
 echo ""
 
 echo "Starting docker containers"
+sleep 15
 docker-compose up -d
 echo ""
 
