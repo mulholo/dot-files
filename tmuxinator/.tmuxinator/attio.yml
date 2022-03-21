@@ -36,5 +36,5 @@ windows:
         - cd packages/runtimes/api
         - cd packages/runtimes/api
         - cd packages/runtimes/web-app
-        - sudo gm
+        - gm
   - zsh: nvim .

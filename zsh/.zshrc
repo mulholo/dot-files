@@ -24,7 +24,11 @@ export FZF_DEFAULT_OPTS='--height 96% --preview="bat --style=numbers --color=alw
 # Hide annoying iTerm2 title
 echo -ne "\033]0;" "\007"
 
+# Add bash aliases
 source $HOME/.bash_aliases
+
+# Add custom bash scripts to path
+export PATH="$HOME/bin:$PATH"
 
 # tmux
 export TMUXINATOR_CONFIG="~/.tmuxinator"

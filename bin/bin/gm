@@ -10,10 +10,6 @@ echo "Navigating to Phoenix"
 cd ~/proj/Phoenix
 echo ""
 
-echo "Fetching git changes"
-git fetch origin
-echo ""
-
 echo "Updating brew packages to latest version"
 brew upgrade
 echo ""
