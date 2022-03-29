@@ -27,6 +27,13 @@ nnoremap <leader>d :NERDTreeFind<CR>
 nnoremap <leader>s :vsplit<CR>
 nnoremap <leader>i :split<CR>
 
+" Telescope - Finder ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+
 " Git symbols in gutter ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Plug 'airblade/vim-gitgutter'
 
