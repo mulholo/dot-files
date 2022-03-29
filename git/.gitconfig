@@ -85,3 +85,5 @@ linenumber = normal
 	helper = !gh auth git-credential
 [init]
 	defaultBranch = main
+[pull]
+	ff = only
