@@ -30,6 +30,19 @@ nnoremap <leader>i :split<CR>
 " Git symbols in gutter ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Plug 'airblade/vim-gitgutter'
 
+let g:gitgutter_sign_added = '█'
+let g:gitgutter_sign_modified = '█'
+let g:gitgutter_sign_removed = '█'
+let g:gitgutter_sign_removed_first_line = '█'
+let g:gitgutter_sign_removed_above_and_below = '█'
+let g:gitgutter_sign_modified_removed = '█'
+
+" Always show sign column so it doesn't jump around when
+" diffs are added
+set signcolumn=yes
+
+let g:gitgutter_async = 0
+
 " Various git tools ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Plug 'tpope/vim-fugitive'
 
