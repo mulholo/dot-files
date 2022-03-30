@@ -61,6 +61,8 @@ linenumber = normal
 	excludesfile = ~/.gitignore
 	editor = nvim
   pager = delta --dark --side-by-side
+[delta]
+    syntax-theme = Solarized (dark)
 [difftool]
   prompt = true
 [diff]
