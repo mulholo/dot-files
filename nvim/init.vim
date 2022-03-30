@@ -21,6 +21,7 @@ let g:NERDTreeMinimalUI = 1
 let g:NERDTreeMinimalMenu = 1
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeWinSize=60
+let g:NERDTreeWinPos="right"
 
 nnoremap <leader>d :NERDTreeFind<CR>
 " align s and i splits with NERDTree
