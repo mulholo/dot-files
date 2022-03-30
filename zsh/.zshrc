@@ -46,6 +46,7 @@ export BAT_CONFIG_PATH="$HOME/bat.conf"
 
 # command prompt
 eval "$(starship init zsh)"
+export STARSHIP_CONFIG=~/.starship.toml
 
 # Syntax Highlighting
 source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
