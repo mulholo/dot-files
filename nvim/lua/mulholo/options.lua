@@ -1,4 +1,5 @@
--- :help options
+-- Basic config options
+-- See `:help options`
 vim.cmd "filetype plugin indent on" -- Enable file type detection and language-dependent indenting.
 vim.g.mapleader = ' '               -- Set <leader> to ' '
 vim.opt.confirm = true              -- Ask what to do about unsaved/read-only files
