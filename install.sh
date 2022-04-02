@@ -19,6 +19,7 @@ echo "Stowing config"
 stow alacritty
 stow bat
 stow git
+stow starship
 stow tmux
 stow tmuxinator
 stow z
