@@ -1,6 +1,6 @@
 -- guide for translating vimscript to lua: https://www.notonlycode.org/neovim-lua-config/
 
-vim.g.mapleader = ' '
+require "mulholo.options"
 
 -- equivalent of nnoremap / inoremap etc from vimscript
 function map(mode, lhs, rhs, opts)
@@ -14,13 +14,6 @@ end
 map("n", "<leader>s", ":vsplit<CR>", { silent = true })
 map("n", "<leader>i", ":split<CR>", { silent = true })
 
--- Show &nbsp and tabs
--- Great for avoiding trailing whitespace and broken md files
-vim.opt.list = true
-
-vim.opt.cursorline = true -- show which column the cursor is in
-vim.opt.relativenumber = true -- Set relative line number and current line number
-vim.opt.confirm = true -- Ask what to do about unsaved/read-only files
 -- TODO check -> filetype plugin indent on     " Enable file type detection and language-dependent indenting.
 
 -- ==========================================================
