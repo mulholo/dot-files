@@ -14,8 +14,6 @@ end
 map("n", "<leader>s", ":vsplit<CR>", { silent = true })
 map("n", "<leader>i", ":split<CR>", { silent = true })
 
--- TODO check -> filetype plugin indent on     " Enable file type detection and language-dependent indenting.
-
 -- ==========================================================
 --  MAPPINGS
 -- ==========================================================
