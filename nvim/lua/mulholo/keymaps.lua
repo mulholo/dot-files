@@ -35,3 +35,5 @@ map("n", "<End>", "g<End>", { silent = true })
 map("i", "<Home>", "<C-o>g<Home>", { silent = true })
 map("i", "<End>", "<C-o>g<End>", { silent = true })
 
+-- Clear / search with ESC
+map("n", "<esc>", ":noh<return><esc>")

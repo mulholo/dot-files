@@ -3,6 +3,7 @@
 require "mulholo.options"
 require "mulholo.keymaps"
 require "mulholo.plugins"
+require "mulholo.theme"
 
 vim.cmd([[
 " Telescope - Finder ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -44,35 +45,6 @@ let g:tmuxline_preset = {
       \'cwin' : '#I #W',
       \'y'    : '%R'}
 
-" ==========================================================
-" GENERAL CONFIG
-" ==========================================================
-
-" Colors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-" Enable italics
-set t_ZH="\e[3m"
-set t_ZR="\e[23m"
-
-if (has("termguicolors"))
-set termguicolors
-endif
-syntax enable
-set background=dark
-colorscheme solarized8_high
-let g:solarized_visibility = "high"
-let g:solarized_statusline = "flat"
-let g:solarized_use16 = 1
-" Fix neovim cursorline colour issue
-highlight CursorLine ctermfg=black
-
-
-" tabs etc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set expandtab
-
 " Automatic line formatting for markdown
 au BufRead,BufNewFile *.md setlocal wrap linebreak nolist " Prevent annoying character hides in markdown
 au BufRead,BufNewFile *.md let g:indentLine_setConceal = 0
@@ -82,16 +54,6 @@ if has("autocmd")
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
   \| exe "normal! g'\"" | endif
 endif
-
-" Use system clipboard
-set clipboard=unnamed
-
-" Ignore case in / searches unless you type capital letters
-set ignorecase
-set smartcase
-
-" Clear search with ESC
-nnoremap <esc> :noh<return><esc>
 
 "" Copy the path to the current file into system-level clipboard
 function! s:copy_file_path()
