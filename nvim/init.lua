@@ -5,65 +5,11 @@ require "mulholo.keymaps"
 require "mulholo.plugins"
 
 vim.cmd([[
-" ==========================================================
-" PLUGINS
-" ==========================================================
-
-call plug#begin('~/.vim/plugged')
-
-" Sensible defaults ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Plug 'tpope/vim-sensible'
-
 " Telescope - Finder ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 
-" Select surrounding (, <tag>, ' etc. ~~~~~~~~~~~~~~~~~~~~~~
-Plug 'tpope/vim-surround'
-
-" Extend .'s behaviour ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Plug 'tpope/vim-repeat'
-
-" Add extra operators ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-" Comments -------------------
-" e.g. gcip to comment a paragraph
-Plug 'tpope/vim-commentary'
-
-" Replace --------------------
-" e.g. `gre` to replace to end of word with current buffer
-" contents
-Plug 'vim-scripts/ReplaceWithRegister'
-
-" Sort -----------------------
-Plug 'christoomey/vim-sort-motion'
-
-" Text Objects ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-" Enable other text object plugins
-Plug 'kana/vim-textobj-user'
-
-" Add text object for parts of camel and snake-case variables
-" e.g. foo_ba|r_baz -> civquux -> foo_quux_baz
-Plug 'Julian/vim-textobj-variable-segment'
-
-" Add text object for lines
-" ai -> indentation level and line above
-" ii -> indentation level, no line above
-" aI -> indentation level, line above and line below
-Plug 'michaeljsmith/vim-indent-object'
-
-" Language Support & Syntax ~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-" HTML -----------------------
-
 " Airline ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'edkolev/tmuxline.vim'
-
 " Use nice symbols from a powerline font
 let g:airline_powerline_fonts = 1
 let g:airline_left_sep = ''
@@ -98,11 +44,6 @@ let g:tmuxline_preset = {
       \'cwin' : '#I #W',
       \'y'    : '%R'}
 
-" Theming ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Plug 'lifepillar/vim-solarized8'
-
-call plug#end()
-
 " ==========================================================
 " GENERAL CONFIG
 " ==========================================================
@@ -127,9 +68,9 @@ highlight CursorLine ctermfg=black
 
 
 " tabs etc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 
 " Automatic line formatting for markdown
