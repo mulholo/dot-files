@@ -1,5 +1,7 @@
 export TERM="xterm-256color"
 
+export XDG_CONFIG_HOME="$HOME/.dot-files/"
+
 # disable auto correct
 ENABLE_CORRECTION="false"
 unsetopt correct_all
