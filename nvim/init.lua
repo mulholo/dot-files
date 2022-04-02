@@ -1,6 +1,58 @@
-vim.cmd([[
-let mapleader=" "
+-- guide for translating vimscript to lua: https://www.notonlycode.org/neovim-lua-config/
 
+vim.g.mapleader = ' '
+
+-- equivalent of nnoremap / inoremap etc from vimscript
+function map(mode, lhs, rhs, opts)
+    local options = { noremap = true }
+    if opts then
+        options = vim.tbl_extend("force", options, opts)
+    end
+    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
+
+map("n", "<leader>s", ":vsplit<CR>", { silent = true })
+map("n", "<leader>i", ":split<CR>", { silent = true })
+
+-- Show &nbsp and tabs
+-- Great for avoiding trailing whitespace and broken md files
+vim.opt.list = true
+
+vim.opt.cursorline = true -- show which column the cursor is in
+vim.opt.relativenumber = true -- Set relative line number and current line number
+vim.opt.confirm = true -- Ask what to do about unsaved/read-only files
+-- TODO check -> filetype plugin indent on     " Enable file type detection and language-dependent indenting.
+
+-- ==========================================================
+--  MAPPINGS
+-- ==========================================================
+
+-- align window jumping with tmux
+map("n", "<leader>h", "<c-w>h")
+map("n", "<leader>j", "<c-w>j")
+map("n", "<leader>k", "<c-w>k")
+map("n", "<leader>l", "<c-w>l")
+
+-- Make file directory mapping easier
+map("i", "<c-f>", "<c-x><c-f>")
+
+-- Keep blocks selected when indenting
+map("v", "< ", "<gv")
+map("v", "> ", ">gv")
+
+-- Navigate between display lines like real lines
+map("n", "<Up>", "gk", { silent = true })
+map("n", "<Down>", "gj", { silent = true })
+
+map("n", "<Down>", "gj", { silent = true })
+map("n", "k", "gk", { silent = true })
+map("n", "j", "gj", { silent = true })
+map("n", "<Home>", "g<Home>", { silent = true })
+map("n", "<End>", "g<End>", { silent = true })
+map("i", "<Home>", "<C-o>g<Home>", { silent = true })
+map("i", "<End>", "<C-o>g<End>", { silent = true })
+
+vim.cmd([[
 " ==========================================================
 " PLUGINS
 " ==========================================================
@@ -9,9 +61,6 @@ call plug#begin('~/.vim/plugged')
 
 " Sensible defaults ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Plug 'tpope/vim-sensible'
-
-nnoremap <leader>s :vsplit<CR>
-nnoremap <leader>i :split<CR>
 
 " Telescope - Finder ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Plug 'nvim-lua/plenary.nvim'
@@ -106,10 +155,6 @@ call plug#end()
 " GENERAL CONFIG
 " ==========================================================
 
-" Show &nbsp and tabs
-" Great for avoiding trailing whitespace and broken md files
-:set list
-
 " Colors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 " Enable italics
@@ -128,10 +173,6 @@ let g:solarized_use16 = 1
 " Fix neovim cursorline colour issue
 highlight CursorLine ctermfg=black
 
-set cursorline                " show which column the cursor is in
-set number relativenumber     " Set relative line number and current line number
-set confirm                   " Ask what to do about unsaved/read-only files
-filetype plugin indent on     " Enable file type detection and language-dependent indenting.
 
 " tabs etc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 set tabstop=4
@@ -159,39 +200,9 @@ set smartcase
 " Clear search with ESC
 nnoremap <esc> :noh<return><esc>
 
-" ==========================================================
-" MAPPINGS
-" ==========================================================
-
-" Copy the path to the current file into system-level clipboard
+"" Copy the path to the current file into system-level clipboard
 function! s:copy_file_path()
   let @+ = expand("%")
 endfunction
 command! -nargs=0 CopyFilePath :call s:copy_file_path()
-
-" Type // in VISUAL mode to search for text under cursor
-vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
-
-" align window jumping with tmux
-nnoremap <leader>h <c-w>h
-nnoremap <leader>j <c-w>j
-nnoremap <leader>k <c-w>k
-nnoremap <leader>l <c-w>l
-
-" Make file directory mapping easier
-inoremap <c-f> <c-x><c-f>
-
-" Keep blocks selected when indenting
-vmap < <gv
-vmap > >gv
-
-" Navigate between display lines like real lines
-noremap  <silent> <Up>   gk
-noremap  <silent> <Down> gj
-noremap  <silent> k gk
-noremap  <silent> j gj
-noremap  <silent> <Home> g<Home>
-noremap  <silent> <End>  g<End>
-inoremap <silent> <Home> <C-o>g<Home>
-inoremap <silent> <End>  <C-o>g<End>
 ]])
