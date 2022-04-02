@@ -2,6 +2,7 @@
 
 require "mulholo.options"
 require "mulholo.keymaps"
+require "mulholo.plugins"
 
 vim.cmd([[
 " ==========================================================
