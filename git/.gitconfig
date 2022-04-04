@@ -1,7 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
 	name = James Mulholland
-	email = james@jmulholland.com
+	email = james@attio.com
 [color]
   pager = true
   ui = auto
@@ -61,6 +61,8 @@ linenumber = normal
 	excludesfile = ~/.gitignore
 	editor = nvim
   pager = delta --dark --side-by-side
+[delta]
+    syntax-theme = Solarized (dark)
 [difftool]
   prompt = true
 [diff]

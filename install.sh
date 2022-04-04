@@ -19,6 +19,7 @@ echo "Stowing config"
 stow alacritty
 stow bat
 stow git
+stow starship
 stow tmux
 stow tmuxinator
 stow z
@@ -36,6 +37,10 @@ echo "✅ Linked nvim config"
 echo "Installing NPM packages..."
 npm i -g typescript neovim
 echo "✅ Installed NPM packages"
+
+echo "Installing Python neovim config"
+pip3 install pynvim
+echo "✅ Installed Python neovim config"
 
 echo "Adding zsh syntax higlighting"
 cd ~ && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git

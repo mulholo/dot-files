@@ -1,5 +1,7 @@
 export TERM="xterm-256color"
 
+export XDG_CONFIG_HOME="$HOME/.dot-files/"
+
 # disable auto correct
 ENABLE_CORRECTION="false"
 unsetopt correct_all
@@ -33,19 +35,11 @@ export PATH="$HOME/bin:$PATH"
 # tmux
 export TMUXINATOR_CONFIG="~/.tmuxinator"
 
-# fuck
-export THEFUCK_REQUIRE_CONFIRMATION="false"
-# make 'fuck' command work in terminal
-eval $(thefuck --alias)
-
 # z
 . $HOME/z.sh
 
 # bat
 export BAT_CONFIG_PATH="$HOME/bat.conf"
-
-# command prompt
-eval "$(starship init zsh)"
 
 # Syntax Highlighting
 source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -84,9 +78,21 @@ eval "$(pyenv init -)"
 # Node
 export PATH="$HOME/.npm-global/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
+
+# command prompt
+eval "$(starship init zsh)"
+export STARSHIP_CONFIG=~/.starship.toml
+
+# fuck
+export THEFUCK_REQUIRE_CONFIRMATION="false"
+# make 'fuck' command work in terminal
+eval $(thefuck --alias)
+
 # KEEP THIS LINE AT THE BOTTOM.
 # See: https://stackoverflow.com/questions/24585261/nvm-keeps-forgetting-node-in-new-terminal-session
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# NVM
 
 # Auto run nvm in directories with an nvmrc
 autoload -U add-zsh-hook
