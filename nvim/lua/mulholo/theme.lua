@@ -1,4 +1,4 @@
-local colorscheme = "solarized8_high"
+local colorscheme = "solarized8_high" -- Requires solarized plugin. See plugins.lua
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
