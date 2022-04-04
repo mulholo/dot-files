@@ -9,4 +9,5 @@ karabiner
 gatsby
 iterm2/AppSupport
 nvim/plugin/packer_compiled.lua
+thefuck/__pycache
 *.pyc
