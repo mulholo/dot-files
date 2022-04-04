@@ -8,6 +8,7 @@ require "mulholo.plugins"
 require "mulholo.theme"
 require "mulholo.completion"
 require "mulholo.lsp"
+require "mulholo.nvim-tree"
 
 vim.cmd([[
 " Telescope - Finder ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

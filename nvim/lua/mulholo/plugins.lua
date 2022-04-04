@@ -51,6 +51,7 @@ return packer.startup(function(use)
   use 'vim-airline/vim-airline-themes'      -- Airline themes
   use 'edkolev/tmuxline.vim'                -- Airline look for TMUX
   use "nvim-lua/popup.nvim"                 -- An implementation of the Popup API from vim in Neovim
+  use 'kyazdani42/nvim-tree.lua'            -- Better file explorer
 
   -- Completion
   use "hrsh7th/nvim-cmp"                    -- Completion
