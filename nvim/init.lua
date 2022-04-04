@@ -6,6 +6,7 @@ require "mulholo.options"
 require "mulholo.keymaps"
 require "mulholo.plugins"
 require "mulholo.theme"
+require "mulholo.completion"
 
 vim.cmd([[
 " Telescope - Finder ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
