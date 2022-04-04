@@ -37,3 +37,6 @@ map("i", "<End>", "<C-o>g<End>", { silent = true })
 
 -- Clear / search with ESC
 map("n", "<esc>", ":noh<return><esc>")
+
+-- nvim-tree
+map("n", "<leader>d", ":NvimTreeToggle<cr>")
