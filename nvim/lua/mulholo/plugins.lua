@@ -50,17 +50,22 @@ return packer.startup(function(use)
   use 'vim-airline/vim-airline'             -- Airline
   use 'vim-airline/vim-airline-themes'      -- Airline themes
   use 'edkolev/tmuxline.vim'                -- Airline look for TMUX
-  -- use "nvim-lua/popup.nvim"              -- An implementation of the Popup API from vim in Neovim
+  use "nvim-lua/popup.nvim"                 -- An implementation of the Popup API from vim in Neovim
 
   -- Completion
   use "hrsh7th/nvim-cmp"                    -- Completion
   use "hrsh7th/cmp-buffer"                  -- Buffer Completion
   use "hrsh7th/cmp-path"                    -- Path Completion
   use "hrsh7th/cmp-cmdline"                 -- Commandline Completion
-  use "saadparwaiz1/cmp_luasnip"            -- Completion
+  use "saadparwaiz1/cmp_luasnip"            -- Snippet Completion
+  use "hrsh7th/cmp-nvim-lsp"                -- LSP completion (see LSP config below)
+
+  -- LSP
+  use "neovim/nvim-lspconfig"               -- Quickstart LSP config from Neovim core team
+  use "williamboman/nvim-lsp-installer"     -- Convenient LSP installer for new languages
 
   -- Motions and text objects
-  use 'michaeljsmith/vim-indent-object'     -- Add text object for lines: ai -> and line above; ii -> no line above; aI -> line above and line below
+  use 'michaeljsmith/vim-indent-object'     -- Text object for lines: ai -> and line above; ii -> no line above; aI -> line above and line below
   use 'tpope/vim-commentary'                -- Comment motion e.g. gcip to comment a paragraph
   use 'vim-scripts/ReplaceWithRegister'     -- Replace motion e.g. `gre` to replace to end of word with current buffer
   use 'christoomey/vim-sort-motion'         -- Sort motion
