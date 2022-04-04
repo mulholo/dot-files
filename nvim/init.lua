@@ -1,4 +1,6 @@
--- guide for translating vimscript to lua: https://www.notonlycode.org/neovim-lua-config/
+-- guides for translating vimscript to lua:
+-- * https://www.notonlycode.org/neovim-lua-config/
+-- * https://vonheikemen.github.io/devlog/tools/configuring-neovim-using-lua/
 
 require "mulholo.options"
 require "mulholo.keymaps"
