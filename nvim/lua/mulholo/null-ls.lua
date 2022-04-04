@@ -15,7 +15,7 @@ null_ls.setup {
     code_actions.eslint,
     -- diagnostics.cspell,
     null_ls.builtins.code_actions.eslint,
-    formatting.prettier.with,
+    formatting.prettier,
     formatting.black.with { extra_args = { "--fast" } },
     formatting.stylua,
     diagnostics.flake8,
