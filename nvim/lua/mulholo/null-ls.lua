@@ -12,10 +12,11 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup {
   debug = false,
   sources = {
-    code_actions.eslint,
     -- diagnostics.cspell,
-    null_ls.builtins.code_actions.eslint,
-    formatting.prettier,
+    -- formatting.prettier,
+    code_actions.eslint,
+    code_actions.eslint,
+    formatting.eslint,
     formatting.black.with { extra_args = { "--fast" } },
     formatting.stylua,
     diagnostics.flake8,

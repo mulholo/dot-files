@@ -25,5 +25,19 @@ lsp_installer.on_server_ready(function(server)
     opts = vim.tbl_deep_extend("force", pyright_opts, opts)
   end
 
+  if server.name == "tsserver" then
+    local tsserver_opts = {
+      filetypes = {
+        "javascript",
+        "javascriptreact",
+        "javascript.jsx",
+        "typescript",
+        "typescriptreact",
+        "typescript.tsx" 
+      }
+    }
+    opts = vim.tbl_deep_extend("force", tsserver_opts, opts)
+  end
+
   server:setup(opts)
 end)
