@@ -13,14 +13,9 @@ echo ""
 echo "Updating brew packages to latest version"
 brew upgrade
 echo ""
-
+Slack
 echo "Installing node modules"
 yarn install
-echo ""
-
-echo "Running any out of date migrations"
-cd ~/proj/Phoenix/packages
-yarn workspace @attio/api provision-gcp-local
 echo ""
 
 echo "Authenticating GCloud"
@@ -33,6 +28,10 @@ echo ""
 
 echo "Opening Slack"
 open -g -a Slack
+echo ""
+
+echo "Opening Endel"
+open -g -a Endel
 echo ""
 
 echo "Opening Roam"
