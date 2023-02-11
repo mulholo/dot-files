@@ -27,11 +27,11 @@ stow zsh
 echo "✅ Stowed config."
 
 echo "Linking nvim config"
-mkdir .config/nvim
-touch .config/nvim/init.vim
+mkdir ~/.config/nvim
+touch ~/.config/nvim/init.vim
 echo "set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
-source ~/.dot-files/nvim/init.vim" > .config/nvim/init.vim
+source ~/.dot-files/nvim/init.vim" > ~/.config/nvim/init.vim
 echo "✅ Linked nvim config"
 
 echo "Installing NPM packages..."
