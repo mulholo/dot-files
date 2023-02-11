@@ -1,6 +1,7 @@
 alias v="nvim"
 alias cpr="cd ~/proj/"
 alias zshrc="nvim ~/.zshrc"
+alias y="yarn"
 alias g="git"
 # copy current branch name to clipboard
 alias curbranch="git rev-parse --abbrev-ref HEAD"
