@@ -50,8 +50,6 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 # Hasura auto-completion on command line
 # hasura completion zsh --file=$HOME/.oh-my-zsh/completions/_hasura
-#
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
@@ -60,6 +58,15 @@ if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
 
 export GPG_TTY=$(tty)
+
+# command prompt
+eval "$(starship init zsh)"
+export STARSHIP_CONFIG=~/.starship.toml
+
+# fuck
+export THEFUCK_REQUIRE_CONFIRMATION="false"
+# make 'fuck' command work in terminal
+eval $(thefuck --alias)
 
 # Language setup ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -75,24 +82,12 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 
-# Node
+# Node/nvm
 export PATH="$HOME/.npm-global/bin:$PATH"
-export NVM_DIR="$HOME/.nvm"
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
-# command prompt
-eval "$(starship init zsh)"
-export STARSHIP_CONFIG=~/.starship.toml
-
-# fuck
-export THEFUCK_REQUIRE_CONFIRMATION="false"
-# make 'fuck' command work in terminal
-eval $(thefuck --alias)
-
-# KEEP THIS LINE AT THE BOTTOM.
-# See: https://stackoverflow.com/questions/24585261/nvm-keeps-forgetting-node-in-new-terminal-session
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
-# NVM
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Auto run nvm in directories with an nvmrc
 autoload -U add-zsh-hook
