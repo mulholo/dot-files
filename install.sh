@@ -36,7 +36,12 @@ echo "✅ Linked nvim config"
 
 echo "Installing NPM packages..."
 npm i -g typescript neovim
+npm i -g github-copilot-cli
 echo "✅ Installed NPM packages"
+
+echo "Authorization for GitHub Copilot CLI"
+github-copilot-cli auth
+echo "✅ Authorized"
 
 echo "Installing Python neovim config"
 pip3 install pynvim

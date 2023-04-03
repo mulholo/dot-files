@@ -68,6 +68,9 @@ export THEFUCK_REQUIRE_CONFIRMATION="false"
 # make 'fuck' command work in terminal
 eval $(thefuck --alias)
 
+# Add github-copilot-cli commands e.g. ??, git?
+eval "$(github-copilot-cli alias -- "$0")"
+
 # Language setup ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Go
