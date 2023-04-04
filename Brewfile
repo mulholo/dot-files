@@ -18,6 +18,7 @@ brew "howdoi"
 brew "neovim"
 brew "postgresql", restart_service: true
 brew "ripgrep"
+brew "siege"
 brew "stow"
 brew "thefuck"
 brew "tmux"
