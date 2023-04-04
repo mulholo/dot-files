@@ -30,11 +30,20 @@ startup_window: server
 # startup_pane: 1
 
 windows:
-  - server:
+  - backend:
       layout: tiled
       panes:
         - cd packages/runtimes/api && yarn run start-dev
         - cd packages/runtimes/api && yarn run build-tsc-watch
+  - frontends:
+      layout: tiled
+      panes:
         - cd packages/runtimes/web-app && yarn run start-dev
+        - cd packages/runtimes/awac && yarn run start-dev
+        - cd packages/runtimes/lighthouse && yarn run dev
+        - cd packages/runtimes/web-app && yarn run build-tsc-watch
+  - zsh:
+      layout: tiled
+      panes:
+        - nvim .
         - gm
-  - zsh: nvim .
