@@ -3,6 +3,7 @@ alias cpr="cd ~/proj/"
 alias zshrc="nvim ~/.zshrc"
 alias y="yarn"
 alias g="git"
+alias y="yarn"
 # copy current branch name to clipboard
 alias curbranch="git rev-parse --abbrev-ref HEAD"
 alias bcopy="git branch | grep '^\*' | cut -d' ' -f2 | tr -d '\n' | pbcopy"
