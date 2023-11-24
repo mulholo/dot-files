@@ -80,7 +80,12 @@ linenumber = normal
 [alias]
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches
   a = add
+  b = branch
   c = commit
+  ch = checkout
+  p = push
+  r = rebase
+  s = status
 [mergetool]
 	path = nvim -d
 [credential "https://github.com"]
