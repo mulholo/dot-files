@@ -82,8 +82,10 @@ linenumber = normal
   a = add
   b = branch
   c = commit
+  d = diff
   ch = checkout
-  p = push
+  ps = push
+  pl = pull
   r = rebase
   s = status
 [mergetool]
