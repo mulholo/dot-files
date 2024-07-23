@@ -33,15 +33,14 @@ windows:
   - backend:
       layout: tiled
       panes:
-        - cd packages/runtimes/api && yarn run start-dev
-        - cd packages/runtimes/api && yarn run build-tsc-watch
+        - yarn workspace @attio/api start-dev
+        - yarn workspace @attio/api build-tsc-watch
   - frontends:
       layout: tiled
       panes:
-        - cd packages/runtimes/web-app && yarn run start-dev
-        - cd packages/runtimes/awac && yarn run start-dev
-        - cd packages/runtimes/lighthouse && yarn run dev
-        - cd packages/runtimes/web-app && yarn run build-tsc-watch
+        - yarn workspace @attio/web-app start-dev
+        - yarn workspace @attio/awac start-dev
+        - yarn workspace @attio/web-app start-dev-rspack
   - zsh:
       layout: tiled
       panes:
