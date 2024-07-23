@@ -14,17 +14,11 @@ COMPLETION_WAITING_DOTS="true"
 # much, much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-export EDITOR='nvim'
+export EDITOR='vi'
 
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow"
 export FZF_DEFAULT_OPTS='--height 96% --preview="bat --style=numbers --color=always {} | head -500" --preview-window=right:62%'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Hide annoying iTerm2 title
-echo -ne "\033]0;" "\007"
 
 # Add bash aliases
 source $HOME/.bash_aliases
@@ -48,15 +42,6 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 # CLIs ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-# Hasura auto-completion on command line
-# hasura completion zsh --file=$HOME/.oh-my-zsh/completions/_hasura
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
-
 export GPG_TTY=$(tty)
 
 # command prompt
@@ -68,22 +53,20 @@ export THEFUCK_REQUIRE_CONFIRMATION="false"
 # make 'fuck' command work in terminal
 eval $(thefuck --alias)
 
-# Add github-copilot-cli commands e.g. ??, git?
-eval "$(github-copilot-cli alias -- "$0")"
-
 # Language setup ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# Required for airbyte
+export PATH="$HOME/.local/bin:$PATH"
 
 # Go
 export PATH=$PATH:$(go env GOPATH)/bin
 export GOPATH=$(go env GOPATH)
 export gopath=$(go env GOPATH)
 
-#home
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# Python
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
+# Rust
+. "$HOME/.cargo/env" 
 
 # Node/nvm
 export PATH="$HOME/.npm-global/bin:$PATH"
@@ -111,3 +94,14 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
+
+# Bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+[ -s "/Users/james/.bun/_bun" ] && source "/Users/james/.bun/_bun" # Bun completions
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/james/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/james/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/james/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/james/google-cloud-sdk/completion.zsh.inc'; fi
