@@ -5,6 +5,12 @@ disabled = true
 [nodejs]
 disabled = true
 
+[docker_context]
+disabled = true
+
+[python]
+disabled = true
+
 [gcloud]
 disabled = true
 
@@ -12,4 +18,4 @@ disabled = true
 format = "[$symbol$branch]($style) "
 
 [git_status]
-format = '([\[$all_status$ahead_behind\]]($style) )'
+disabled = true
