@@ -91,8 +91,12 @@ linenumber = normal
 [mergetool]
 	path = nvim -d
 [credential "https://github.com"]
-	helper = !gh auth git-credential
+	helper = !/opt/homebrew/bin/gh auth git-credential
 [init]
 	defaultBranch = main
 [pull]
 	ff = only
+[credential "https://gist.github.com"]
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[commit]
+	gpgsign = true
