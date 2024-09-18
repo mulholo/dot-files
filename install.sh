@@ -21,7 +21,6 @@ stow bat
 stow git
 stow starship
 stow tmux
-stow tmuxinator
 stow z
 stow zsh
 echo "✅ Stowed config."
