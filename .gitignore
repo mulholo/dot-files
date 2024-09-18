@@ -3,11 +3,16 @@ gh
 githubnext__github-copilot-cli.json
 .airtableblocksrc.json
 stripe
+dagger
 firebase
 configstore
 karabiner
 .airtableblocksrc.json
 tmuxinator
+mume
+crossnote
+gh-copilot
+graphite
 gatsby
 iterm2/AppSupport
 nvim/plugin/packer_compiled.lua
