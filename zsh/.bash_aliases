@@ -3,6 +3,7 @@ alias y="yarn"
 alias g="git"
 alias gs="git status"
 alias y="yarn"
+alias v="nvim"
 alias yw="yarn workspace"
 # copy current branch name to clipboard
 alias curbranch="git rev-parse --abbrev-ref HEAD"
