@@ -40,19 +40,6 @@ source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
-# CLIs ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-export GPG_TTY=$(tty)
-
-# command prompt
-eval "$(starship init zsh)"
-export STARSHIP_CONFIG=~/.starship.toml
-
-# fuck
-export THEFUCK_REQUIRE_CONFIRMATION="false"
-# make 'fuck' command work in terminal
-eval $(thefuck --alias)
-
 # Language setup ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Required for airbyte
@@ -70,8 +57,9 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Node/nvm
 export PATH="$HOME/.npm-global/bin:$PATH"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+export NVM_DIR="$HOME/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Auto run nvm in directories with an nvmrc
 autoload -U add-zsh-hook
