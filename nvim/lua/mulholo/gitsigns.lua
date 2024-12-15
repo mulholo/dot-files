@@ -1,10 +1,10 @@
 require('gitsigns').setup {
   signs = {
-    add          = {hl = 'GitSignsAdd'   , text = '▌', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
-    change       = {hl = 'GitSignsChange', text = '▌', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
-    delete       = {hl = 'GitSignsDelete', text = '_', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
-    topdelete    = {hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
-    changedelete = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+    add          = { text = '▌' },
+    change       = { text = '▌' },
+    delete       = { text = '_' },
+    topdelete    = { text = '‾' },
+    changedelete = { text = '~' },
   },
   signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
   numhl      = false, -- Toggle with `:Gitsigns toggle_numhl`
@@ -35,7 +35,22 @@ require('gitsigns').setup {
     row = 0,
     col = 1
   },
-  yadm = {
-    enable = false
-  },
 }
+
+-- Define highlights explicitly
+local hl = vim.api.nvim_set_hl
+hl(0, 'GitSignsAdd', { link = 'DiffAdd' })
+hl(0, 'GitSignsAddLn', { link = 'DiffAdd' })
+hl(0, 'GitSignsAddNr', { link = 'DiffAdd' })
+hl(0, 'GitSignsChange', { link = 'DiffChange' })
+hl(0, 'GitSignsChangeLn', { link = 'DiffChange' })
+hl(0, 'GitSignsChangeNr', { link = 'DiffChange' })
+hl(0, 'GitSignsChangedelete', { link = 'DiffChange' })
+hl(0, 'GitSignsChangedeleteLn', { link = 'DiffChange' })
+hl(0, 'GitSignsChangedeleteNr', { link = 'DiffChange' })
+hl(0, 'GitSignsDelete', { link = 'DiffDelete' })
+hl(0, 'GitSignsDeleteLn', { link = 'DiffDelete' })
+hl(0, 'GitSignsDeleteNr', { link = 'DiffDelete' })
+hl(0, 'GitSignsTopdelete', { link = 'DiffDelete' })
+hl(0, 'GitSignsTopdeleteLn', { link = 'DiffDelete' })
+hl(0, 'GitSignsTopdeleteNr', { link = 'DiffDelete' })
