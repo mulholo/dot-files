@@ -7,13 +7,19 @@ echo "✅ Command Line Tools installed."
 
 # Install Homebrew (brew.sh)
 echo "Installing Homebrew..."
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 echo "✅ Homebrew installed."
 
 # Install packages via Homebrew
 echo "Installing packages via Homebrew..."
 brew bundle
 echo "✅ Installed packages via Homebrew."
+
+# Check if stow is installed
+if ! command --verson stow &> /dev/null; then
+  echo "Error: stow is not installed. Please install it and try again: https://ftp.gnu.org/gnu/stow/."
+  exit 1
+fi
 
 echo "Stowing config"
 stow alacritty
@@ -35,12 +41,7 @@ echo "✅ Linked nvim config"
 
 echo "Installing NPM packages..."
 npm i -g typescript neovim
-npm i -g github-copilot-cli
 echo "✅ Installed NPM packages"
-
-echo "Authorization for GitHub Copilot CLI"
-github-copilot-cli auth
-echo "✅ Authorized"
 
 echo "Installing Python neovim config"
 pip3 install pynvim
