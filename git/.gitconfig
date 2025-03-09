@@ -1,7 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
-	name = James Mulholland
-	email = james@attio.com
+  name = James Mulholland
+  email = james@attio.com
 [color]
   pager = true
   ui = auto
@@ -12,8 +12,8 @@
   interactive = auto
   grep = auto
 [color "status"]
-	header = white
-	branch = cyan
+  header = white
+  branch = cyan
   nobranch = red
   unmerged = red
   untracked = cyan
@@ -58,25 +58,34 @@
   separator = red bold
 linenumber = normal
 [core]
-	excludesfile = ~/.gitignore
-	editor = nvim
+  excludesfile = ~/.gitignore # put global gitignore in a more sensible place
+  editor = nvim
   pager = delta --dark --side-by-side
 [delta]
-    syntax-theme = Solarized (dark)
+  syntax-theme = Solarized (dark)
 [difftool]
   prompt = true
 [diff]
-	tool = nvimdiff
+  tool = nvimdiff
+  algorithm = histogram
+  colorMoved = plain # show moved lines differently to added/removed
+  renames = true # detect renames
 [difftool "nvimdiff"]
   cmd = "nvim -d -u ~/.vimrc \"$LOCAL\" \"$REMOTE\""
+[push]
+  autoSetupRemote = true
+[fetch]
+  prune = true
+  pruneTags = true
+  all = true
 [merge]
-	tool = vimdiff
-  conflictstyle = diff3
+  tool = vimdiff
+  conflictstyle = zdiff3 # show previous line content in case of conclict with ||||| block
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 [alias]
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches
   a = add
@@ -89,16 +98,21 @@ linenumber = normal
   r = rebase
   s = status
 [mergetool]
-	path = nvim -d
+  path = nvim -d
 [init]
-	defaultBranch = main
+  defaultBranch = main
 [pull]
-	ff = only
+  ff = only
 [commit]
-	gpgsign = true
+  gpgsign = true
+  verbose = true # increase context for writing commit messages
+[tag]
+  sort = version:refname # sort tags numerically rather than lexicographically
+[help]
+  autocorrect = prompt
 [credential "https://github.com"]
-	helper = 
-	helper = !/opt/homebrew/bin/gh auth git-credential
+  helper = 
+  helper = !/opt/homebrew/bin/gh auth git-credential
 [credential "https://gist.github.com"]
-	helper = 
-	helper = !/opt/homebrew/bin/gh auth git-credential
+  helper = 
+  helper = !/opt/homebrew/bin/gh auth git-credential

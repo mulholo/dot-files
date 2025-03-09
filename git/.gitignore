@@ -1,7 +1,9 @@
+# notes
 .todos.md
-.vscode
-.vim
 .notes.md
 .ideas.md
 .thoughts.md
-taskell.md
+
+# clutter files
+.DS_Store
+.vim
