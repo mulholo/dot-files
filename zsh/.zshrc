@@ -14,7 +14,7 @@ COMPLETION_WAITING_DOTS="true"
 # much, much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-export EDITOR='vi'
+export EDITOR='nvim'
 
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow"
 export FZF_DEFAULT_OPTS='--height 96% --preview="bat --style=numbers --color=always {} | head -500" --preview-window=right:62%'
