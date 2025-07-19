@@ -3,6 +3,11 @@
 .notes.md
 .ideas.md
 .thoughts.md
+.ticket.md
+TICKET.md
+
+# claude
+.claude-context
 
 # clutter files
 .DS_Store
