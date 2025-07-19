@@ -23,11 +23,11 @@ export FZF_DEFAULT_OPTS='--height 96% --preview="bat --style=numbers --color=alw
 # Add bash aliases
 source $HOME/.bash_aliases
 
-# Add custom bash scripts to path
-export PATH="$HOME/bin:$PATH"
+# Add dot-file scripts to path
+export PATH="$PATH:$HOME/.dot-files/bin"
 
 # tmux
-export TMUXINATOR_CONFIG="~/.tmuxinator"
+export TMUXINATOR_CONFIG="$HOME/.tmuxinator"
 
 # z
 . $HOME/z.sh
