@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+START_REF=${1:-master}
+END_REF=HEAD
+
+# Get commits reachable from END_REF but not from START_REF, oldest first
+COMMITS=($(git rev-list --reverse "${START_REF}..${END_REF}"))
+
+if [ ${#COMMITS[@]} -eq 0 ]; then
+  echo "No commits found between $START_REF and $END_REF"
+  exit 0
+fi
+
+INDEX=0
+
+function show_commit() {
+  clear
+  git show --color "${COMMITS[$INDEX]}" | bat --paging=always --plain
+}
+
+function paginate() {
+  while true; do
+    show_commit
+
+    echo -n "[p]rev / [n]ext / [q]uit: "
+    read -r -n1 key
+    echo
+
+    case "$key" in
+      n)
+        if (( INDEX + 1 < ${#COMMITS[@]} )); then
+          INDEX=$((INDEX + 1))
+        else
+          break  # exit on last commit
+        fi
+        ;;
+      p)
+        if (( INDEX > 0 )); then
+          INDEX=$((INDEX - 1))
+        fi
+        ;;
+      q)
+        break
+        ;;
+    esac
+  done
+}
+
+paginate
