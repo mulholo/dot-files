@@ -10,7 +10,8 @@ alias curbranch="git rev-parse --abbrev-ref HEAD"
 alias bcopy="git branch | grep '^\*' | cut -d' ' -f2 | tr -d '\n' | pbcopy"
 # feck - fuzzy checkout
 alias feck="git branch | fzf | xargs git checkout"
-alias '??'="gh copilot suggest -t shell"
-alias 'git?'="gh copilot suggest -t git"
-alias 'gh?'="gh copilot suggest -t gh"
-alias 'ls'='eza -l -h --git'
+alias '??'="ghcs -t shell"
+alias 'git?'="ghcs -t git"
+alias 'gh?'="ghcs -t gh"
+alias 'ls'="eza -l -h --git"
+alias cl="claude --ide"
