@@ -107,3 +107,8 @@ if [ -f '/Users/james/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/james/goo
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/james/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/james/google-cloud-sdk/completion.zsh.inc'; fi
+eval "$(gh copilot alias -- zsh)"
+
+# Added by Windsurf
+export PATH="/Users/james/.codeium/windsurf/bin:$PATH"
+
