@@ -14,4 +14,5 @@ alias '??'="ghcs -t shell"
 alias 'git?'="ghcs -t git"
 alias 'gh?'="ghcs -t gh"
 alias 'ls'="eza -l -h --git"
+alias 'lg'='lazygit'
 alias cl="claude --ide"
