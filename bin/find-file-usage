@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# Finds files in the current directory which contain a match anywhere in the
+# file for the specified regex
+#
+# Usage: find-file-usage "<regex>"
+
+set -euo pipefail
+
+if [ "$#" -ne 1 ]; then
+  echo "Usage: $0 <regex>" >&2
+  exit 1
+fi
+
+REGEX="$1"
+
+rg "$REGEX" | sed 's/:.*//' | sort -u
