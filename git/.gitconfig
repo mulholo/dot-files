@@ -12,13 +12,14 @@
   interactive = auto
   grep = auto
 [color "status"]
-  header = white
+  header = blue
   branch = cyan
   nobranch = red
   unmerged = red
-  untracked = cyan
+  untracked = blue
   added = green
   changed = red bold
+  unracked = cyan
 [color "diff"]
   meta = red bold
   frag = black bold
@@ -27,7 +28,7 @@
   new = green
   commit = blue
   whitespace = red
-  context = normal
+  context = blue
   newMoved = green dim
   oldMoved = yellow dim
   newMovedAlternative = blue dim
