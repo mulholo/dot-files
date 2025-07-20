@@ -14,7 +14,15 @@ endif
 
 vim.cmd "syntax enable"
 
-vim.opt.background = "dark"
+-- Detect system theme on macOS
+local function get_system_theme()
+  local handle = io.popen("defaults read -g AppleInterfaceStyle 2>/dev/null")
+  local result = handle:read("*a")
+  handle:close()
+  return result:match("Dark") and "dark" or "light"
+end
+
+vim.opt.background = get_system_theme()
 
 vim.g.solarized_visibility = "high"
 vim.g.solarized_statusline = "flat"
