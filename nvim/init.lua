@@ -36,7 +36,7 @@ function! AirlineInit()
   let g:airline_section_y = ''
   let g:airline_section_z = airline#section#create(['%l/%L'])
 endfunction
-autocm VimEnter * call AirlineInit()
+autocmd User AirlineAfterInit call AirlineInit()
 
 " Confusingly, we config tmux here (to align with airline)
 let g:tmuxline_powerline_separators = 0
