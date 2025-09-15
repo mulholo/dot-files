@@ -41,11 +41,10 @@ packer.init {
 return packer.startup(function(use)
   use "wbthomason/packer.nvim"              -- Have packer manage itself
   use 'tpope/vim-sensible'                  -- sensible config defaults
-  use "nvim-lua/plenary.nvim"               -- Useful lua functions used ny lots of plugins
+  use "nvim-lua/plenary.nvim"               -- Useful lua functions used by lots of plugins
   use 'nvim-telescope/telescope.nvim'       -- (Fuzzy) finder
   use 'tpope/vim-surround'                  -- Select surrounding (, <tag>, ' etc.
   use 'tpope/vim-repeat'                    -- Extend .'s behaviour
-  use "L3MON4D3/LuaSnip"                    -- Snippet engine
   use 'lifepillar/vim-solarized8'           -- Solarized theme
   use 'vim-airline/vim-airline'             -- Airline
   use 'vim-airline/vim-airline-themes'      -- Airline themes
@@ -53,18 +52,34 @@ return packer.startup(function(use)
   use "nvim-lua/popup.nvim"                 -- An implementation of the Popup API from vim in Neovim
   use 'kyazdani42/nvim-tree.lua'            -- Better file explorer
   use 'lewis6991/gitsigns.nvim'             -- Git status in gutter
-  use 'tpope/vim-fugitive'                  -- Git integration (needed for airline branch)
+  use 'tpope/vim-fugitive'                  -- Git integration (needed for airline branch display)
 
   -- Completion
   use "hrsh7th/nvim-cmp"                    -- Completion
   use "hrsh7th/cmp-buffer"                  -- Buffer Completion
   use "hrsh7th/cmp-path"                    -- Path Completion
   use "hrsh7th/cmp-cmdline"                 -- Commandline Completion
-  use "saadparwaiz1/cmp_luasnip"            -- Snippet Completion
   use "hrsh7th/cmp-nvim-lsp"                -- LSP completion (see LSP config below)
 
-  -- AI Completion
-  use "github/copilot.vim"                  -- GitHub Copilot AI completion
+  -- GitHub Copilot
+  use {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+      })
+    end,
+  }
+  use {
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua" },
+    config = function ()
+      require("copilot_cmp").setup()
+    end
+  }
 
   -- Motions and text objects
   use 'michaeljsmith/vim-indent-object'     -- Text object for lines: ai -> and line above; ii -> no line above; aI -> line above and line below

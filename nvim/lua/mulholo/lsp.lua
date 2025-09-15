@@ -1,10 +1,12 @@
 -- Vanilla Neovim LSP setup
 
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
 -- TypeScript-Go LSP configuration
 local tsgo_path = vim.fn.expand("~/dev/typescript-go/built/local/tsgo")
 
 if vim.fn.executable(tsgo_path) == 1 then
-  vim.lsp.config('tsgo', {
+  vim.lsp.config['tsgo'] = {
     cmd = { tsgo_path, "--lsp", "--stdio" },
     filetypes = {
       "javascript",
@@ -14,8 +16,11 @@ if vim.fn.executable(tsgo_path) == 1 then
       "typescriptreact",
       "typescript.tsx"
     },
-    root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git" }
-  })
+    root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git" },
+    setup = {
+      capabilities = capabilities
+    }
+  }
 
   vim.lsp.enable('tsgo')
 else
@@ -43,8 +48,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format()' ]]
 
     -- Enable completion if client supports it
-    if client:supports_method('textDocument/completion') then
-      vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
-    end
+    -- if client:supports_method('textDocument/completion') then
+    --   vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = false })
+    -- end
   end,
 })
