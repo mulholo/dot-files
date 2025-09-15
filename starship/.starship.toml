@@ -47,6 +47,9 @@ read_only = " 󰌾"
 [docker_context]
 symbol = " "
 
+[dotnet]
+detect_folders=["!node_modules"]
+
 [elixir]
 symbol = " "
 
