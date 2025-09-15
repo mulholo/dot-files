@@ -9,6 +9,7 @@ require "mulholo.theme"
 require "mulholo.completion"
 require "mulholo.lsp"
 require "mulholo.telescope"
+require "mulholo.gitsigns"
 require "mulholo.nvim-tree"
 
 vim.cmd([[
