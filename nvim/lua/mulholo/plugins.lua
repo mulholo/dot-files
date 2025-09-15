@@ -63,9 +63,8 @@ return packer.startup(function(use)
   use "saadparwaiz1/cmp_luasnip"            -- Snippet Completion
   use "hrsh7th/cmp-nvim-lsp"                -- LSP completion (see LSP config below)
 
-  -- LSP
-  use "neovim/nvim-lspconfig"               -- Quickstart LSP config from Neovim core team
-  use "williamboman/nvim-lsp-installer"     -- Convenient LSP installer for new languages
+  -- AI Completion
+  use "github/copilot.vim"                  -- GitHub Copilot AI completion
 
   -- Motions and text objects
   use 'michaeljsmith/vim-indent-object'     -- Text object for lines: ai -> and line above; ii -> no line above; aI -> line above and line below
@@ -74,7 +73,6 @@ return packer.startup(function(use)
   use 'christoomey/vim-sort-motion'         -- Sort motion
   use 'kana/vim-textobj-user'               -- Enable other text object plugins
   use 'Julian/vim-textobj-variable-segment' -- Add text object for parts of camel and snake-case variables e.g. foo_ba|r_baz -> civquux -> foo_quux_baz
-
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

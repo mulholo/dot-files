@@ -40,3 +40,6 @@ map("n", "<esc>", ":noh<return><esc>")
 
 -- nvim-tree
 map("n", "<leader>d", ":NvimTreeToggle<cr>")
+
+-- Copy relative file path to clipboard
+map("n", "<leader>c", ":CopyFilePath<CR>")
