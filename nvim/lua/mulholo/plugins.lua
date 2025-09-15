@@ -53,6 +53,7 @@ return packer.startup(function(use)
   use "nvim-lua/popup.nvim"                 -- An implementation of the Popup API from vim in Neovim
   use 'kyazdani42/nvim-tree.lua'            -- Better file explorer
   use 'lewis6991/gitsigns.nvim'             -- Git status in gutter
+  use 'tpope/vim-fugitive'                  -- Git integration (needed for airline branch)
 
   -- Completion
   use "hrsh7th/nvim-cmp"                    -- Completion

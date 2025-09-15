@@ -28,13 +28,20 @@ let g:airline#extensions#tabline#left_alt_sep = ''
 let g:airline#extensions#tabline#right_sep = ''
 let g:airline#extensions#tabline#right_alt_sep = ''
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline#extensions#branch#enabled = 1
+
+" Configure symbols
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.branch = ''
 
 function! AirlineInit()
   let g:airline_section_a = airline#section#create(['mode', 'paste'])
   set noshowmode " we do not need to show -- insert -- due to airline line above
-  let g:airline_section_b = airline#section#create(['branch'])
+  let g:airline_section_b = ''
   let g:airline_section_x = ''
-  let g:airline_section_y = ''
+  let g:airline_section_y = airline#section#create(['branch'])
   let g:airline_section_z = airline#section#create(['%l/%L'])
 endfunction
 autocmd User AirlineAfterInit call AirlineInit()
