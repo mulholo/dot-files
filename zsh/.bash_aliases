@@ -16,3 +16,4 @@ alias 'gh?'="ghcs -t gh"
 alias 'ls'="eza -l -h --git"
 alias 'lg'='lazygit'
 alias cl="claude --ide"
+alias nx="yarn run -T nx"
