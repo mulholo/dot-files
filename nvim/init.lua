@@ -17,8 +17,7 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 
 " Airline ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-" Use nice symbols from a powerline font
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0 " Use simple separators instead of powerline symbols
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_stl_path_style = 'short'
@@ -35,6 +34,7 @@ function! AirlineInit()
   let g:airline_section_b = airline#section#create(['branch'])
   let g:airline_section_x = ''
   let g:airline_section_y = ''
+  let g:airline_section_z = airline#section#create(['%l/%L'])
 endfunction
 autocm VimEnter * call AirlineInit()
 
