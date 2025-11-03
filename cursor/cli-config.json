@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Shell(ls)"
+    ],
+    "deny": []
+  },
+  "version": 1,
+  "editor": {
+    "vimMode": false,
+    "defaultBehavior": "ide"
+  },
+  "hasChangedDefaultModel": false
+}
