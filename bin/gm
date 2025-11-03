@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# Color definitions for improved visuals
+GREEN="\033[1;32m"
+YELLOW="\033[1;33m"
+BLUE="\033[1;34m"
+CYAN="\033[1;36m"
+RED="\033[1;31m"
+NC="\033[0m" # No Color
+
+echo ""
+echo -e "${BLUE}☀️  Good morning. Preparing your environment for the day ahead...${NC}"
+echo ""
+
+# Open Docker
+echo -e "${CYAN}🐳  Opening Docker...${NC}"
+open -a Docker
+echo -e "${GREEN}🐳  Docker opened.${NC}"
+echo ""
+
+# Update brew packages
+echo -e "${CYAN}🔄  Updating brew packages...${NC}"
+brew update
+brew upgrade
+echo -e "${GREEN}🔄  Brew packages updated.${NC}"
+echo ""
+
+cd ~/proj/Phoenix
+
+echo -e "${CYAN}🔍  Syncing Phoenix repo...${NC}"
+gt sync
+echo -e "${GREEN}🔍  Phoenix repo synced.${NC}"
+echo ""
+
+echo -e "${CYAN}🔑 Logging into gcloud...${NC}"
+gcloud auth application-default login
+echo -e "${GREEN}🔑 Logged into gcloud. ${NC}"
+
+
+echo -e "${BLUE}🔍  Here are your open PRs:${NC}"
+gh pr list -A mulholo
+echo ""
+
+
+
+echo -e "${GREEN}✅  Setup complete.${NC}"
+echo -e "${GREEN}🚀  Please run \`tmuxinator start attio\` when you're ready to start coding.${NC}"
