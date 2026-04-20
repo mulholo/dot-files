@@ -48,7 +48,6 @@ return packer.startup(function(use)
   use 'lifepillar/vim-solarized8'           -- Solarized theme
   use 'vim-airline/vim-airline'             -- Airline
   use 'vim-airline/vim-airline-themes'      -- Airline themes
-  use 'edkolev/tmuxline.vim'                -- Airline look for TMUX
   use "nvim-lua/popup.nvim"                 -- An implementation of the Popup API from vim in Neovim
   use 'kyazdani42/nvim-tree.lua'            -- Better file explorer
   use 'lewis6991/gitsigns.nvim'             -- Git status in gutter

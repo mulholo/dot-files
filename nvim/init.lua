@@ -48,19 +48,6 @@ function! AirlineInit()
 endfunction
 autocmd User AirlineAfterInit call AirlineInit()
 
-" Confusingly, we config tmux here (to align with airline)
-let g:tmuxline_powerline_separators = 0
-
-" Left is configured with a, b, c, right with x, y, z
-" cwin and win affect the current (active) window and the
-" in-active windows respectively.
-let g:tmuxline_preset = {
-      \'a'    : '#S',
-      \'b'    : '#W',
-      \'win'  : '#I #W',
-      \'cwin' : '#I #W',
-      \'y'    : '%R'}
-
 " Automatic line formatting for markdown
 au BufRead,BufNewFile *.md setlocal wrap linebreak nolist " Prevent annoying character hides in markdown
 au BufRead,BufNewFile *.md let g:indentLine_setConceal = 0

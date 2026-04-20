@@ -67,9 +67,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 [ -s "/Users/james/.bun/_bun" ] && source "/Users/james/.bun/_bun" # Bun completions
 # CLIs ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 export GPG_TTY=$(tty)
-# command prompt
-eval "$(starship init zsh)"
-export STARSHIP_CONFIG=~/.starship.toml
 # fuck
 export THEFUCK_REQUIRE_CONFIRMATION="false"
 # make 'fuck' command work in terminal
@@ -78,7 +75,6 @@ eval $(thefuck --alias)
 if [ -f '/Users/james/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/james/google-cloud-sdk/path.zsh.inc'; fi
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/james/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/james/google-cloud-sdk/completion.zsh.inc'; fi
-eval "$(gh copilot alias -- zsh)"
 # Added by Windsurf
 export PATH="/Users/james/.codeium/windsurf/bin:$PATH"
 
